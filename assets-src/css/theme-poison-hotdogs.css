@@ -1,0 +1,266 @@
+/* theme-poison-hotdogs.css — the game site. Dusk purple-green from the world
+   maps, slime green from the logo, gold for the calls to action. Chunky and
+   rounded: this one is allowed to be loud. */
+
+:root {
+  --bg: #1b1a2b;
+  --surface: #252340;
+  --surfaceAlt: #2d2a4a;
+  --headerBg: rgba(27, 26, 43, 0.9);
+  --rule: #3b3760;
+  --codeBg: #2d2a4a;
+
+  --text: #f6f1e3;
+  --textMuted: #b6afd0;
+
+  --accent: #8fd32b;
+  --accentBright: #a6e63d;
+  --onAccent: #17200e;
+  --warn: #f2b035;
+  --link: #a6e63d;
+  --linkHover: #c6f16f;
+  --focus: #f2b035;
+
+  --fontBody: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fontDisplay: "Trebuchet MS", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fontMono: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+  --displayTracking: 0.005em;
+
+  --btnRadius: 999px;
+  --cardRadius: 18px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+}
+
+h2 {
+  color: var(--accentBright);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem 0 2.5rem;
+  background: var(--surfaceAlt);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Painted world art behind the hero. The URL is relative to this stylesheet
+   (assets/site.css), not to the page — hence `img/`, not `assets/img/`. */
+.hero--swamp {
+  background:
+    linear-gradient(180deg, rgba(27, 26, 43, 0.35) 0%, rgba(27, 26, 43, 0.92) 78%, var(--bg) 100%),
+    url("img/world-swamp.webp") center / cover no-repeat;
+}
+
+.hero__wordmark {
+  width: min(100%, 27rem);
+  margin: 0 auto 0.5rem;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+}
+
+.hero__hook {
+  font-family: var(--fontDisplay);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 6vw, 2rem);
+  color: var(--accentBright);
+  text-shadow: 0 2px 0 #17200e, 0 6px 16px rgba(0, 0, 0, 0.5);
+  margin: 0 0 0.75rem;
+}
+
+.hero__sub {
+  color: var(--text);
+  max-width: 34rem;
+  margin: 0 auto 1.5rem;
+}
+
+.hero__rexy {
+  width: min(58%, 15rem);
+  margin: 0 auto 0.5rem;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+.hero .btnRow {
+  justify-content: center;
+}
+
+@media (min-width: 52em) {
+  .hero {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .hero__copy .hero__wordmark {
+    margin-inline: 0;
+  }
+
+  .hero__sub {
+    margin-inline: 0;
+  }
+
+  .hero .btnRow {
+    justify-content: flex-start;
+  }
+
+  .hero__rexy {
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+}
+
+/* ---------- google play button (placeholder until the listing is live) ---- */
+
+.playBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3.5rem;
+  padding: 0.6rem 1.5rem 0.6rem 1.15rem;
+  border-radius: 10px;
+  background: #f6f1e3;
+  color: #17200e;
+  border: 2px solid #17200e;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #17200e;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.playBtn:hover {
+  color: #17200e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #17200e;
+}
+
+.playBtn__glyph {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.playBtn__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.playBtn__text small {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.playBtn__text strong {
+  font-family: var(--fontDisplay);
+  font-weight: 800;
+  font-size: 1.0625rem;
+}
+
+.playBtn[aria-disabled="true"] {
+  background: var(--surfaceAlt);
+  color: var(--textMuted);
+  border-color: var(--rule);
+  box-shadow: none;
+  pointer-events: none;
+  transform: none;
+}
+
+.playBtn[aria-disabled="true"] .playBtn__glyph {
+  opacity: 0.45;
+}
+
+/* ---------- mode cards ---------- */
+
+.modes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.modes li {
+  margin: 0;
+  background: var(--surface);
+  border: 2px solid var(--rule);
+  border-radius: var(--cardRadius);
+  padding: 1.1rem 1.25rem;
+}
+
+.modes b {
+  display: block;
+  font-family: var(--fontDisplay);
+  font-size: 1.0625rem;
+  color: var(--accentBright);
+  margin-bottom: 0.2rem;
+}
+
+/* ---------- screenshot / trailer placeholders ---------- */
+
+.shots {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.trailer {
+  aspect-ratio: 16 / 9;
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+/* Real device captures. The game is played in landscape, so these are 16/9 and
+   drop straight into the same grid the placeholders used. */
+
+.shot {
+  margin: 0;
+}
+
+.shot img {
+  width: 100%;
+  border-radius: var(--cardRadius);
+  border: 1px solid var(--rule);
+  background: var(--surfaceAlt);
+}
+
+.shot figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--textMuted);
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* ---------- grown-ups band ---------- */
+
+.grownUps {
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- forum phase-2 page ---------- */
+
+.phase2 {
+  text-align: center;
+}
+
+.phase2 img {
+  width: min(60%, 14rem);
+  margin: 0 auto 1.5rem;
+}

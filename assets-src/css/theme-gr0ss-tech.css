@@ -1,0 +1,124 @@
+/* theme-gr0ss-tech.css — the studio site. Near-black, one slime-green accent
+   borrowed from the Poison Hotdogs logo, gold as the second voice. Quiet and
+   technical; the game sites are where the noise lives. */
+
+:root {
+  --bg: #0e1116;
+  --surface: #151a21;
+  --surfaceAlt: #1a212a;
+  --headerBg: rgba(14, 17, 22, 0.88);
+  --rule: #26303b;
+  --codeBg: #1a212a;
+
+  --text: #eef2f6;
+  --textMuted: #9aa7b4;
+
+  --accent: #8fd32b;
+  --accentBright: #a6e63d;
+  --onAccent: #10180a;
+  --warn: #f2b035;
+  --link: #a6e63d;
+  --linkHover: #c6f16f;
+  --focus: #a6e63d;
+
+  --fontBody: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fontDisplay: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fontMono: ui-monospace, "Cascadia Code", "Segoe UI Mono", Consolas, monospace;
+  --displayTracking: -0.02em;
+
+  --btnRadius: 8px;
+  --cardRadius: 12px;
+}
+
+/* the wordmark — the zero is the brand, so it gets the accent */
+
+.wordmark {
+  font-family: var(--fontMono);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.wordmark__zero {
+  color: var(--accent);
+}
+
+.brandLink .wordmark {
+  font-size: 1.125rem;
+}
+
+.hero {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(60rem 24rem at 15% -10%, rgba(143, 211, 43, 0.13), transparent 70%),
+    radial-gradient(40rem 20rem at 95% 0%, rgba(242, 176, 53, 0.08), transparent 70%);
+}
+
+.hero .wordmark {
+  display: block;
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+  margin-bottom: 0.35em;
+}
+
+@media (min-width: 48em) {
+  .hero {
+    padding: 5.5rem 0 4rem;
+  }
+}
+
+/* game rows on /games */
+
+.gameRow {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  padding: 1.25rem;
+}
+
+.gameRow__art {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+
+.gameRow__body > :last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 44em) {
+  .gameRow {
+    grid-template-columns: 16rem 1fr;
+    padding: 1.5rem;
+  }
+}
+
+/* small stat strip on the landing page */
+
+.facts {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.facts li {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  padding: 1rem;
+  margin: 0;
+}
+
+.facts b {
+  display: block;
+  font-family: var(--fontMono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}

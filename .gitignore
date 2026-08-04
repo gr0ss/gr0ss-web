@@ -1,0 +1,8 @@
+# Raw art sources. Large, regenerable from the game repo, and the optimized
+# output in assets-src/img/ is what the sites actually use.
+art-src/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

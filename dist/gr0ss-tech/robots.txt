@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TODO-gr0ss-tech-domain.invalid/sitemap.xml

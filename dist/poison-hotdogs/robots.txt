@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TODO-poison-hotdogs-domain.invalid/sitemap.xml

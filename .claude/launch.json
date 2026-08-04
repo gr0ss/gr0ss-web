@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gr0ss-web",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/serve.mjs", "4173"],
+      "port": 4173
+    }
+  ]
+}
