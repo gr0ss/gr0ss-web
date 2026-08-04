@@ -7,9 +7,20 @@
 
       powershell -ExecutionPolicy Bypass -File scripts/processArt.ps1
 
-  Sources are copied by hand from the game repo's docs/PlayStore/ and are NOT
-  committed — art-src/ is gitignored. The optimized output IS committed so a
-  static host needs no build step.
+  Sources are NOT committed — art-src/ is gitignored — and the optimized output
+  IS committed, so a static host needs no build step.
+
+  To rebuild art-src/ from scratch, note that the listing assets live on a
+  BRANCH of the game repo, not on its default checkout. From
+  D:\Projects\Unity\PoisonHotDogs\PoisonHotDogs:
+
+      $b = 'launch/play-console-kit'   # commit bc67f31 added the screenshots
+      git show "${b}:docs/PlayStore/listing-assets/screenshots/01_title_splash.png" > art-src\screenshots\01_title_splash.png
+      # ...repeat for 02..08, then:
+      git show "${b}:docs/PlayStore/listing-assets/feature-graphic/feature-graphic-splash.png" > art-src\store\feature-graphic-splash.png
+
+  Checking out that branch and copying the files works too. If the branch is
+  ever merged to main, read them from main instead.
 #>
 
 Add-Type -AssemblyName System.Drawing
