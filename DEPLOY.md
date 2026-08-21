@@ -14,34 +14,41 @@ on this page.
 Nothing below can happen until these are answered. They are listed in the order
 they unblock things.
 
-### 1. The support inbox — the biggest unblocker
+### 1. The support inbox — ✅ RESOLVED 2026-08-21
 
-`site.config.json` → `contactEmail` is `TODO-support@gr0sstech.invalid`. The
-`.invalid` domain is deliberate: mail to it bounces rather than disappearing
-into a typo'd address.
+`contactEmail` is now the real, monitored `gr0sstech.support@gmail.com` (one
+shared inbox for everything). `privacyEmail` points at the same address — the
+per-config note records that the game repo's Play Store policy doc still lists
+`gavinjgross@gmail.com` and should be aligned at the next listing edit.
 
-The same inbox is needed by the in-app support button and the Play Store
-listing, so this one blocks more than the websites.
-
-- **One shared inbox or two?** e.g. `gr0sstech.support@gmail.com` for
-  everything, or a separate `poisonhotdogs.support@gmail.com`.
-- Claude cannot create the account (signup, CAPTCHA, password). It is a 5-minute
-  job for Gavin.
-- Then: set `contactEmail`, set `contactEmailIsPlaceholder` to `false`,
-  run `node scripts/build.mjs`. The "placeholder inbox" tags and the yellow
-  warning boxes on Contact and Support disappear on their own.
+The placeholder warning boxes on Contact and Support have been removed from
+`content/` and both sites rebuilt. If a domain is bought later,
+`support@<domain>` supersedes the Gmail via free forwarding — see
+[docs/DOMAIN-HOOKUP.md](docs/DOMAIN-HOOKUP.md).
 
 ### 2. The domains
 
 `site.config.json` → `sites.<site>.baseUrl` are both placeholders.
 
-Three options, cheapest first:
+**This is now a decision card on the dashboard** (Launch / Brand → Domain
+Decision) with per-option pros/cons — pick there rather than here. Summary,
+cheapest first, using verified 2026 `.com` pricing:
 
 | Option | URLs | Cost |
 |---|---|---|
-| GitHub Pages, no domain | `https://<user>.github.io/gr0ss-tech/` and `.../poison-hotdogs/` | free |
-| One domain, game on a path | `https://gr0sstech.com/` and `https://gr0sstech.com/poison-hotdogs/` | ~$12/yr |
-| Two domains | `https://gr0sstech.com/` and `https://poisonhotdogs.com/` | ~$24/yr |
+| Free subdomains, no purchase | `https://gr0sstech.pages.dev/` and `https://poisonhotdogs.pages.dev/` | **$0 forever** |
+| One domain, game on a path | `https://gr0sstech.com/` and `https://gr0sstech.com/poison-hotdogs/` | ~$10.46/yr |
+| Two domains | `https://gr0sstech.com/` and `https://poisonhotdogs.com/` | ~$20.92/yr |
+
+A `.com` is genuinely ~$10-11/yr at Cloudflare Registrar (at cost, flat
+renewal) or Porkbun (~$11.08/yr, flat) — **not the ~$2 you may have seen**;
+those are year-one teasers that spike on renewal. The free path is not a
+downgrade you get stuck with: a real `.com` can be pointed at the same free
+hosting later at no extra cost.
+
+Once a domain exists, the exact DNS records, HTTPS steps and the
+`support@<domain>` email setup are already written up in
+[docs/DOMAIN-HOOKUP.md](docs/DOMAIN-HOOKUP.md).
 
 The privacy policy URL goes into the Play Console and into the app, and moving
 it later means re-submitting. Worth deciding once.

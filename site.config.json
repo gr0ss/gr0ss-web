@@ -1,36 +1,33 @@
 {
   "_readme": "Single source of truth for every placeholder on both sites. Change a value here and run `node scripts/build.mjs` to regenerate dist/. Anything prefixed TODO- is not real yet and blocks go-live (see DEPLOY.md).",
-
-  "contactEmail": "TODO-support@gr0sstech.invalid",
-  "contactEmailIsPlaceholder": true,
-  "contactEmailNote": "TODO: real inbox does not exist yet. Gavin creates the Gmail (Launch-Presence-Plan section D), then set it here and rebuild. The .invalid TLD is deliberate — mail to it bounces instead of silently vanishing.",
-
-  "privacyEmail": "gavinjgross@gmail.com",
-  "privacyEmailNote": "Already published in the Play Store privacy policy, so it is real and stays until the support inbox exists.",
-
+  "contactEmail": "gr0sstech.support@gmail.com",
+  "contactEmailIsPlaceholder": false,
+  "contactEmailNote": "Real, monitored inbox as of 2026-08-21. If a domain is bought later, support@<domain> supersedes it (free forwarding — see docs/DOMAIN-HOOKUP.md); until then this is the address on every surface.",
+  "privacyEmail": "gr0sstech.support@gmail.com",
+  "privacyEmailNote": "Switched from gavinjgross@gmail.com on 2026-08-21 now the support inbox exists (that was the recorded plan). gavinjgross@gmail.com is still what the Play Store policy doc in the game repo lists — update it there at the next listing edit so the two match.",
   "playStoreUrl": "",
   "playStoreUrlNote": "TODO: empty until the app is live on Google Play. Empty renders the Get it on Google Play button as a disabled 'Coming soon' state.",
-
   "legalEntity": "[CONFIRM legal entity]",
   "legalEntityNote": "TODO: vault Legal-Entity.md lists the registered name as unconfirmed. Do not guess it on a legal surface.",
-
   "businessAddress": "[CONFIRM business address]",
   "businessAddressNote": "TODO: required by the privacy policy before publishing.",
-
   "privacyLastUpdated": "2026-08-04",
-
   "sites": {
     "gr0ss-tech": {
       "name": "gr0ss tech",
       "baseUrl": "https://TODO-gr0ss-tech-domain.invalid",
       "baseUrlNote": "TODO: Gavin's domain call. For GitHub Pages with no domain use https://<user>.github.io/gr0ss-tech",
-      "description": "gr0ss tech is a one-person game studio building playful, kid-safe games for Android."
+      "description": "gr0ss tech is a one-person game studio building playful, kid-safe games for Android.",
+      "customDomain": "",
+      "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."
     },
     "poison-hotdogs": {
       "name": "Stay Away From Poison Hotdogs",
       "baseUrl": "https://TODO-poison-hotdogs-domain.invalid",
       "baseUrlNote": "TODO: Gavin's domain call. For GitHub Pages with no domain use https://<user>.github.io/poison-hotdogs",
-      "description": "Help Rexy the T-Rex catch letters and numbers and dodge silly poison hotdogs. A learning game for kids 6-8."
+      "description": "Help Rexy the T-Rex catch letters and numbers and dodge silly poison hotdogs. A learning game for kids 6-8.",
+      "customDomain": "",
+      "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."
     }
   }
 }

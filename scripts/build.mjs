@@ -273,6 +273,15 @@ function buildSite(site) {
   // GitHub Pages: skip Jekyll so nothing is reinterpreted or dropped
   writeFile(path.join(outDir, '.nojekyll'), '');
 
+  // GitHub Pages custom domain. The file must be named CNAME, sit in the
+  // published root, and contain the bare domain and nothing else. Generated
+  // rather than hand-made because a hand-made one is wiped by the next build.
+  // Cloudflare Pages ignores it, so emitting it is harmless either way.
+  const customDomain = config.sites[site.key].customDomain;
+  if (customDomain && !customDomain.includes('TODO-')) {
+    writeFile(path.join(outDir, 'CNAME'), `${customDomain.trim()}\n`);
+  }
+
   const base = site.baseUrl.replace(/\/$/, '');
   writeFile(
     path.join(outDir, 'robots.txt'),
