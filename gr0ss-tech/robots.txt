@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://TODO-gr0ss-tech-domain.invalid/sitemap.xml
+Sitemap: https://gr0ss.github.io/gr0ss-web/gr0ss-tech/sitemap.xml
