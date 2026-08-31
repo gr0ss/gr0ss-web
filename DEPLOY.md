@@ -1,8 +1,17 @@
 # Deploying the two sites
 
-**Nothing is live.** No domain has been bought, no hosting account created, no
-DNS touched. Both sites are built and sitting in `dist/`, waiting on decisions
-only Gavin can make.
+**Both sites are LIVE as of 2026-08-31** on free GitHub Pages:
+
+- gr0ss tech: <https://gr0ss.github.io/gr0ss-web/gr0ss-tech/>
+- Poison Hotdogs: <https://gr0ss.github.io/gr0ss-web/poison-hotdogs/>
+- Privacy policy (the Play Console URL once the legal fields below are filled):
+  <https://gr0ss.github.io/gr0ss-web/poison-hotdogs/privacy.html>
+
+Hosting: single public repo <https://github.com/gr0ss/gr0ss-web> (full source,
+history secret-scanned before publishing), with a `gh-pages` branch that
+mirrors `dist/` — Pages serves it from the branch root. No domain has been
+bought and no DNS touched; the Domain Decision card is still open and a custom
+domain can be layered on later without changing the hosting.
 
 Run `node scripts/check.mjs` at any point — every warning it prints is an item
 on this page.
@@ -80,41 +89,37 @@ together.
 
 ---
 
-## Part 2 — publishing (GitHub Pages)
+## Part 2 — publishing (GitHub Pages) — DONE 2026-08-31
 
-Recommended because Gavin already has the GitHub account and it costs nothing.
-Each site is a separate repo so each can have its own domain later.
+What actually shipped (differs from the original per-site-repo plan): ONE
+public repo, `github.com/gr0ss/gr0ss-web`, holding the full source. A
+`gh-pages` branch mirrors `dist/` (both site folders side by side, plus a root
+`.nojekyll`), and Pages serves that branch from `/ (root)`. One repo keeps the
+source and the deploy in the same history, and still supports a custom domain
+later — either both sites under one domain on paths, or split into per-site
+repos then if two domains are ever bought.
+
+**Updating the live sites:** edit `content/`, then:
 
 ```bash
-# once per site, from D:\Projects\gr0ss-web
-gh repo create gr0ss-tech-site --public
-git -C dist/gr0ss-tech init
-git -C dist/gr0ss-tech add .
-git -C dist/gr0ss-tech commit -m "publish gr0ss tech site"
-git -C dist/gr0ss-tech remote add origin https://github.com/<user>/gr0ss-tech-site.git
-git -C dist/gr0ss-tech push -u origin main
+node scripts/build.mjs           # regenerate dist/
+node scripts/check.mjs           # validate
+git add -A && git commit
+git push origin master
+git push origin $(git subtree split --prefix dist master):refs/heads/gh-pages --force
 ```
 
-Then in the repo: **Settings → Pages → Source: Deploy from a branch → `main`
-→ `/ (root)` → Save.** Live in a few minutes at
-`https://<user>.github.io/gr0ss-tech-site/`.
-
-Repeat for `dist/poison-hotdogs`.
-
-`.nojekyll` is already generated in each folder so GitHub serves the files
-untouched.
-
-**Updating later:** edit `content/`, run `node scripts/build.mjs`, commit and
-push `dist/<site>` again. Same URL forever.
+The `--force` on the last line is fine: `gh-pages` is a generated mirror of
+`dist/`, never edited by hand — `master` is the history that matters.
 
 ### Custom domain (only if step 2 picked one)
 
-1. Add a `CNAME` file containing the bare domain to the site's repo root.
+1. Set `customDomain` in `site.config.json` (the build emits the `CNAME` into
+   `dist/`), set `baseUrl`, rebuild, push per the update flow above.
 2. At the registrar, point the apex A records at GitHub's four Pages IPs and
-   `www` at `<user>.github.io`.
+   `www` at `gr0ss.github.io`.
 3. Repo → Settings → Pages → Custom domain → enter it → tick **Enforce HTTPS**
    once the certificate is issued.
-4. Set `baseUrl` in `site.config.json`, rebuild, push.
 
 ### If not GitHub Pages
 
@@ -140,8 +145,12 @@ serve `404.html` as the not-found page.
 
 ## What Claude did not do, on purpose
 
-- No accounts created, no domains bought, no DNS changed, no credentials entered.
-- Nothing published anywhere.
+- No accounts created, no domains bought, no DNS changed, no credentials
+  entered. (The 2026-08-31 deploy used the GitHub credential already stored in
+  Git Credential Manager from previous PoisonHotDogs pushes — nothing new was
+  created or entered.)
+- The two `[CONFIRM ...]` legal fields were not guessed — the policy page still
+  carries its "not final" banner until Gavin fills them (see Part 1 §3).
 - No forum backend. The forum page is a clearly-marked phase-2 placeholder that
   collects nothing.
 - No paid image generation. Every image is cut from art the game already ships.
