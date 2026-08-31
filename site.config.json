@@ -15,16 +15,16 @@
   "sites": {
     "gr0ss-tech": {
       "name": "gr0ss tech",
-      "baseUrl": "https://TODO-gr0ss-tech-domain.invalid",
-      "baseUrlNote": "TODO: Gavin's domain call. For GitHub Pages with no domain use https://<user>.github.io/gr0ss-tech",
+      "baseUrl": "https://gr0ss.github.io/gr0ss-web/gr0ss-tech",
+      "baseUrlNote": "Live free GitHub Pages URL as of 2026-08-31 (repo github.com/gr0ss/gr0ss-web, gh-pages branch = dist/). The Domain Decision card stays open — if a real domain is picked later, set it here and rebuild; the github.io URL keeps working.",
       "description": "gr0ss tech is a one-person game studio building playful, kid-safe games for Android.",
       "customDomain": "",
       "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."
     },
     "poison-hotdogs": {
       "name": "Stay Away From Poison Hotdogs",
-      "baseUrl": "https://TODO-poison-hotdogs-domain.invalid",
-      "baseUrlNote": "TODO: Gavin's domain call. For GitHub Pages with no domain use https://<user>.github.io/poison-hotdogs",
+      "baseUrl": "https://gr0ss.github.io/gr0ss-web/poison-hotdogs",
+      "baseUrlNote": "Live free GitHub Pages URL as of 2026-08-31 (repo github.com/gr0ss/gr0ss-web, gh-pages branch = dist/). The Domain Decision card stays open — if a real domain is picked later, set it here and rebuild; the github.io URL keeps working.",
       "description": "Help Rexy the T-Rex catch letters and numbers and dodge silly poison hotdogs. A learning game for kids 6-8.",
       "customDomain": "",
       "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."

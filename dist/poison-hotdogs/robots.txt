@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://TODO-poison-hotdogs-domain.invalid/sitemap.xml
+Sitemap: https://gr0ss.github.io/gr0ss-web/poison-hotdogs/sitemap.xml
