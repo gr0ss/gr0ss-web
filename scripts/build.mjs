@@ -121,16 +121,17 @@ const sites = [
       'rexy.png',
       'rexy-dizzy.webp',
       'world-swamp.webp',
-      // The eight real device captures from the Play listing, in the order the
-      // gallery shows them. Generated from art-src/ by scripts/processArt.ps1.
+      // The eight real in-game captures (2026-09-07 QA sweep of the game), in
+      // the order the gallery shows them. Generated from art-src/ by
+      // scripts/processArt.ps1, which documents where each frame came from.
       'shot-01-title-splash.jpg',
-      'shot-02-dodge-the-hotdogs.jpg',
-      'shot-03-pick-a-game.jpg',
-      'shot-04-abc-gameplay.jpg',
-      'shot-05-123-boss-gameplay.jpg',
+      'shot-02-pick-a-game.jpg',
+      'shot-03-rotten-rescue-condiments.jpg',
+      'shot-04-boss-sneeze-machine.jpg',
+      'shot-05-abc-gameplay.jpg',
       'shot-06-world-map-stars.jpg',
-      'shot-07-daily-treat.jpg',
-      'shot-08-main-menu.jpg',
+      'shot-07-rescued-buddy.jpg',
+      'shot-08-daily-treat.jpg',
     ],
     pages: [
       {

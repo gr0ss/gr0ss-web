@@ -69,9 +69,13 @@ for the web. Nothing was generated from scratch and no paid generation was used.
 The two social-share cards and the gr0ss tech mark are composed from that same
 art plus system fonts.
 
-The eight `shot-*.jpg` files are **genuine device captures**, not mockups. The
-raw sources live in the gitignored `art-src/`; `scripts/processArt.ps1`
-regenerates the web-sized versions from them.
+The eight `shot-*.jpg` files are **genuine captures of the game running**, not
+mockups. They are frames from the game's own Play Mode QA sweep (the same
+source the Play listing screenshots are cut from) — real screens at phone
+aspect, but captured in the editor rather than off a handset. The current set
+is the 2026-09-07 sweep at v1.0.0. The raw sources live in the gitignored
+`art-src/`; `scripts/processArt.ps1` regenerates the web-sized versions from
+them and records which sweep frame each one is.
 
 ## Deploying
 

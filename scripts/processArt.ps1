@@ -10,17 +10,28 @@
   Sources are NOT committed — art-src/ is gitignored — and the optimized output
   IS committed, so a static host needs no build step.
 
-  To rebuild art-src/ from scratch, note that the listing assets live on a
-  BRANCH of the game repo, not on its default checkout. From
-  D:\Projects\Unity\PoisonHotDogs\PoisonHotDogs:
+  To rebuild art-src/ from scratch (game repo: D:\Projects\Unity\PoisonHotDogs\PoisonHotDogs):
 
-      $b = 'launch/play-console-kit'   # commit bc67f31 added the screenshots
-      git show "${b}:docs/PlayStore/listing-assets/screenshots/01_title_splash.png" > art-src\screenshots\01_title_splash.png
-      # ...repeat for 02..08, then:
-      git show "${b}:docs/PlayStore/listing-assets/feature-graphic/feature-graphic-splash.png" > art-src\store\feature-graphic-splash.png
+  - art-src/store/feature-graphic-splash.png is
+    docs/PlayStore/listing-assets/feature-graphic/feature-graphic-splash.png on main.
+  - art-src/screenshots/*.png are frames from the game's own Play Mode QA sweep
+    (VerifyShots/ in the game repo, gitignored there — the same sweep the Play
+    listing screenshots are cut from). Current set = the 2026-09-07 sweep at
+    v1.0.0, captured two days before the 2026-09-09 main tip. Source frames:
 
-  Checking out that branch and copying the files works too. If the branch is
-  ever merged to main, read them from main instead.
+      01_title_splash              <- VerifyShots/44_splash.png
+      02_pick_a_game               <- VerifyShots/02_mode_select.png
+      03_rotten_rescue_condiments  <- VerifyShots/76_level74_play_1920x1080.png
+      04_boss_sneeze_machine       <- VerifyShots/40_boss_targets_clear.png
+      05_abc_gameplay              <- VerifyShots/20_parade_telegraph.png
+      06_world_map_stars           <- VerifyShots/33_world_mastered_celebration.png
+      07_rescued_buddy             <- VerifyShots/43_rescue_celebration.png
+      08_daily_treat               <- VerifyShots/41c_daily_treat_flame_lit.png
+
+    These are real screens of the game running (1920x1080, phone aspect), not
+    mockups — but they are editor Play Mode captures, not captures off a phone.
+    Re-cut them whenever the player-facing UI changes; the game repo's
+    report_stale_listing_assets.ps1 flags when the listing set has gone stale.
 #>
 
 Add-Type -AssemblyName System.Drawing
@@ -88,19 +99,19 @@ function Convert-Image {
     Write-Host ("  {0,-34} {1,5} px wide  {2,8} KB" -f (Split-Path -Leaf $OutputPath), $TargetWidth, $sizeKb)
 }
 
-# The eight real device captures from the Play listing, in listing order. These
-# are genuine screenshots, not placeholders — 540px is 2x the ~270px column the
-# gallery renders them at on a phone.
+# The eight real in-game captures, in gallery order. These are genuine
+# screenshots of the game running, not placeholders — 540px is 2x the ~270px
+# column the gallery renders them at on a phone.
 Write-Host 'Screenshots -> assets-src/img/shot-*.jpg (540px wide JPEG)'
 $shotNames = @{
-    '01_title_splash'        = 'shot-01-title-splash'
-    '02_dodge_the_hotdogs'   = 'shot-02-dodge-the-hotdogs'
-    '03_pick_a_game'         = 'shot-03-pick-a-game'
-    '04_abc_gameplay'        = 'shot-04-abc-gameplay'
-    '05_123_boss_gameplay'   = 'shot-05-123-boss-gameplay'
-    '06_world_map_stars'     = 'shot-06-world-map-stars'
-    '07_daily_treat'         = 'shot-07-daily-treat'
-    '08_main_menu'           = 'shot-08-main-menu'
+    '01_title_splash'             = 'shot-01-title-splash'
+    '02_pick_a_game'              = 'shot-02-pick-a-game'
+    '03_rotten_rescue_condiments' = 'shot-03-rotten-rescue-condiments'
+    '04_boss_sneeze_machine'      = 'shot-04-boss-sneeze-machine'
+    '05_abc_gameplay'             = 'shot-05-abc-gameplay'
+    '06_world_map_stars'          = 'shot-06-world-map-stars'
+    '07_rescued_buddy'            = 'shot-07-rescued-buddy'
+    '08_daily_treat'              = 'shot-08-daily-treat'
 }
 Get-ChildItem (Join-Path $srcDir 'screenshots\*.png') | Sort-Object Name | ForEach-Object {
     $webName = $shotNames[$_.BaseName]
