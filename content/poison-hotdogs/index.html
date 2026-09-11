@@ -1,57 +1,102 @@
-    <section class="hero hero--swamp">
-      <div class="wrap hero__inner">
-        <div class="hero__copy">
+    <section class="gameHero">
+      <div class="wrap">
+        <div class="gameHero__frame">
           <img
-            class="hero__wordmark"
-            src="assets/img/phd-wordmark.png"
-            width="880"
-            height="660"
-            alt="Stay Away From Poison Hotdogs"
+            class="gameHero__art"
+            src="assets/img/phd-hero-wide.jpg"
+            width="1000"
+            height="500"
+            alt="Rexy the green T-Rex charges through a slime-covered village while poison hotdogs fly overhead."
             fetchpriority="high"
           />
-          <h1 class="hero__hook">Don't eat the green ones!</h1>
-          <p class="hero__sub">
-            Rexy the T-Rex is hungry for letters and numbers. The poison hotdogs have other plans.
-            A silly catch-and-dodge learning game for kids about 6&ndash;8.
-          </p>
-          <div class="btnRow">
-            <!--PLAY_BUTTON-->
+          <div class="gameHero__panel">
+            <p class="gameHero__kicker">A goofy learning adventure for Android</p>
+            <h1>Catch the good stuff. Dodge the green stuff.</h1>
+            <p>
+              Help Rexy rescue dinosaur buddies, practise letters and numbers, and stay very far
+              away from poison hotdogs. Made for kids about 6&ndash;8.
+            </p>
+            <div class="btnRow">
+              <!--PLAY_BUTTON-->
+              <a class="btn btn--ghost" href="#gameplay">See the game</a>
+            </div>
           </div>
         </div>
-        <img
-          class="hero__rexy"
-          src="assets/img/rexy.png"
-          width="560"
-          height="535"
-          alt="Rexy, a friendly green cartoon T-Rex, grinning."
-        />
+
+        <ul class="factStrip" aria-label="Game highlights">
+          <li><span>Age range</span><strong>6&ndash;8</strong></li>
+          <li><span>Learning</span><strong>ABC's + 123's</strong></li>
+          <li><span>Platform</span><strong>Android</strong></li>
+          <li><span>Made by</span><strong>Uncle Gavin</strong></li>
+        </ul>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>See it move</h2>
-        <div class="placeholder trailer">
-          <strong>Trailer coming soon</strong>
-          <small>Gameplay video drops with the Play Store launch.</small>
+    <section class="section introSection" id="gameplay">
+      <div class="wrap splitIntro">
+        <div>
+          <p class="eyebrow">One ridiculous mission</p>
+          <h2>Save the buddies. Learn along the way.</h2>
         </div>
+        <p class="lede">
+          Five ways to play turn quick taps into letter recognition, number practice, timing, and
+          a whole lot of slime. It starts gentle, then grows with a kid who wants a real challenge.
+        </p>
+      </div>
+
+      <div class="wrap">
+        <!-- Names and taglines mirror the game's Pick a Game screen. -->
+        <ol class="modes">
+          <li>
+            <span class="modeBadge" aria-hidden="true">01</span>
+            <b>Rotten Rescue</b>
+            <span>Rescue your buddies! Ten gooped worlds, a boss at the end of each.</span>
+          </li>
+          <li>
+            <span class="modeBadge" aria-hidden="true">02</span>
+            <b>Snack Attack</b>
+            <span>Survive the rush! No finish line, just a high score.</span>
+          </li>
+          <li>
+            <span class="modeBadge" aria-hidden="true">A&ndash;Z</span>
+            <b>ABC's</b>
+            <span>Collect A - B - C, all the way to Z.</span>
+          </li>
+          <li>
+            <span class="modeBadge" aria-hidden="true">1&ndash;99</span>
+            <b>123's</b>
+            <span>Count 1 - 2 - 3, up to 99.</span>
+          </li>
+          <li class="mode--practice">
+            <span class="modeBadge" aria-hidden="true">★</span>
+            <b>Practice</b>
+            <span>Pick a game to learn &mdash; no clock, no fail!</span>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section class="section section--tight">
+    <section class="section gallerySection" aria-labelledby="gallery-title">
       <div class="wrap">
-        <h2>Screenshots</h2>
+        <div class="sectionHeading">
+          <div>
+            <p class="eyebrow">Straight from the game</p>
+            <h2 id="gallery-title">A world built from slime and bad decisions</h2>
+          </div>
+          <p>Real captures from the running game. No mockups.</p>
+        </div>
+
         <div class="shots">
-          <figure class="shot">
+          <figure class="shot shot--feature">
             <img
               src="assets/img/shot-03-rotten-rescue-condiments.jpg"
               width="540"
               height="304"
               loading="lazy"
               decoding="async"
-              alt="Rotten Rescue: Stego stands in a moonlit swamp while a ketchup bottle, a mustard bottle and a blue potion float past. Two green poison hotdogs drift in from the right and a counter at the top reads 0 of 10."
+              alt="Rotten Rescue: Stego stands in a moonlit swamp while ketchup, mustard and a blue potion float past. Two green poison hotdogs drift in from the right."
             />
-            <figcaption>Grab the clean condiments, skip the gooped ones</figcaption>
+            <figcaption>Grab the clean condiments. Skip the gooped ones.</figcaption>
           </figure>
           <figure class="shot">
             <img
@@ -60,7 +105,7 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="The Pick a Game screen: four painted cards labelled Rotten Rescue, Snack Attack, ABC's and 123's, with a Practice bar underneath."
+              alt="The Pick a Game screen with painted cards for Rotten Rescue, Snack Attack, ABC's, 123's and Practice."
             />
             <figcaption>Pick a game</figcaption>
           </figure>
@@ -71,9 +116,9 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="A boss built from poison hotdogs sneezes AHHH CHOOO above Stego while numbered bubbles float past and a sign reads GET 4."
+              alt="A boss built from poison hotdogs sneezes above Stego while numbered bubbles float past."
             />
-            <figcaption>Every world ends in a goofy showdown</figcaption>
+            <figcaption>Goofy boss showdowns</figcaption>
           </figure>
           <figure class="shot">
             <img
@@ -82,9 +127,9 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="ABC's: a sign reads GET L while lettered bubbles for K, L and M float across the swamp around Stego."
+              alt="ABC's mode asks the player to catch the letter L among floating letter bubbles."
             />
-            <figcaption>ABC's: catch the letter on the sign</figcaption>
+            <figcaption>Catch the letter on the sign</figcaption>
           </figure>
           <figure class="shot">
             <img
@@ -93,7 +138,7 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="A popup reading RESCUED! with Stego the purple dinosaur in the middle and confetti falling around him."
+              alt="A Rescued popup celebrates Stego the purple dinosaur with falling confetti."
             />
             <figcaption>Beat the boss, free a buddy</figcaption>
           </figure>
@@ -104,7 +149,7 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="The World 1 map: nine numbered stepping stones across a green hillside, each with three stars, leading Stego to a purple castle door."
+              alt="A painted world map has nine numbered stepping stones with stars leading to a castle door."
             />
             <figcaption>Earn stars on every stone</figcaption>
           </figure>
@@ -115,7 +160,7 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="The Daily Treat popup showing a seven day coin streak rising from 50 up to 300, the last day adding an extra life."
+              alt="The Daily Treat popup shows a seven-day coin streak with an extra life on the final day."
             />
             <figcaption>Come back for a daily treat</figcaption>
           </figure>
@@ -126,109 +171,103 @@
               height="304"
               loading="lazy"
               decoding="async"
-              alt="The title screen: Rexy stands in a slime-covered village under the Stay Away From Poison Hotdogs logo, his rescued buddies beside him and the ones still missing shown as shadows, with Tap To Start below."
+              alt="Rexy stands in a slime-covered village with rescued buddies and silhouettes of buddies still missing."
             />
-            <figcaption>Tap to start</figcaption>
+            <figcaption>Find the whole dinosaur crew</figcaption>
           </figure>
         </div>
-        <p style="color: var(--textMuted); margin-top: 1rem">
-          Real captures of the game running, taken September 2026. Nothing here is a mockup.
-        </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>Pick a game</h2>
-        <!-- Names and taglines are the game's own Pick a Game card text
-             (GameModeCatalog display names + ModeSelectView.ModeHint, and the
-             Practice picker subtitle). Keep them identical to the build. -->
-        <ul class="modes">
-          <li><b>Rotten Rescue</b> Rescue your buddies! Ten gooped worlds, a boss at the end of each.</li>
-          <li><b>Snack Attack</b> Survive the rush! No finish line, just a high score.</li>
-          <li><b>ABC's</b> Collect A - B - C, all the way to Z.</li>
-          <li><b>123's</b> Count 1 - 2 - 3, up to 99.</li>
-          <li><b>Practice</b> Pick a game to learn &mdash; no clock, no fail!</li>
-        </ul>
+    <section class="section featureSection">
+      <div class="wrap featureGrid">
+        <article class="featureCard featureCard--learning">
+          <p class="eyebrow">Learning, disguised</p>
+          <h2>Built to feel like a game first</h2>
+          <ul class="checkList">
+            <li>Letter recognition and alphabet order, A to Z</li>
+            <li>Counting and number recognition, 1 to 99</li>
+            <li>Gentle early levels that teach while kids play</li>
+            <li>Practice mode with no clock and no fail state</li>
+          </ul>
+        </article>
+        <article class="featureCard featureCard--hands">
+          <p class="eyebrow">Small-hand approved</p>
+          <h2>Big buttons. Light reading. Zero scary stuff.</h2>
+          <ul class="checkList">
+            <li>Large, friendly touch targets</li>
+            <li>Icons and audio lead the way</li>
+            <li>Stars, stickers, treats and buddies to unlock</li>
+            <li>Landscape play on Android phones and tablets</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section grownUps" aria-labelledby="grown-ups-title">
       <div class="wrap">
-        <div class="grid grid--2">
-          <article class="card">
-            <h3>Learning that hides in the fun</h3>
-            <ul style="margin-bottom: 0">
-              <li>Letter recognition and alphabet order, A to Z</li>
-              <li>Counting and number recognition, 1 to 99</li>
-              <li>Gentle early levels that teach as you play</li>
-              <li>Later worlds that give a practised kid a real fight</li>
-            </ul>
+        <div class="sectionHeading">
+          <div>
+            <p class="eyebrow">The grown-ups corner</p>
+            <h2 id="grown-ups-title">The boring parts matter, too.</h2>
+          </div>
+          <p>Plain answers about names, ads, purchases and data.</p>
+        </div>
+
+        <div class="parentGrid">
+          <article class="parentCard">
+            <span aria-hidden="true">💬</span>
+            <h3>No chat or login</h3>
+            <p>No social features and no account credentials. The game uses an anonymous player record.</p>
           </article>
-          <article class="card">
-            <h3>Built for small hands</h3>
-            <ul style="margin-bottom: 0">
-              <li>Big, friendly touch targets</li>
-              <li>Icons and audio lead the way &mdash; reading stays light</li>
-              <li>Silly, never scary</li>
-              <li>Stars, stickers, daily treats and dinosaur buddies to rescue and play as</li>
-            </ul>
+          <article class="parentCard">
+            <span aria-hidden="true">🦖</span>
+            <h3>Nickname is optional</h3>
+            <p>A filtered leaderboard nickname can be chosen. Please do not enter a child's real name.</p>
+          </article>
+          <article class="parentCard">
+            <span aria-hidden="true">▶</span>
+            <h3>Contextual rewarded ad</h3>
+            <p>The revive ad is optional, child-directed and not personalized by interests.</p>
+          </article>
+          <article class="parentCard">
+            <span aria-hidden="true">🔒</span>
+            <h3>Grown-up controls</h3>
+            <p>Purchases sit behind a parental gate, and data can be deleted from inside the game.</p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section grownUps">
-      <div class="wrap">
-        <h2>For grown-ups</h2>
-        <p class="lede">
-          This game is made for young kids, which means the boring parts matter as much as the
-          hotdogs.
-        </p>
-        <div class="grid grid--3">
-          <article class="card">
-            <h3>No chat, no sign-up</h3>
-            <p style="margin-bottom: 0">
-              There is nobody for your child to talk to and nothing to fill in. No name, no email,
-              no location.
-            </p>
-          </article>
-          <article class="card">
-            <h3>A gate on every purchase</h3>
-            <p style="margin-bottom: 0">
-              The shop is optional, and every real-money purchase sits behind a question a small
-              child cannot answer.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Contextual ads only</h3>
-            <p style="margin-bottom: 0">
-              One optional "watch to keep going" spot. Ads are chosen by what the game is, never
-              by tracking your child.
-            </p>
-          </article>
-        </div>
-        <div class="btnRow" style="margin-top: 1.5rem">
+        <div class="btnRow grownUps__actions">
           <a class="btn btn--primary" href="privacy.html">Read the privacy policy</a>
           <a class="btn btn--ghost" href="support.html">Support &amp; contact</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap prose" style="padding-inline: 0">
-        <h2>Where it came from</h2>
-        <!-- Verbatim from the game's About screen (AboutScreenBuilder.StoryCopy on
-             the game repo's main). Mirror it; do not rewrite it here. -->
-        <p>
-          When my nephew was four, he made one wonderfully weird request: a game called Stay Away
-          From Poison Hotdogs!
-        </p>
-        <p>
-          That was the whole idea&mdash;just a name that made us laugh. Somehow, that little
-          request grew into Rexy, ridiculous hotdogs, and entirely too much green slime.
-        </p>
-        <p>It was made for him first. Now we hope it makes your family smile, too.</p>
-        <p>Made with love by Uncle Gavin at {{gr0ssTechLink}}</p>
+    <section class="section storySection">
+      <div class="wrap storyCard">
+        <img
+          src="assets/img/rexy.png"
+          width="560"
+          height="535"
+          loading="lazy"
+          decoding="async"
+          alt="Rexy, a friendly green cartoon T-Rex, grinning."
+        />
+        <div>
+          <p class="eyebrow">Where it came from</p>
+          <h2>A four-year-old had one wonderfully weird request.</h2>
+          <!-- Verbatim from the game's About screen. Keep this story unchanged. -->
+          <p>
+            When my nephew was four, he made one wonderfully weird request: a game called Stay Away
+            From Poison Hotdogs!
+          </p>
+          <p>
+            That was the whole idea&mdash;just a name that made us laugh. Somehow, that little
+            request grew into Rexy, ridiculous hotdogs, and entirely too much green slime.
+          </p>
+          <p>It was made for him first. Now we hope it makes your family smile, too.</p>
+          <p class="storyCard__signoff">Made with love by Uncle Gavin at {{gr0ssTechLink}}</p>
+        </div>
       </div>
     </section>

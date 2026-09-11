@@ -77,6 +77,11 @@ for (const site of fs.readdirSync(distDir)) {
 
 if (config.contactEmailIsPlaceholder) warnings.push(`config: contactEmail is still ${config.contactEmail}`);
 if (!config.playStoreUrl) warnings.push('config: playStoreUrl is empty (Play button renders as "Coming soon")');
+for (const key of ['legalEntity']) {
+  if (String(config[key] || '').includes('[CONFIRM')) {
+    warnings.push(`config: ${key} still needs a confirmed public value`);
+  }
+}
 for (const [key, site] of Object.entries(config.sites)) {
   if (site.baseUrl.includes('TODO-')) warnings.push(`config: ${key} baseUrl is still a placeholder domain`);
 }

@@ -94,7 +94,7 @@ export function renderPage({ site, config, page }) {
   <link rel="apple-touch-icon" href="assets/img/${site.appleIcon}" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body class="site site--${escapeHtml(site.key)}">
   <a class="skip" href="#main">Skip to content</a>
 ${headerHtml(site, page.file)}
   <main id="main">
