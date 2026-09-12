@@ -96,42 +96,62 @@ const sites = [
     key: 'poison-hotdogs',
     title: 'Stay Away From Poison Hotdogs',
     baseUrl: config.sites['poison-hotdogs'].baseUrl,
+    studioUrl: config.sites['gr0ss-tech'].baseUrl,
     themeColor: '#1b1a2b',
     theme: 'theme-poison-hotdogs.css',
+    experienceTheme: 'experience-poison-hotdogs.css',
     favicon: 'phd-icon-32.png',
     appleIcon: 'phd-icon-180.png',
     ogImage: 'og-poison-hotdogs.png',
     nav: [
-      { href: 'index.html', label: 'Home' },
-      { href: 'changelog.html', label: "What's new" },
+      { href: 'index.html', label: 'Game' },
+      { href: 'index.html#crew', label: 'Crew & Outfits' },
+      { href: 'changelog.html', label: "What's New" },
       { href: 'support.html', label: 'Support' },
-      { href: 'forum.html', label: 'Forum' },
-      { href: 'privacy.html', label: 'Privacy' },
     ],
     footerLinks: [
       { href: 'support.html', label: 'Support' },
       ...sharedFooterLegal,
-      { href: 'forum.html', label: 'Forum (soon)' },
     ],
     images: [
       'phd-icon-32.png',
       'phd-icon-180.png',
-      'phd-wordmark.png',
+      'phd-hero-wide.jpg',
+      'phd-header-wordmark.png',
+      'poison-hotdog-skull.png',
       'og-poison-hotdogs.png',
       'rexy.png',
       'rexy-dizzy.webp',
       'world-swamp.webp',
+      'screen-pick-a-game.webp',
+      'outfit-01-cool-shades.png',
+      'outfit-02-adventurer.png',
+      'outfit-03-backpacker.png',
+      'outfit-04-pool-floaties.png',
+      'outfit-05-hockey-star.png',
+      'outfit-06-snorkeler.png',
+      'outfit-07-chef.png',
+      'outfit-08-skater-punk.png',
+      'outfit-09-santa-dino.png',
+      'outfit-10-pirate.png',
+      'outfit-11-astronaut.png',
+      'outfit-12-scientist.png',
+      'outfit-13-ninja.png',
+      'outfit-14-knight.png',
+      'outfit-15-superhero.png',
       // The eight real in-game captures (2026-09-07 QA sweep of the game), in
       // the order the gallery shows them. Generated from art-src/ by
       // scripts/processArt.ps1, which documents where each frame came from.
       'shot-01-title-splash.jpg',
-      'shot-02-pick-a-game.jpg',
       'shot-03-rotten-rescue-condiments.jpg',
       'shot-04-boss-sneeze-machine.jpg',
       'shot-05-abc-gameplay.jpg',
       'shot-06-world-map-stars.jpg',
       'shot-07-rescued-buddy.jpg',
       'shot-08-daily-treat.jpg',
+    ],
+    scripts: [
+      { source: 'poison-hotdogs-home.js', output: 'site.js' },
     ],
     pages: [
       {
@@ -194,7 +214,6 @@ function applyTokens(html, site) {
     contactEmail: config.contactEmail,
     privacyEmail: config.privacyEmail,
     legalEntity: config.legalEntity,
-    businessAddress: config.businessAddress,
     privacyLastUpdated: config.privacyLastUpdated,
     year: String(config.year),
     siteTitle: site.title,
@@ -251,8 +270,18 @@ function buildSite(site) {
   const css = [
     fs.readFileSync(p('assets-src', 'css', 'base.css'), 'utf8'),
     fs.readFileSync(p('assets-src', 'css', site.theme), 'utf8'),
+    ...(site.experienceTheme
+      ? [fs.readFileSync(p('assets-src', 'css', site.experienceTheme), 'utf8')]
+      : []),
   ].join('\n');
   writeFile(path.join(outDir, 'assets', 'site.css'), css);
+
+  for (const script of site.scripts || []) {
+    const from = p('assets-src', 'js', script.source);
+    if (!fs.existsSync(from)) throw new Error(`Missing script: ${from}`);
+    fs.mkdirSync(path.join(outDir, 'assets'), { recursive: true });
+    fs.copyFileSync(from, path.join(outDir, 'assets', script.output));
+  }
 
   for (const image of site.images) {
     const from = p('assets-src', 'img', image);

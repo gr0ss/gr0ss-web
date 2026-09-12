@@ -18,90 +18,119 @@
   <link rel="apple-touch-icon" href="assets/img/phd-icon-180.png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body class="site site--poison-hotdogs">
   <a class="skip" href="#main">Skip to content</a>
   <header class="siteHeader">
     <div class="wrap siteHeader__inner">
-      <a class="brandLink" href="index.html"><img src="assets/img/phd-icon-32.png" width="32" height="32" alt="" /><span>Poison Hotdogs</span></a>
+      <a class="brandLink" href="index.html"><img src="assets/img/phd-header-wordmark.png" width="790" height="330" alt="Stay Away From Poison Hotdogs" /></a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="changelog.html" aria-current="page">What's new</a>
+        <a href="index.html">Game</a>
+        <a href="index.html#crew">Crew &amp; Outfits</a>
+        <a href="changelog.html" aria-current="page">What's New</a>
         <a href="support.html">Support</a>
-        <a href="forum.html">Forum</a>
-        <a href="privacy.html">Privacy</a>
       </nav>
+      <a class="headerStudio" href="https://gr0ss.github.io/gr0ss-web/gr0ss-tech">Made by <strong>gr0ss tech.</strong></a>
     </div>
   </header>
   <main id="main">
-    <section class="section">
-      <div class="wrap prose" style="padding-inline: 0">
-        <p class="eyebrow">Release notes</p>
-        <h1>What's new</h1>
-        <p class="lede">
-          Hi! This is where we tell you what's new in the game. New stuff goes on top.
-        </p>
-
-        <div class="note">
-          <p style="margin-bottom: 0">
-            The game hasn't reached the Play Store yet, so everything below is from the versions
-            we've been testing. The launch entry lands here the day it goes live.
+    <section class="pageHero">
+      <div class="wrap pageHero__inner">
+        <div class="pageHero__copy">
+          <p class="eyebrow">Release notes</p>
+          <h1>Fresh from the slime lab</h1>
+          <p class="lede">
+            Every meaningful game update, translated into normal-human language. Newest first.
           </p>
         </div>
+        <img
+          class="pageHero__art"
+          src="assets/img/rexy.png"
+          width="560"
+          height="535"
+          alt="Rexy, the game's friendly green T-Rex."
+        />
+      </div>
+    </section>
 
-        <div class="release">
-          <h3>Version 0.9.0 <span class="tag tag--soon">Pre-launch</span></h3>
-          <p class="release__date">August 2026</p>
-          <p>We're getting ready for the Play Store! Here's what's new lately:</p>
-          <ul>
-            <li>
-              <strong>Daily Treat got tastier.</strong> Come back each day and play to grow your
-              streak &mdash; and when you claim your prize, watch the coins pour right into your
-              wallet. Every day has its own goal picture so you always know what to do.
-            </li>
-            <li>
-              <strong>The world map shows off your wins.</strong> Stones you've beaten now wear
-              shiny medallions. And the very first time you visit, Rexy shows you exactly where to
-              tap.
-            </li>
-            <li>
-              <strong>Survive levels feel like winning.</strong> The timer bar now fills up toward a
-              star &mdash; and the star gets wiggly and excited when you're almost there!
-            </li>
-            <li>
-              <strong>Grabbing coins sparkles.</strong> A little spark pops right where you catch
-              each coin.
-            </li>
-            <li>
-              <strong>A tidier main menu.</strong> Practice mode moved to the Pick a Game screen, so
-              the menu is easier to read at a glance.
-            </li>
-            <li>
-              <strong>A fresh hello screen</strong> when the game starts, painted to match the rest
-              of the game.
-            </li>
-            <li>
-              <strong>Settings got a makeover.</strong> Everything is sorted into friendly cards,
-              with a Grown-Ups corner for parents.
-            </li>
-            <li>
-              <strong>Fairer dodging.</strong> Hotdogs only get you when they really touch you, and
-              you can hear every bonk.
-            </li>
-          </ul>
-          <p>Thanks for playing &mdash; and remember: don't eat the green ones!</p>
+    <section class="section">
+      <div class="wrap releaseLayout">
+        <aside class="releaseAside">
+          <span class="tag tag--soon">Pre-launch</span>
+          <p>
+            The game has not reached Google Play yet. These notes cover the build being tested for
+            launch.
+          </p>
+        </aside>
+
+        <div class="releaseFeed">
+          <article class="release release--featured">
+            <header class="release__header">
+              <div>
+                <p class="eyebrow">August 2026</p>
+                <h2>Version 0.9.0</h2>
+              </div>
+              <span class="release__stamp">Getting launch-ready</span>
+            </header>
+
+            <div class="releaseHighlights">
+              <div>
+                <strong>Daily Treat got tastier</strong>
+                <p>
+                  Come back each day and play to grow your streak. When you claim the prize, the
+                  coins pour right into your wallet.
+                </p>
+              </div>
+              <div>
+                <strong>The world map shows off your wins</strong>
+                <p>
+                  Beaten stones now wear shiny medallions, and Rexy shows first-time visitors
+                  exactly where to tap.
+                </p>
+              </div>
+              <div>
+                <strong>Survive levels feel like winning</strong>
+                <p>
+                  The timer fills toward a star, and that star gets wiggly when the finish is close.
+                </p>
+              </div>
+              <div>
+                <strong>Grabbing coins sparkles</strong>
+                <p>A little spark now pops right where each coin is caught.</p>
+              </div>
+              <div>
+                <strong>A tidier main menu</strong>
+                <p>Practice moved to the Pick a Game screen so the menu reads faster.</p>
+              </div>
+              <div>
+                <strong>A fresh hello screen</strong>
+                <p>The game opens on a new painted screen that matches the rest of Rexy's world.</p>
+              </div>
+              <div>
+                <strong>Settings got a makeover</strong>
+                <p>Everything is grouped into friendly cards, including a dedicated Grown-Ups area.</p>
+              </div>
+              <div>
+                <strong>Fairer dodging</strong>
+                <p>Hotdogs only count when they really touch, and every bonk can be heard.</p>
+              </div>
+            </div>
+
+            <p class="release__signoff">
+              Thanks for playing&mdash;and remember: don't eat the green ones!
+            </p>
+          </article>
+
+          <section class="releasePromise">
+            <p class="eyebrow">The promise</p>
+            <h2>No mystery updates</h2>
+            <p>
+              Each public release gets a readable note here, including the boring bug-fix builds.
+              If something changes in your child's game, there should be a place where a grown-up
+              can understand it.
+            </p>
+            <a class="btn btn--ghost" href="support.html">Ask about an update</a>
+          </section>
         </div>
-
-        <hr />
-
-        <h2>How this page works</h2>
-        <p>
-          Each release gets a short, readable summary here on the same day it reaches Google Play.
-          Bug-fix releases get an entry too, even the boring ones &mdash; if we changed something in
-          your child's game, it should be written down somewhere you can read it.
-        </p>
-        <p>
-          Spotted something this page does not explain? <a href="support.html">Ask us.</a>
-        </p>
       </div>
     </section>
   </main>
@@ -111,7 +140,6 @@
         <li><a href="support.html">Support</a></li>
         <li><a href="privacy.html">Privacy policy</a></li>
         <li><a href="changelog.html">What's new</a></li>
-        <li><a href="forum.html">Forum (soon)</a></li>
       </ul>
       <p>Contact: <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a></p>
       <p>&copy; 2026 <span class="wordmark">gr<span class="wordmark__zero">0</span>ss tech</span>. Games for small humans.</p>

@@ -18,163 +18,371 @@
   <link rel="apple-touch-icon" href="assets/img/phd-icon-180.png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body class="site site--poison-hotdogs">
   <a class="skip" href="#main">Skip to content</a>
   <header class="siteHeader">
     <div class="wrap siteHeader__inner">
-      <a class="brandLink" href="index.html"><img src="assets/img/phd-icon-32.png" width="32" height="32" alt="" /><span>Poison Hotdogs</span></a>
+      <a class="brandLink" href="index.html"><img src="assets/img/phd-header-wordmark.png" width="790" height="330" alt="Stay Away From Poison Hotdogs" /></a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="changelog.html">What's new</a>
+        <a href="index.html">Game</a>
+        <a href="index.html#crew">Crew &amp; Outfits</a>
+        <a href="changelog.html">What's New</a>
         <a href="support.html">Support</a>
-        <a href="forum.html">Forum</a>
-        <a href="privacy.html" aria-current="page">Privacy</a>
       </nav>
+      <a class="headerStudio" href="https://gr0ss.github.io/gr0ss-web/gr0ss-tech">Made by <strong>gr0ss tech.</strong></a>
     </div>
   </header>
   <main id="main">
-    <section class="section">
-      <div class="wrap prose" style="padding-inline: 0">
-        <p class="eyebrow">Legal</p>
-        <h1>Privacy Policy &mdash; Stay Away From Poison Hotdogs</h1>
-        <p class="lede">Last updated: 2026-08-04</p>
-
-        <div class="note note--todo">
-          <p style="margin-bottom: 0">
-            <strong>Not final.</strong> Two fields below still read
-            <code>[CONFIRM &hellip;]</code> because the registered legal name and business address
-            have not been confirmed. This policy must not be submitted to the Google Play Console
-            until both are filled in. Everything else reflects the app's real data behaviour as
-            audited on 2026-08-04.
+    <section class="pageHero privacyHero">
+      <div class="wrap pageHero__inner">
+        <div class="pageHero__copy">
+          <p class="eyebrow">For parents and grown-ups</p>
+          <h1>Privacy without the fog</h1>
+          <p class="lede">
+            What Stay Away From Poison Hotdogs collects, why it is needed, who receives it, and how
+            a parent can delete it.
           </p>
+          <p class="policyUpdated">Last updated: September 11, 2026</p>
         </div>
+        <img
+          class="pageHero__art"
+          src="assets/img/phd-icon-180.png"
+          width="180"
+          height="180"
+          alt=""
+        />
+      </div>
+    </section>
 
-        <p>
-          This app is <strong>made for children</strong> and is designed to comply with the Google
-          Play Families Policy, the U.S. Children's Online Privacy Protection Act (COPPA), and the
-          EU GDPR, including its protections for children.
-        </p>
+    <section class="section policyPage">
+      <div class="wrap contentShell">
+        <nav class="sectionNav" aria-label="Privacy policy sections">
+          <strong class="sectionNav__title">On this page</strong>
+          <a href="#overview">Quick summary</a>
+          <a href="#operator">Who operates the app</a>
+          <a href="#data">Data we handle</a>
+          <a href="#leaderboards">Names and leaderboards</a>
+          <a href="#ads">Advertising</a>
+          <a href="#purchases">Purchases</a>
+          <a href="#providers">Service providers</a>
+          <a href="#deletion">Retention and deletion</a>
+          <a href="#parents">Choices for parents</a>
+          <a href="#security">Security</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-        <h2>Who we are</h2>
-        <p>
-          <strong>Stay Away From Poison Hotdogs</strong> ("the app", "the game") is published by
-          <strong>[CONFIRM legal entity]</strong> ("we", "us"), operating the brand
-          <em>gr0ss tech</em>. Android package id: <code>com.GrossTechnologies.PoisonHotDog</code>.
-        </p>
-        <p>
-          Contact for privacy questions or data requests:
-          <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a><br />
-          Mailing address: <strong>[CONFIRM business address]</strong>
-        </p>
+        <article class="policyContent">
+          <section class="policySection" id="overview">
+            <p class="eyebrow">The short version</p>
+            <h2>A child-directed game with limited online services</h2>
+            <p>
+              Stay Away From Poison Hotdogs is made for children about ages 6&ndash;8. It has no
+              chat, social messaging, email sign-up, or username-and-password login. It does use an
+              anonymous game record, an optional public leaderboard nickname, Google Play
+              purchases, and one optional rewarded ad.
+            </p>
 
-        <h2>What we collect, and why</h2>
-        <p>
-          We keep data collection to the minimum needed to run the game. We do <strong>not</strong>
-          ask for a name, email address, phone number, photos, contacts, location, or
-          microphone/camera access. There is no sign-up and no social login.
-        </p>
-        <p>
-          To provide leaderboards, save progress across sessions, and understand which parts of the
-          game work well, the app uses <strong>PlayFab</strong> (a backend service operated by
-          Microsoft) as a service provider acting on our behalf. Through it, the app processes:
-        </p>
-        <ul>
-          <li>
-            <strong>A device identifier.</strong> On first launch the app creates an anonymous
-            player record keyed to the device's identifier
-            (<code>SystemInfo.deviceUniqueIdentifier</code>). This is used only to keep coins,
-            unlocked items, level progress and high scores tied to that device. It is not linked to
-            any real-world identity and is not used for advertising.
-          </li>
-          <li>
-            <strong>Gameplay and progress data.</strong> Scores, stars, level progress, coin
-            balance and items owned &mdash; so the game can save and restore them and show
-            leaderboards.
-          </li>
-          <li>
-            <strong>Basic gameplay analytics.</strong> Anonymous events such as "level completed"
-            or "purchase started", used only to fix bugs and improve the game (internal
-            operations). These events are not used to build advertising profiles.
-          </li>
-          <li>
-            <strong>Purchase records.</strong> If a parent completes an in-app purchase, the
-            purchase is verified through Google Play Billing and PlayFab. Payment details (card,
-            billing info) are handled entirely by <strong>Google Play</strong> &mdash; we never see
-            or store them. We only record which item was unlocked.
-          </li>
-        </ul>
+            <div class="summaryGrid">
+              <div class="summaryCard">
+                <strong>No account credentials</strong>
+                <p>The game does not ask for an email address, password, phone number, or social login.</p>
+              </div>
+              <div class="summaryCard">
+                <strong>Optional nickname</strong>
+                <p>A filtered display name and score can appear on the public leaderboard.</p>
+              </div>
+              <div class="summaryCard">
+                <strong>Contextual rewarded ad</strong>
+                <p>The ad is optional, child-directed, general-audience, and not interest-personalized.</p>
+              </div>
+              <div class="summaryCard">
+                <strong>Parent controls</strong>
+                <p>Analytics can be turned off and the anonymous player record can be deleted.</p>
+              </div>
+            </div>
 
-        <h2>Advertising &mdash; contextual only, never tracking</h2>
-        <p>
-          The game contains <strong>one optional ad</strong>: a "watch an ad to keep going" offer a
-          player can choose after losing a run. Ads are served by <strong>Google AdMob</strong>,
-          which appears on Google Play's Families self-certified ads SDK list. We configure AdMob
-          for <strong>child-directed treatment</strong> with a <strong>G (general audiences)</strong>
-          content rating before the ad system starts. That means:
-        </p>
-        <ul>
-          <li>
-            Ads are <strong>contextual only</strong> &mdash; chosen by what the game is, never by
-            tracking your child's behaviour or interests.
-          </li>
-          <li>
-            We do <strong>not</strong> collect the Android Advertising ID (the app removes that
-            permission entirely), and no advertising profile of your child is built.
-          </li>
-          <li>
-            Watching an ad is always optional and clearly labelled; skipping it only means skipping
-            the free revive.
-          </li>
-        </ul>
-        <p>
-          We do not sell or share personal data, and we do not allow any data collected in the app
-          to be used for behavioural advertising.
-        </p>
+            <p>
+              We do not sell personal information. Some data is transferred to Microsoft PlayFab,
+              Google AdMob, and Google Play Billing as described below. In this policy,
+              <strong>collected</strong> includes data sent off the device, and
+              <strong>shared</strong> includes data transferred to a third-party SDK or service.
+            </p>
+          </section>
 
-        <h2>In-app purchases and the parental gate</h2>
-        <p>
-          The game has an optional shop (character skins, coin packs, content packs).
-          <strong>Every real-money purchase is placed behind a parental gate</strong> &mdash; a
-          simple question a young child cannot answer &mdash; before Google Play's own purchase flow
-          opens. Purchases are processed by Google Play Billing.
-        </p>
+          <section class="policySection" id="operator">
+            <p class="eyebrow">Operator</p>
+            <h2>Who operates the app</h2>
+            <p>
+              <strong>Stay Away From Poison Hotdogs</strong> (the “app” or “game”) is published by
+              <strong>Gavin John Gross</strong>, doing business as <strong>gr0ss tech</strong>
+              (“we,” “us,” or “our”). Android package:
+              <code>com.GrossTechnologies.PoisonHotDog</code>.
+            </p>
+            <div class="policyContact">
+              <address>
+                <strong>Gavin John Gross / gr0ss tech</strong><br />
+                Email: <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a>
+              </address>
+            </div>
+          </section>
 
-        <h2>How the data is protected and shared</h2>
-        <p>
-          Data is transmitted over encrypted connections (HTTPS/TLS). We use PlayFab (Microsoft) as
-          a data processor to store this information on our behalf; we do not sell your data or
-          share it with third parties for their own purposes. Aside from Google Play (payments and
-          billing), PlayFab (backend), and Google AdMob (contextual ad serving, as described above),
-          no other third parties receive data from the app.
-        </p>
+          <section class="policySection" id="data">
+            <p class="eyebrow">Data map</p>
+            <h2>What the game collects or shares</h2>
+            <p>
+              The table below matches the data categories disclosed for the Android app. These
+              items may be retained; they are not limited to momentary in-memory processing.
+            </p>
 
-        <h2>Data retention and deletion</h2>
-        <p>
-          Because there is no account to sign into, data is tied to the anonymous device record. You
-          can request that we delete the player record associated with a device at any time by
-          emailing the contact address above; we will delete it within 30 days. Uninstalling the app
-          removes all locally stored data on the device.
-        </p>
+            <div class="dataTableWrap" role="region" aria-label="Game data collection table" tabindex="0">
+              <table class="dataTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Data type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">What it means here</th>
+                    <th scope="col">Why / recipient</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Approximate location</td>
+                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td>An IP address may be used to estimate a general area. The app does not request precise GPS location.</td>
+                    <td>Advertising, analytics, and fraud prevention through Google AdMob.</td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td><span class="dataFlag">Collected · optional</span></td>
+                    <td>A generated nickname or a filtered display name chosen for the leaderboard. Do not enter a child's real name.</td>
+                    <td>Game functionality through PlayFab. The display name and score may be visible to other players.</td>
+                  </tr>
+                  <tr>
+                    <td>User IDs</td>
+                    <td><span class="dataFlag">Collected</span></td>
+                    <td>A random installation ID created by the app and the corresponding PlayFab player ID. They are not login credentials.</td>
+                    <td>Game functionality, analytics, and fraud prevention through PlayFab.</td>
+                  </tr>
+                  <tr>
+                    <td>Purchase history</td>
+                    <td><span class="dataFlag">Collected · optional</span></td>
+                    <td>Which game item or content was purchased or unlocked. We do not receive card or bank details.</td>
+                    <td>Game functionality, analytics, and fraud prevention through Google Play Billing and PlayFab.</td>
+                  </tr>
+                  <tr>
+                    <td>App interactions</td>
+                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td>Interactions such as app or ad activity, taps, launches, and video views.</td>
+                    <td>Analytics, advertising, and fraud prevention through AdMob; limited game analytics through PlayFab.</td>
+                  </tr>
+                  <tr>
+                    <td>Other actions</td>
+                    <td><span class="dataFlag">Collected</span></td>
+                    <td>Gameplay records such as scores, stars, level progress, coin balance, unlocked items, and game events.</td>
+                    <td>Game functionality, analytics, and fraud prevention through PlayFab.</td>
+                  </tr>
+                  <tr>
+                    <td>Diagnostics</td>
+                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td>SDK and app diagnostic or performance information used to understand failures and service quality.</td>
+                    <td>Analytics, advertising measurement, and fraud prevention through AdMob.</td>
+                  </tr>
+                  <tr>
+                    <td>Device or other IDs</td>
+                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td>The app-generated random installation ID, PlayFab ID, and identifiers AdMob uses for app or device operations. The Android Advertising ID permission is removed from the app.</td>
+                    <td>Game functionality, analytics, advertising, and fraud prevention through PlayFab and AdMob.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-        <h2>For parents</h2>
-        <p>
-          This app is intended for young children and is designed to be safe: no chat, no data
-          required to play, contextual-only ads (one optional spot, never behavioural), and a
-          parental gate in front of every purchase. If you have questions or want us to delete your
-          child's data, contact us at the email above. Parents have the right to review the personal
-          information collected, to withdraw consent, and to request deletion.
-        </p>
+            <h3>Data the game does not request</h3>
+            <p>
+              The game does not request precise location, an email address, a phone number, postal
+              contacts, photos, videos, audio recordings, files, calendar entries, contacts,
+              private messages, health information, fitness information, or web-browsing history.
+              It does not request camera or microphone access.
+            </p>
+          </section>
 
-        <h2>Changes to this policy</h2>
-        <p>
-          If we change what the app collects, we will update this policy and the "Last updated" date
-          above before the change ships.
-        </p>
+          <section class="policySection" id="leaderboards">
+            <p class="eyebrow">Anonymous play</p>
+            <h2>Player records, names, and leaderboards</h2>
+            <p>
+              The game creates a random, installation-scoped identifier and uses it to open an
+              anonymous PlayFab player record. It does not use the phone's hardware identifier and
+              does not let a player sign in with an external account.
+            </p>
+            <p>
+              A player may keep a generated silly nickname or type an optional filtered display
+              name. The display name and high score may appear to other players on the public
+              leaderboard. Parents should tell children to use a nickname and never enter a real
+              full name or other personal details.
+            </p>
+          </section>
 
-        <h2>Contact</h2>
-        <p>
-          <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a>
-        </p>
+          <section class="policySection" id="ads">
+            <p class="eyebrow">Optional ad</p>
+            <h2>Advertising</h2>
+            <p>
+              The game offers one optional rewarded ad after a run: a player may watch it to keep
+              going. Skipping the offer skips the free revive and does not block ordinary play.
+              Google AdMob serves the ad.
+            </p>
+            <ul class="checkList">
+              <li>Ad requests are configured for child-directed treatment.</li>
+              <li>The maximum ad content rating is set to G (general audiences).</li>
+              <li>Ads are non-personalized and are not selected from a child's interest profile.</li>
+              <li>The app removes permission to access the Android Advertising ID.</li>
+            </ul>
+            <p>
+              AdMob still automatically processes information needed to deliver, measure, and
+              protect the ad service, including IP address, app interactions, diagnostics, and
+              device or app identifiers. That is why those categories are disclosed as collected
+              and shared.
+            </p>
+          </section>
+
+          <section class="policySection" id="purchases">
+            <p class="eyebrow">Optional shop</p>
+            <h2>In-app purchases</h2>
+            <p>
+              The game can offer optional items or content for purchase. Before Google Play's
+              purchase window opens, the game presents a grown-up gate intended to keep a young
+              child from starting the transaction alone.
+            </p>
+            <p>
+              Google Play Billing processes payment details. We do not receive a card number or
+              bank information. The game receives transaction status and records the item or
+              entitlement needed to deliver and restore the purchase.
+            </p>
+          </section>
+
+          <section class="policySection" id="providers">
+            <p class="eyebrow">Where data goes</p>
+            <h2>Service providers and sharing</h2>
+            <div class="providerList">
+              <article>
+                <h3>Microsoft PlayFab</h3>
+                <p>
+                  Hosts the anonymous player record, leaderboard, scores, progress, virtual
+                  inventory, purchase entitlements, and limited game events on our behalf.
+                  <a href="https://privacy.microsoft.com/privacystatement" rel="noopener">Microsoft privacy statement</a>
+                </p>
+              </article>
+              <article>
+                <h3>Google AdMob</h3>
+                <p>
+                  Delivers the optional contextual rewarded ad and processes ad interactions,
+                  approximate location derived from IP, diagnostics, and device or app identifiers
+                  for delivery, analytics, and fraud prevention.
+                  <a href="https://policies.google.com/privacy" rel="noopener">Google privacy policy</a>
+                </p>
+              </article>
+              <article>
+                <h3>Google Play Billing</h3>
+                <p>
+                  Processes optional purchases, payment information, and transaction status. We
+                  receive only the purchase information needed to provide the item or content.
+                  <a href="https://play.google.com/about/play-terms/" rel="noopener">Google Play terms</a>
+                </p>
+              </article>
+            </div>
+            <p>
+              We do not sell personal information and do not permit data from the app to be used
+              for behavioral advertising. Providers may retain information under their own legal
+              obligations and published policies.
+            </p>
+          </section>
+
+          <section class="policySection" id="deletion">
+            <p class="eyebrow">Your controls</p>
+            <h2>Retention and deletion</h2>
+            <p>
+              Local save data remains on the device until it is deleted in the game, the app's
+              storage is cleared, or the app is uninstalled. The PlayFab player record is kept
+              while needed to provide saved progress, leaderboards, purchases, security, and
+              support, unless a parent requests deletion sooner. Google controls retention for
+              data processed by AdMob and Google Play under Google's policies.
+            </p>
+            <div class="deletionSteps">
+              <div>
+                <span aria-hidden="true">1</span>
+                <p><strong>In the game</strong><br />Open the Grown-Ups area and choose <em>Delete My Data</em>.</p>
+              </div>
+              <div>
+                <span aria-hidden="true">2</span>
+                <p><strong>Confirm the request</strong><br />After server deletion succeeds, the app clears the local save.</p>
+              </div>
+              <div>
+                <span aria-hidden="true">3</span>
+                <p><strong>If you need help</strong><br />Email <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a>.</p>
+              </div>
+            </div>
+            <p>
+              If the in-app deletion reports an error, retry or contact us; the game does not claim
+              success and silently leave the server record behind. If the app is unavailable,
+              email us and include the player nickname and any in-game player ID you have. We may
+              ask for limited additional information to locate the correct anonymous record. We
+              will respond to and complete a verifiable request within 30 days.
+            </p>
+          </section>
+
+          <section class="policySection" id="parents">
+            <p class="eyebrow">For parents</p>
+            <h2>Notice and choices</h2>
+            <p>
+              Before the game starts its online player services for the first time, it shows a
+              grown-up privacy notice and waits for acknowledgment. The Grown-Ups area also lets a
+              parent turn optional game analytics off.
+            </p>
+            <p>A parent or legal guardian may contact us to:</p>
+            <ul>
+              <li>ask what personal information is associated with the child's player record;</li>
+              <li>request a copy or correction where applicable;</li>
+              <li>refuse further collection by disabling optional analytics or stopping use; and</li>
+              <li>request deletion of the player's server record and local save.</li>
+            </ul>
+            <p>
+              We will verify that the requester is authorized before providing or deleting a
+              child's information. We will not require a child to disclose more information than
+              is reasonably necessary to participate in the game.
+            </p>
+          </section>
+
+          <section class="policySection" id="security">
+            <p class="eyebrow">Safeguards</p>
+            <h2>Security</h2>
+            <p>
+              Data is encrypted in transit using HTTPS/TLS. We limit the data sent by the app,
+              disable PlayFab device-information and focus-time collection, and use a random app
+              identifier instead of a hardware identifier. No system is perfectly secure, but we
+              use reasonable technical and organizational measures appropriate to the data.
+            </p>
+          </section>
+
+          <section class="policySection" id="changes">
+            <p class="eyebrow">Updates</p>
+            <h2>Changes to this policy</h2>
+            <p>
+              If the game's data practices change, we will update this page and its “Last updated”
+              date before the change is released. If a change requires new parental notice or
+              consent, we will provide it before collecting the affected information.
+            </p>
+          </section>
+
+          <section class="policySection" id="contact">
+            <p class="eyebrow">Questions or requests</p>
+            <h2>Contact</h2>
+            <div class="policyContact">
+              <address>
+                <strong>Gavin John Gross, doing business as gr0ss tech</strong><br />
+                Email: <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a>
+              </address>
+            </div>
+          </section>
+        </article>
       </div>
     </section>
   </main>
@@ -184,7 +392,6 @@
         <li><a href="support.html">Support</a></li>
         <li><a href="privacy.html">Privacy policy</a></li>
         <li><a href="changelog.html">What's new</a></li>
-        <li><a href="forum.html">Forum (soon)</a></li>
       </ul>
       <p>Contact: <a href="mailto:gr0sstech.support@gmail.com">gr0sstech.support@gmail.com</a></p>
       <p>&copy; 2026 <span class="wordmark">gr<span class="wordmark__zero">0</span>ss tech</span>. Games for small humans.</p>
