@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stay Away From Poison Hotdogs — don't eat the green ones!</title>
-  <meta name="description" content="Help Rexy the T-Rex catch letters and numbers and dodge silly poison hotdogs. A learning game for kids 6-8." />
+  <meta name="description" content="Help Rexy rescue the crew, catch letters and numbers, unlock ridiculous outfits, and dodge silly poison hotdogs." />
   <link rel="canonical" href="https://gr0ss.github.io/gr0ss-web/poison-hotdogs/" />
   <meta name="theme-color" content="#1b1a2b" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Stay Away From Poison Hotdogs" />
   <meta property="og:title" content="Stay Away From Poison Hotdogs — don't eat the green ones!" />
-  <meta property="og:description" content="Help Rexy the T-Rex catch letters and numbers and dodge silly poison hotdogs. A learning game for kids 6-8." />
+  <meta property="og:description" content="Help Rexy rescue the crew, catch letters and numbers, unlock ridiculous outfits, and dodge silly poison hotdogs." />
   <meta property="og:url" content="https://gr0ss.github.io/gr0ss-web/poison-hotdogs/" />
   <meta property="og:image" content="https://gr0ss.github.io/gr0ss-web/poison-hotdogs/assets/img/og-poison-hotdogs.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -22,36 +22,42 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="siteHeader">
     <div class="wrap siteHeader__inner">
-      <a class="brandLink" href="index.html"><img src="assets/img/phd-icon-32.png" width="32" height="32" alt="" /><span>Poison Hotdogs</span></a>
+      <a class="brandLink" href="index.html"><img src="assets/img/phd-header-wordmark.png" width="790" height="330" alt="Stay Away From Poison Hotdogs" /></a>
       <nav class="nav" aria-label="Main">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="changelog.html">What's new</a>
+        <a href="index.html" aria-current="page">Game</a>
+        <a href="index.html#crew">Crew &amp; Outfits</a>
+        <a href="changelog.html">What's New</a>
         <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
       </nav>
+      <a class="headerStudio" href="https://gr0ss.github.io/gr0ss-web/gr0ss-tech">Made by <strong>gr0ss tech.</strong></a>
     </div>
   </header>
   <main id="main">
-    <section class="gameHero">
-      <div class="wrap">
-        <div class="gameHero__frame">
-          <img
-            class="gameHero__art"
-            src="assets/img/phd-hero-wide.jpg"
-            width="1000"
-            height="500"
-            alt="Rexy the green T-Rex charges through a slime-covered village while poison hotdogs fly overhead."
-            fetchpriority="high"
-          />
-          <div class="gameHero__panel">
-            <p class="gameHero__kicker">A goofy learning adventure for Android</p>
-            <h1>Catch the good stuff. Dodge the green stuff.</h1>
-            <p>
-              Help Rexy rescue dinosaur buddies, practise letters and numbers, and stay very far
-              away from poison hotdogs. Made for kids about 6&ndash;8.
-            </p>
-            <div class="btnRow">
-              <span class="playBtn" aria-disabled="true" role="link">
+	<div class="gameHome">
+		<section class="arcadeHero" id="game" aria-labelledby="game-title">
+			<div class="wrap homeWrap">
+				<div class="arcadeHero__stage" data-parallax-stage>
+					<img
+						class="arcadeHero__art"
+						src="assets/img/phd-hero-wide.jpg"
+						width="1024"
+						height="500"
+						alt="Rexy runs through a slime-covered village while skull-marked poison hotdogs fly overhead."
+						fetchpriority="high"
+					/>
+					<div class="arcadeHero__shade" aria-hidden="true"></div>
+					<div class="arcadeHero__copy" data-parallax-copy>
+						<p class="arcadeHero__kicker">A slime-soaked learning adventure</p>
+						<h1 id="game-title">
+							Catch the good stuff.
+							<span>Dodge the green stuff.</span>
+						</h1>
+						<p>
+							Help Rexy rescue the crew, practise letters and numbers, and stay very far
+							away from poison hotdogs.
+						</p>
+						<div class="btnRow arcadeHero__actions">
+							<span class="playBtn" aria-disabled="true" role="link">
       <svg class="playBtn__glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
         <path fill="#34a853" d="M6 4.5v39a2 2 0 0 0 1 1.7l21.3-21.2z"/>
         <path fill="#4285f4" d="M7 4.2a2 2 0 0 0-1 .3L28.3 24 35 17.3z"/>
@@ -60,259 +66,200 @@
       </svg>
       <span class="playBtn__text"><small>Coming soon to</small><strong>Google Play</strong></span>
     </span>
-              <a class="btn btn--ghost" href="#gameplay">See the game</a>
-            </div>
-          </div>
-        </div>
+							<a class="btn btn--ghost" href="#gameplay">See the game</a>
+						</div>
+					</div>
+				</div>
 
-        <ul class="factStrip" aria-label="Game highlights">
-          <li><span>Age range</span><strong>6&ndash;8</strong></li>
-          <li><span>Learning</span><strong>ABC's + 123's</strong></li>
-          <li><span>Platform</span><strong>Android</strong></li>
-          <li><span>Made by</span><strong>Uncle Gavin</strong></li>
-        </ul>
-      </div>
-    </section>
+				<ul class="gameStats" aria-label="Game highlights" data-reveal>
+					<li><strong>10</strong><span>Playable friends</span></li>
+					<li><strong>15</strong><span>Rexy outfits</span></li>
+					<li><strong>5</strong><span>Ways to play</span></li>
+					<li><strong>Android</strong><span>Phones + tablets</span></li>
+				</ul>
+			</div>
+		</section>
 
-    <section class="section introSection" id="gameplay">
-      <div class="wrap splitIntro">
-        <div>
-          <p class="eyebrow">One ridiculous mission</p>
-          <h2>Save the buddies. Learn along the way.</h2>
-        </div>
-        <p class="lede">
-          Five ways to play turn quick taps into letter recognition, number practice, timing, and
-          a whole lot of slime. It starts gentle, then grows with a kid who wants a real challenge.
-        </p>
-      </div>
+		<section class="chaosSection" id="gameplay" aria-labelledby="chaos-title">
+			<div class="wrap homeWrap">
+				<header class="homeHeading homeHeading--center" data-reveal>
+					<p class="eyebrow">Straight into the mess</p>
+					<h2 id="chaos-title">See the <span>chaos</span></h2>
+					<p>Toxic hotdogs, tricky targets, rescue missions, boss battles, and a heroic amount of slime.</p>
+				</header>
 
-      <div class="wrap">
-        <!-- Names and taglines mirror the game's Pick a Game screen. -->
-        <ol class="modes">
-          <li>
-            <span class="modeBadge" aria-hidden="true">01</span>
-            <b>Rotten Rescue</b>
-            <span>Rescue your buddies! Ten gooped worlds, a boss at the end of each.</span>
-          </li>
-          <li>
-            <span class="modeBadge" aria-hidden="true">02</span>
-            <b>Snack Attack</b>
-            <span>Survive the rush! No finish line, just a high score.</span>
-          </li>
-          <li>
-            <span class="modeBadge" aria-hidden="true">A&ndash;Z</span>
-            <b>ABC's</b>
-            <span>Collect A - B - C, all the way to Z.</span>
-          </li>
-          <li>
-            <span class="modeBadge" aria-hidden="true">1&ndash;99</span>
-            <b>123's</b>
-            <span>Count 1 - 2 - 3, up to 99.</span>
-          </li>
-          <li class="mode--practice">
-            <span class="modeBadge" aria-hidden="true">★</span>
-            <b>Practice</b>
-            <span>Pick a game to learn &mdash; no clock, no fail!</span>
-          </li>
-        </ol>
-      </div>
-    </section>
+				<div class="gameCarousel" data-carousel data-reveal>
+					<div class="gameCarousel__viewport">
+						<div class="gameCarousel__track">
+							<figure class="gameSlide is-active" data-slide>
+								<img src="assets/img/shot-03-rotten-rescue-condiments.jpg" width="540" height="304" alt="Stego stands in a moonlit swamp while clean condiments and poison hotdogs move through the arena." />
+								<figcaption><strong>Rotten Rescue</strong><span>Grab the clean condiments. Dodge the gooped decoys.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-04-boss-sneeze-machine.jpg" width="540" height="304" loading="lazy" decoding="async" alt="The Sneeze Machine boss hovers above Stego while numbered targets cross the arena." />
+								<figcaption><strong>The Sneeze Machine</strong><span>Boss battles get weird fast.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-05-abc-gameplay.jpg" width="540" height="304" loading="lazy" decoding="async" alt="ABC's mode asks the player to catch the letter L among moving letter targets." />
+								<figcaption><strong>ABC's</strong><span>Spot the right letter and make the catch.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-06-world-map-stars.jpg" width="540" height="304" loading="lazy" decoding="async" alt="A painted world map shows a trail of numbered stepping stones and earned stars." />
+								<figcaption><strong>Ten gooped worlds</strong><span>Earn stars and open the next gate.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-07-rescued-buddy.jpg" width="540" height="304" loading="lazy" decoding="async" alt="A rescued celebration introduces Stego with falling confetti." />
+								<figcaption><strong>Rescue the crew</strong><span>Beat the boss. Bring a buddy home.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-01-title-splash.jpg" width="540" height="304" loading="lazy" decoding="async" alt="Rexy stands beside rescued buddies and silhouettes of friends still waiting to be found." />
+								<figcaption><strong>Find every buddy</strong><span>Ten playable friends. One very strange rescue.</span></figcaption>
+							</figure>
+							<figure class="gameSlide" data-slide aria-hidden="true">
+								<img src="assets/img/shot-08-daily-treat.jpg" width="540" height="304" loading="lazy" decoding="async" alt="The Daily Treat screen shows a seven-day line of coin rewards." />
+								<figcaption><strong>Daily Treat</strong><span>Stack up coins just for coming back.</span></figcaption>
+							</figure>
+						</div>
+					</div>
 
-    <section class="section gallerySection" aria-labelledby="gallery-title">
-      <div class="wrap">
-        <div class="sectionHeading">
-          <div>
-            <p class="eyebrow">Straight from the game</p>
-            <h2 id="gallery-title">A world built from slime and bad decisions</h2>
-          </div>
-          <p>Real captures from the running game. No mockups.</p>
-        </div>
+					<div class="gameCarousel__controls">
+						<button class="carouselButton" type="button" data-carousel-prev>Previous</button>
+						<div class="carouselDots" data-carousel-dots aria-label="Choose a game screenshot"></div>
+						<button class="carouselButton" type="button" data-carousel-next>Next</button>
+					</div>
+					<div class="carouselMeta">
+						<span data-carousel-count>1 / 7</span>
+						<span class="carouselMeta__status" data-carousel-status>Auto-playing</span>
+					</div>
+					<p class="visuallyHidden" aria-live="polite" data-carousel-live></p>
+				</div>
+			</div>
+		</section>
 
-        <div class="shots">
-          <figure class="shot shot--feature">
-            <img
-              src="assets/img/shot-03-rotten-rescue-condiments.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="Rotten Rescue: Stego stands in a moonlit swamp while ketchup, mustard and a blue potion float past. Two green poison hotdogs drift in from the right."
-            />
-            <figcaption>Grab the clean condiments. Skip the gooped ones.</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-02-pick-a-game.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="The Pick a Game screen with painted cards for Rotten Rescue, Snack Attack, ABC's, 123's and Practice."
-            />
-            <figcaption>Pick a game</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-04-boss-sneeze-machine.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="A boss built from poison hotdogs sneezes above Stego while numbered bubbles float past."
-            />
-            <figcaption>Goofy boss showdowns</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-05-abc-gameplay.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="ABC's mode asks the player to catch the letter L among floating letter bubbles."
-            />
-            <figcaption>Catch the letter on the sign</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-07-rescued-buddy.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="A Rescued popup celebrates Stego the purple dinosaur with falling confetti."
-            />
-            <figcaption>Beat the boss, free a buddy</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-06-world-map-stars.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="A painted world map has nine numbered stepping stones with stars leading to a castle door."
-            />
-            <figcaption>Earn stars on every stone</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-08-daily-treat.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="The Daily Treat popup shows a seven-day coin streak with an extra life on the final day."
-            />
-            <figcaption>Come back for a daily treat</figcaption>
-          </figure>
-          <figure class="shot">
-            <img
-              src="assets/img/shot-01-title-splash.jpg"
-              width="540"
-              height="304"
-              loading="lazy"
-              decoding="async"
-              alt="Rexy stands in a slime-covered village with rescued buddies and silhouettes of buddies still missing."
-            />
-            <figcaption>Find the whole dinosaur crew</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+		<section class="outfitSection" id="crew" aria-labelledby="outfit-title">
+			<img class="outfitSection__hotdog outfitSection__hotdog--left" src="assets/img/poison-hotdog-skull.png" width="570" height="310" alt="" aria-hidden="true" />
+			<img class="outfitSection__hotdog outfitSection__hotdog--right" src="assets/img/poison-hotdog-skull.png" width="570" height="310" alt="" aria-hidden="true" />
+			<div class="wrap homeWrap">
+				<div class="outfitIntro" data-reveal>
+					<div>
+						<p class="eyebrow">Rescue the crew. Pick your look.</p>
+						<h2 id="outfit-title">Earn coins. Unlock <span>ridiculous outfits.</span></h2>
+					</div>
+					<p>Play for coins, build Rexy's closet, and bring nine rescueable buddies into the adventure. Ninja, Knight, and Superhero arrive together in the Hero Squad pack.</p>
+				</div>
 
-    <section class="section featureSection">
-      <div class="wrap featureGrid">
-        <article class="featureCard featureCard--learning">
-          <p class="eyebrow">Learning, disguised</p>
-          <h2>Built to feel like a game first</h2>
-          <ul class="checkList">
-            <li>Letter recognition and alphabet order, A to Z</li>
-            <li>Counting and number recognition, 1 to 99</li>
-            <li>Gentle early levels that teach while kids play</li>
-            <li>Practice mode with no clock and no fail state</li>
-          </ul>
-        </article>
-        <article class="featureCard featureCard--hands">
-          <p class="eyebrow">Small-hand approved</p>
-          <h2>Big buttons. Light reading. Zero scary stuff.</h2>
-          <ul class="checkList">
-            <li>Large, friendly touch targets</li>
-            <li>Icons and audio lead the way</li>
-            <li>Stars, stickers, treats and buddies to unlock</li>
-            <li>Landscape play on Android phones and tablets</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+				<div class="outfitShowcase" data-reveal>
+					<div class="outfitSpotlight">
+						<img class="outfitSpotlight__rexy" src="assets/img/rexy.png" width="560" height="535" alt="Rexy, the green T-Rex hero." />
+						<div class="outfitSpotlight__card">
+							<span class="outfitSpotlight__label">Outfit <b data-outfit-count>01 / 15</b></span>
+							<img src="assets/img/outfit-01-cool-shades.png" width="130" height="164" alt="Cool Shades outfit card from the game." data-outfit-image />
+						</div>
+						<div class="outfitSpotlight__copy">
+							<p>Now previewing</p>
+							<h3 data-outfit-name>Cool Shades</h3>
+							<span data-outfit-description>Maximum cool. Minimum eye contact.</span>
+						</div>
+					</div>
 
-    <section class="section grownUps" aria-labelledby="grown-ups-title">
-      <div class="wrap">
-        <div class="sectionHeading">
-          <div>
-            <p class="eyebrow">The grown-ups corner</p>
-            <h2 id="grown-ups-title">The boring parts matter, too.</h2>
-          </div>
-          <p>Plain answers about names, ads, purchases and data.</p>
-        </div>
+					<div class="outfitRail" aria-label="Rexy's 15 outfits">
+						<button class="outfitChoice is-selected" type="button" aria-pressed="true" data-outfit-name="Cool Shades" data-outfit-description="Maximum cool. Minimum eye contact." data-outfit-image="assets/img/outfit-01-cool-shades.png"><img src="assets/img/outfit-01-cool-shades.png" width="130" height="164" alt="Cool Shades" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Adventurer" data-outfit-description="Ready for ruins, ropes, and questionable snacks." data-outfit-image="assets/img/outfit-02-adventurer.png"><img src="assets/img/outfit-02-adventurer.png" width="130" height="164" loading="lazy" alt="Adventurer" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Backpacker" data-outfit-description="Packed for the long way around." data-outfit-image="assets/img/outfit-03-backpacker.png"><img src="assets/img/outfit-03-backpacker.png" width="130" height="164" loading="lazy" alt="Backpacker" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Pool Floaties" data-outfit-description="Safety first. Dignity later." data-outfit-image="assets/img/outfit-04-pool-floaties.png"><img src="assets/img/outfit-04-pool-floaties.png" width="130" height="164" loading="lazy" alt="Pool Floaties" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Hockey Star" data-outfit-description="Game face on. Skates not included." data-outfit-image="assets/img/outfit-05-hockey-star.png"><img src="assets/img/outfit-05-hockey-star.png" width="130" height="164" loading="lazy" alt="Hockey Star" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Snorkeler" data-outfit-description="For deep dives and deeper slime." data-outfit-image="assets/img/outfit-06-snorkeler.png"><img src="assets/img/outfit-06-snorkeler.png" width="130" height="164" loading="lazy" alt="Snorkeler" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Chef" data-outfit-description="Serving looks. Definitely not hotdogs." data-outfit-image="assets/img/outfit-07-chef.png"><img src="assets/img/outfit-07-chef.png" width="130" height="164" loading="lazy" alt="Chef" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Skater Punk" data-outfit-description="Kickflip past the poison." data-outfit-image="assets/img/outfit-08-skater-punk.png"><img src="assets/img/outfit-08-skater-punk.png" width="130" height="164" loading="lazy" alt="Skater Punk" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Santa Dino" data-outfit-description="Ho, ho, absolutely not." data-outfit-image="assets/img/outfit-09-santa-dino.png"><img src="assets/img/outfit-09-santa-dino.png" width="130" height="164" loading="lazy" alt="Santa Dino" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Pirate" data-outfit-description="X marks the clean snack." data-outfit-image="assets/img/outfit-10-pirate.png"><img src="assets/img/outfit-10-pirate.png" width="130" height="164" loading="lazy" alt="Pirate" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Astronaut" data-outfit-description="One small stomp for Rexy." data-outfit-image="assets/img/outfit-11-astronaut.png"><img src="assets/img/outfit-11-astronaut.png" width="130" height="164" loading="lazy" alt="Astronaut" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Scientist" data-outfit-description="Testing one theory: never eat the green ones." data-outfit-image="assets/img/outfit-12-scientist.png"><img src="assets/img/outfit-12-scientist.png" width="130" height="164" loading="lazy" alt="Scientist" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Ninja" data-outfit-description="Silent. Sneaky. Snack-safe." data-outfit-image="assets/img/outfit-13-ninja.png"><img src="assets/img/outfit-13-ninja.png" width="130" height="164" loading="lazy" alt="Ninja" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Knight" data-outfit-description="Armor up. Slime happens." data-outfit-image="assets/img/outfit-14-knight.png"><img src="assets/img/outfit-14-knight.png" width="130" height="164" loading="lazy" alt="Knight" /></button>
+						<button class="outfitChoice" type="button" aria-pressed="false" data-outfit-name="Superhero" data-outfit-description="Cape on. Crew rescue time." data-outfit-image="assets/img/outfit-15-superhero.png"><img src="assets/img/outfit-15-superhero.png" width="130" height="164" loading="lazy" alt="Superhero" /></button>
+					</div>
 
-        <div class="parentGrid">
-          <article class="parentCard">
-            <span aria-hidden="true">💬</span>
-            <h3>No chat or login</h3>
-            <p>No social features and no account credentials. The game uses an anonymous player record.</p>
-          </article>
-          <article class="parentCard">
-            <span aria-hidden="true">🦖</span>
-            <h3>Nickname is optional</h3>
-            <p>A filtered leaderboard nickname can be chosen. Please do not enter a child's real name.</p>
-          </article>
-          <article class="parentCard">
-            <span aria-hidden="true">▶</span>
-            <h3>Contextual rewarded ad</h3>
-            <p>The revive ad is optional, child-directed and not personalized by interests.</p>
-          </article>
-          <article class="parentCard">
-            <span aria-hidden="true">🔒</span>
-            <h3>Grown-up controls</h3>
-            <p>Purchases sit behind a parental gate, and data can be deleted from inside the game.</p>
-          </article>
-        </div>
+					<div class="crewRoll" aria-label="Playable crew">
+						<span>Rexy</span><span>Stego</span><span>Trike</span><span>Shark</span><span>Alien</span>
+						<span>Puppy</span><span>Cool Cat</span><span>Dragon</span><span>Chicken</span><span>Robot</span>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <div class="btnRow grownUps__actions">
-          <a class="btn btn--primary" href="privacy.html">Read the privacy policy</a>
-          <a class="btn btn--ghost" href="support.html">Support &amp; contact</a>
-        </div>
-      </div>
-    </section>
+		<section class="modeSection" aria-labelledby="mode-title">
+			<div class="wrap homeWrap modeLayout">
+				<div class="modeScreen" data-reveal>
+					<img src="assets/img/screen-pick-a-game.webp" width="1440" height="671" loading="lazy" decoding="async" alt="The Pick a Game screen with Rotten Rescue, Snack Attack, ABC's, 123's, and Practice." />
+				</div>
+				<div class="modePanel" data-reveal>
+					<p class="eyebrow">Five ways to play</p>
+					<h2 id="mode-title">Pick a game. <span>Make some trouble.</span></h2>
+					<div class="modeTabs" role="tablist" aria-label="Game modes">
+						<button type="button" role="tab" aria-selected="true" data-mode-name="Rotten Rescue" data-mode-copy="Rescue your buddies through ten gooped worlds, with a boss waiting at the end of each.">Rotten Rescue</button>
+						<button type="button" role="tab" aria-selected="false" data-mode-name="Snack Attack" data-mode-copy="Survive the rush. There is no finish line, only the next high score.">Snack Attack</button>
+						<button type="button" role="tab" aria-selected="false" data-mode-name="ABC's" data-mode-copy="Collect A, B, C, and keep going all the way to Z.">ABC's</button>
+						<button type="button" role="tab" aria-selected="false" data-mode-name="123's" data-mode-copy="Count 1, 2, 3, and keep climbing all the way to 99.">123's</button>
+						<button type="button" role="tab" aria-selected="false" data-mode-name="Practice" data-mode-copy="Pick a game to learn with no clock and no fail state.">Practice</button>
+					</div>
+					<div class="modePanel__active" role="tabpanel" tabindex="0">
+						<h3 data-mode-title>Rotten Rescue</h3>
+						<p data-mode-copy>Rescue your buddies through ten gooped worlds, with a boss waiting at the end of each.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <section class="section storySection">
-      <div class="wrap storyCard">
-        <img
-          src="assets/img/rexy.png"
-          width="560"
-          height="535"
-          loading="lazy"
-          decoding="async"
-          alt="Rexy, a friendly green cartoon T-Rex, grinning."
-        />
-        <div>
-          <p class="eyebrow">Where it came from</p>
-          <h2>A four-year-old had one wonderfully weird request.</h2>
-          <!-- Verbatim from the game's About screen. Keep this story unchanged. -->
-          <p>
-            When my nephew was four, he made one wonderfully weird request: a game called Stay Away
-            From Poison Hotdogs!
-          </p>
-          <p>
-            That was the whole idea&mdash;just a name that made us laugh. Somehow, that little
-            request grew into Rexy, ridiculous hotdogs, and entirely too much green slime.
-          </p>
-          <p>It was made for him first. Now we hope it makes your family smile, too.</p>
-          <p class="storyCard__signoff">Made with love by Uncle Gavin at <a href="https://gr0ss.github.io/gr0ss-web/gr0ss-tech/">gr<span class="wordmark__zero">0</span>ss tech</a></p>
-        </div>
-      </div>
-    </section>
+		<section class="bossSection" aria-labelledby="boss-title">
+			<div class="wrap homeWrap bossCard" data-reveal>
+				<div class="bossCard__image"><img src="assets/img/shot-04-boss-sneeze-machine.jpg" width="540" height="304" loading="lazy" decoding="async" alt="The Sneeze Machine boss filling the play arena with numbered targets." /></div>
+				<div class="bossCard__copy">
+					<p class="eyebrow">Bosses get weird</p>
+					<h2 id="boss-title">Hotdog royalty. One sneeze-powered machine.</h2>
+					<p>The Great Hotdog King and The Sneeze Machine are waiting at the end of the mess.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="grownUps" aria-labelledby="grown-ups-title">
+			<div class="wrap homeWrap">
+				<header class="homeHeading" data-reveal>
+					<p class="eyebrow">The grown-ups corner</p>
+					<h2 id="grown-ups-title">The boring parts <span>matter, too.</span></h2>
+					<p>Plain answers about names, ads, purchases, and data.</p>
+				</header>
+
+				<div class="parentGrid" data-reveal>
+					<article class="parentCard"><b>No chat</b><h3>No login or social features</h3><p>The game uses an anonymous player record, not account credentials.</p></article>
+					<article class="parentCard"><b>Optional</b><h3>Nickname stays optional</h3><p>A filtered leaderboard nickname can be chosen. Never use a real name.</p></article>
+					<article class="parentCard"><b>Contextual</b><h3>Rewarded revive ad</h3><p>The revive ad is optional, child-directed, and not personalized by interests.</p></article>
+					<article class="parentCard"><b>Protected</b><h3>Grown-up controls</h3><p>Purchases use a parental gate, and data can be deleted inside the game.</p></article>
+				</div>
+
+				<div class="btnRow grownUps__actions" data-reveal>
+					<a class="btn btn--primary" href="privacy.html">Read the privacy policy</a>
+					<a class="btn btn--ghost" href="support.html">Support &amp; contact</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="storySection">
+			<div class="wrap homeWrap storyCard" data-reveal>
+				<img src="assets/img/rexy.png" width="560" height="535" loading="lazy" decoding="async" alt="Rexy, a friendly green cartoon T-Rex, grinning." />
+				<div>
+					<p class="eyebrow">Where it came from</p>
+					<h2>A four-year-old had one wonderfully weird request.</h2>
+					<p>When my nephew was four, he made one wonderfully weird request: a game called Stay Away From Poison Hotdogs!</p>
+					<p>That was the whole idea&mdash;just a name that made us laugh. Somehow, that little request grew into Rexy, ridiculous hotdogs, and entirely too much green slime.</p>
+					<p>It was made for him first. Now we hope it makes your family smile, too.</p>
+					<p class="storyCard__signoff">Made by <a href="https://gr0ss.github.io/gr0ss-web/gr0ss-tech/">gr<span class="wordmark__zero">0</span>ss tech</a>.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="assets/site.js" defer></script>
   </main>
   <footer class="siteFooter">
     <div class="wrap">

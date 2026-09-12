@@ -25,14 +25,20 @@ const headerHtml = (site, currentHref) => {
   const brand =
     site.key === 'gr0ss-tech'
       ? gr0ssWordmark()
-      : `<img src="assets/img/phd-icon-32.png" width="32" height="32" alt="" /><span>Poison Hotdogs</span>`;
+      : `<img src="assets/img/phd-header-wordmark.png" width="790" height="330" alt="Stay Away From Poison Hotdogs" />`;
+
+  const studio =
+    site.key === 'poison-hotdogs'
+      ? `<a class="headerStudio" href="${escapeHtml(site.studioUrl)}">Made by <strong>gr0ss tech.</strong></a>`
+      : '';
 
   return `  <header class="siteHeader">
     <div class="wrap siteHeader__inner">
       <a class="brandLink" href="index.html">${brand}</a>
       <nav class="nav" aria-label="Main">
         ${navHtml(site.nav, currentHref)}
-      </nav>
+      </nav>${studio ? `
+      ${studio}` : ''}
     </div>
   </header>`;
 };
