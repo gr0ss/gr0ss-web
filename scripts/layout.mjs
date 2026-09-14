@@ -62,7 +62,7 @@ const footerHtml = (site, config) => {
         ${links}
       </ul>
       ${contact}
-      <p>&copy; ${config.year} ${gr0ssWordmark()}. Games for small humans.</p>
+      <p>&copy; ${config.year} ${gr0ssWordmark()}${site.key === "poison-hotdogs" ? "." : ". Games for small humans."}</p>
     </div>
   </footer>`;
 };

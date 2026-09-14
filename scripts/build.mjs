@@ -116,14 +116,26 @@ const sites = [
     images: [
       'phd-icon-32.png',
       'phd-icon-180.png',
-      'phd-hero-wide.jpg',
+    'phd-hero-arcade-v2.webp',
+    'phd-hero-arcade-mobile-v2.webp',
       'phd-header-wordmark.png',
-      'poison-hotdog-skull.png',
+      'phd-wordmark.png',
       'og-poison-hotdogs.png',
       'rexy.png',
       'rexy-dizzy.webp',
       'world-swamp.webp',
       'screen-pick-a-game.webp',
+      'arcade-arrow-left-v2.png',
+      'capture-title-v2.webp',
+      'capture-gameplay-sewer-v2.webp',
+      'capture-gameplay-sunset-v2.webp',
+      'capture-world-map-v2.webp',
+      'capture-crew-v2.webp',
+      'capture-continue-v2.webp',
+      'mode-rotten-rescue-v2.webp',
+      'mode-snack-attack-v2.webp',
+      'mode-abcs-v2.webp',
+      'mode-123s-v2.webp',
       'outfit-01-cool-shades.png',
       'outfit-02-adventurer.png',
       'outfit-03-backpacker.png',
@@ -139,16 +151,9 @@ const sites = [
       'outfit-13-ninja.png',
       'outfit-14-knight.png',
       'outfit-15-superhero.png',
-      // The eight real in-game captures (2026-09-07 QA sweep of the game), in
-      // the order the gallery shows them. Generated from art-src/ by
-      // scripts/processArt.ps1, which documents where each frame came from.
-      'shot-01-title-splash.jpg',
-      'shot-03-rotten-rescue-condiments.jpg',
+      // The boss capture remains at its native rendered size; every large
+      // carousel frame above uses a full-resolution source capture.
       'shot-04-boss-sneeze-machine.jpg',
-      'shot-05-abc-gameplay.jpg',
-      'shot-06-world-map-stars.jpg',
-      'shot-07-rescued-buddy.jpg',
-      'shot-08-daily-treat.jpg',
     ],
     scripts: [
       { source: 'poison-hotdogs-home.js', output: 'site.js' },

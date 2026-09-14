@@ -131,45 +131,84 @@ function initializeCarousel() {
 
 function initializeOutfits() {
 	const choices = [...document.querySelectorAll('.outfitChoice')];
+	const rail = document.querySelector('.outfitRail');
+	const previousButton = document.querySelector('[data-outfit-prev]');
+	const nextButton = document.querySelector('[data-outfit-next]');
 	const spotlightImage = document.querySelector('.outfitSpotlight [data-outfit-image]');
 	const spotlightName = document.querySelector('[data-outfit-name]:not(.outfitChoice)');
 	const spotlightDescription = document.querySelector('[data-outfit-description]:not(.outfitChoice)');
 	const spotlightCount = document.querySelector('[data-outfit-count]');
-	if (!choices.length || !spotlightImage || !spotlightName || !spotlightDescription || !spotlightCount) return;
+	if (!choices.length || !rail || !spotlightImage || !spotlightName || !spotlightDescription || !spotlightCount) return;
+
+	let activeIndex = 0;
+
+	function centerChoiceInRail(choice) {
+		const target = choice.offsetLeft - (rail.clientWidth - choice.offsetWidth) / 2;
+		const maximum = Math.max(0, rail.scrollWidth - rail.clientWidth);
+		rail.scrollTo({
+			left: Math.max(0, Math.min(target, maximum)),
+			behavior: reducedMotion.matches ? 'auto' : 'smooth',
+		});
+	}
+
+	function selectOutfit(index, moveRail = true) {
+		activeIndex = (index + choices.length) % choices.length;
+		const choice = choices[activeIndex];
+
+		choices.forEach((item, itemIndex) => {
+			const selected = itemIndex === activeIndex;
+			item.classList.toggle('is-selected', selected);
+			item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+		});
+
+		spotlightImage.classList.add('is-changing');
+		window.setTimeout(() => {
+			spotlightImage.src = choice.dataset.outfitImage;
+			spotlightImage.alt = `${choice.dataset.outfitName} outfit card from the game.`;
+			spotlightName.textContent = choice.dataset.outfitName;
+			spotlightDescription.textContent = choice.dataset.outfitDescription;
+			spotlightCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${choices.length}`;
+			spotlightImage.classList.remove('is-changing');
+		}, 120);
+
+		if (moveRail) centerChoiceInRail(choice);
+	}
 
 	choices.forEach((choice, index) => {
-		choice.addEventListener('click', () => {
-			choices.forEach((item) => {
-				const selected = item === choice;
-				item.classList.toggle('is-selected', selected);
-				item.setAttribute('aria-pressed', selected ? 'true' : 'false');
-			});
-
-			spotlightImage.classList.add('is-changing');
-			window.setTimeout(() => {
-				spotlightImage.src = choice.dataset.outfitImage;
-				spotlightImage.alt = `${choice.dataset.outfitName} outfit card from the game.`;
-				spotlightName.textContent = choice.dataset.outfitName;
-				spotlightDescription.textContent = choice.dataset.outfitDescription;
-				spotlightCount.textContent = `${String(index + 1).padStart(2, '0')} / ${choices.length}`;
-				spotlightImage.classList.remove('is-changing');
-			}, 120);
-
-			choice.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
-		});
+		choice.addEventListener('click', () => selectOutfit(index));
 	});
+
+	previousButton?.addEventListener('click', () => selectOutfit(activeIndex - 1));
+	nextButton?.addEventListener('click', () => selectOutfit(activeIndex + 1));
 }
 
 function initializeModes() {
 	const tabs = [...document.querySelectorAll('.modeTabs [role="tab"]')];
 	const title = document.querySelector('[data-mode-title]');
 	const copy = document.querySelector('[data-mode-copy]:not([role="tab"])');
-	if (!tabs.length || !title || !copy) return;
+	const image = document.querySelector('[data-mode-image]:not([role="tab"])');
+	const number = document.querySelector('.modePanel__number');
+	if (!tabs.length || !title || !copy || !image || !number) return;
 
 	function selectTab(tab) {
 		tabs.forEach((item) => item.setAttribute('aria-selected', item === tab ? 'true' : 'false'));
 		title.textContent = tab.dataset.modeName;
 		copy.textContent = tab.dataset.modeCopy;
+		number.textContent = `${String(tabs.indexOf(tab) + 1).padStart(2, '0')} / ${String(tabs.length).padStart(2, '0')}`;
+
+		if (image.getAttribute('src') === tab.dataset.modeImage) return;
+		const nextImage = new Image();
+		nextImage.onload = () => {
+			image.classList.add('is-changing');
+			window.setTimeout(() => {
+				image.src = tab.dataset.modeImage;
+				image.width = Number(tab.dataset.modeWidth);
+				image.height = Number(tab.dataset.modeHeight);
+				image.alt = tab.dataset.modeAlt;
+				image.classList.remove('is-changing');
+			}, 130);
+		};
+		nextImage.src = tab.dataset.modeImage;
 	}
 
 	tabs.forEach((tab, index) => {
