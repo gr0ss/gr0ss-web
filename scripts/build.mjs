@@ -5,6 +5,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { renderPage } from './layout.mjs';
 
@@ -280,12 +281,16 @@ function buildSite(site) {
       : []),
   ].join('\n');
   writeFile(path.join(outDir, 'assets', 'site.css'), css);
+  const assetVersions = new Map([
+    ['assets/site.css', createHash('sha256').update(css).digest('hex').slice(0, 12)],
+  ]);
 
   for (const script of site.scripts || []) {
     const from = p('assets-src', 'js', script.source);
     if (!fs.existsSync(from)) throw new Error(`Missing script: ${from}`);
     fs.mkdirSync(path.join(outDir, 'assets'), { recursive: true });
     fs.copyFileSync(from, path.join(outDir, 'assets', script.output));
+    assetVersions.set(`assets/${script.output}`, createHash('sha256').update(fs.readFileSync(from)).digest('hex').slice(0, 12));
   }
 
   for (const image of site.images) {
@@ -299,6 +304,12 @@ function buildSite(site) {
     const fragment = fs.readFileSync(p('content', page.source), 'utf8');
     const body = applyTokens(fragment, site).replace('<!--PLAY_BUTTON-->', playButton());
     let html = renderPage({ site, config, page: { ...page, body } });
+    // A content-specific URL prevents an old or failed cached asset response
+    // from surviving a deployment, including in mobile in-app browsers.
+    html = html.replace(/\b(href|src)="([^"]+)"/g, (match, attribute, url) => {
+      const version = assetVersions.get(url);
+      return version ? `${attribute}="${url}?v=${version}"` : match;
+    });
     if (page.noIndex) {
       html = html.replace('<title>', '<meta name="robots" content="noindex" />\n  <title>');
     }

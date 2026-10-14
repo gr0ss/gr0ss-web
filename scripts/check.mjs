@@ -38,7 +38,7 @@ for (const site of fs.readdirSync(distDir)) {
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       const target = match[1];
       if (isExternal(target)) continue;
-      const resolved = path.join(siteDir, target.split('#')[0]);
+      const resolved = path.join(siteDir, target.split(/[?#]/)[0]);
       if (!fs.existsSync(resolved)) errors.push(`${where}: dead reference -> ${target}`);
     }
 
