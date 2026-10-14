@@ -4,7 +4,7 @@
 
 - gr0ss tech: <https://gr0ss.github.io/gr0ss-web/gr0ss-tech/>
 - Poison Hotdogs: <https://gr0ss.github.io/gr0ss-web/poison-hotdogs/>
-- Privacy policy (the Play Console URL once the legal fields below are filled):
+- Privacy policy (the URL used for the Play Console):
   <https://gr0ss.github.io/gr0ss-web/poison-hotdogs/privacy.html>
 
 Hosting: single public repo <https://github.com/gr0ss/gr0ss-web> (full source,
@@ -26,9 +26,8 @@ they unblock things.
 ### 1. The support inbox — ✅ RESOLVED 2026-08-21
 
 `contactEmail` is now the real, monitored `gr0sstech.support@gmail.com` (one
-shared inbox for everything). `privacyEmail` points at the same address — the
-per-config note records that the game repo's Play Store policy doc still lists
-`gavinjgross@gmail.com` and should be aligned at the next listing edit.
+shared inbox for everything). `privacyEmail` points at the same address. Keep
+the game repo's Play Store policy documentation aligned with this public inbox.
 
 The placeholder warning boxes on Contact and Support have been removed from
 `content/` and both sites rebuilt. If a domain is bought later,
@@ -37,7 +36,9 @@ The placeholder warning boxes on Contact and Support have been removed from
 
 ### 2. The domains
 
-`site.config.json` → `sites.<site>.baseUrl` are both placeholders.
+`site.config.json` → `sites.<site>.baseUrl` currently points at the live GitHub
+Pages URLs. A custom domain is optional; `sites.<site>.customDomain` remains
+empty until one is chosen.
 
 **This is now a decision card on the dashboard** (Launch / Brand → Domain
 Decision) with per-option pros/cons — pick there rather than here. Summary,
@@ -62,21 +63,23 @@ Once a domain exists, the exact DNS records, HTTPS steps and the
 The privacy policy URL goes into the Play Console and into the app, and moving
 it later means re-submitting. Worth deciding once.
 
-Whatever is chosen, set both `baseUrl` values and rebuild — canonical tags,
-`sitemap.xml`, `robots.txt`, the social-share URLs, and the links between the
-two sites all follow from them. Until a real domain is set, each site renders
-the other's name as plain text instead of a link that would 404.
+If a custom domain is chosen, set both `baseUrl` values and rebuild — canonical
+tags, `sitemap.xml`, `robots.txt`, the social-share URLs, and the links between
+the two sites all follow from them. The existing GitHub Pages URLs are real, so
+cross-site links already work today.
 
-### 3. The two legal fields
+### 3. Public contact boundary — ✅ DECIDED 2026-09-11
 
-`legalEntity` and `businessAddress` still read `[CONFIRM ...]`, matching the
-vault's `Legal-Entity.md`, which lists both as unconfirmed. They appear on the
-privacy policy, which is a legal surface — **do not guess them.**
+The operator is `Gavin John Gross`, doing business as gr0ss tech. The website
+publishes the monitored privacy email and does **not** publish a residential
+mailing address or personal telephone number. This is a deliberate owner
+decision, not an unfinished placeholder; do not add either field later without
+explicit permission.
 
-The policy page carries a visible "not final" banner until they are filled in.
-That banner is the go-live gate: the sites can be published before the game
-ships, but the policy URL should not be pasted into the Play Console while the
-banner is there.
+Known tradeoff: the FTC's COPPA guidance says a child-directed operator's
+online notice should include a name, address, telephone number, and email. The
+email-only contact block intentionally does not satisfy that particular list.
+Google Play acceptance and legal compliance are separate questions.
 
 ### 4. Ads: did they ship?
 
@@ -145,12 +148,10 @@ serve `404.html` as the not-found page.
 
 ## What Claude did not do, on purpose
 
-- No accounts created, no domains bought, no DNS changed, no credentials
-  entered. (The 2026-08-31 deploy used the GitHub credential already stored in
-  Git Credential Manager from previous PoisonHotDogs pushes — nothing new was
-  created or entered.)
-- The two `[CONFIRM ...]` legal fields were not guessed — the policy page still
-  carries its "not final" banner until Gavin fills them (see Part 1 §3).
-- No forum backend. The forum page is a clearly-marked phase-2 placeholder that
-  collects nothing.
+- No accounts created, no domains bought, and no DNS changed as part of the
+  original site launch.
+- Residential address and personal telephone details are deliberately omitted
+  from the public policy (see Part 1 §3); no placeholders remain.
+- No forum backend. The old noindex placeholder page remains available only by
+  direct URL and is no longer promoted in the site navigation.
 - No paid image generation. Every image is cut from art the game already ships.

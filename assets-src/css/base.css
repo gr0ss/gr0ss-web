@@ -128,9 +128,269 @@ hr {
   padding: 2rem 0;
 }
 
+.pageHero {
+  padding: 3.25rem 0 2.75rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surfaceAlt);
+}
+
+.pageHero__inner {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.pageHero__copy > :last-child {
+  margin-bottom: 0;
+}
+
+.pageHero__art {
+  width: min(58vw, 12rem);
+  margin-inline: auto;
+}
+
+.contentShell {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sectionNav {
+  display: none;
+}
+
+.sectionNav__title {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--text);
+  font-family: var(--fontDisplay);
+  font-size: 0.875rem;
+}
+
+.sectionNav a {
+  display: block;
+  padding: 0.42rem 0;
+  color: var(--textMuted);
+  font-size: 0.875rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.sectionNav a:hover {
+  color: var(--linkHover);
+}
+
+.policyContent {
+  min-width: 0;
+}
+
+.policySection {
+  padding: 0 0 2.75rem;
+  margin-bottom: 2.75rem;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 6rem;
+}
+
+.policySection:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.summaryCard {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  background: var(--surface);
+}
+
+.summaryCard strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+  font-family: var(--fontDisplay);
+}
+
+.summaryCard p {
+  margin: 0;
+  color: var(--textMuted);
+  font-size: 0.9375rem;
+}
+
+.dataTableWrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  background: var(--surface);
+  -webkit-overflow-scrolling: touch;
+}
+
+.dataTable {
+  width: 100%;
+  min-width: 48rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.dataTable th,
+.dataTable td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.dataTable th {
+  color: var(--text);
+  font-family: var(--fontDisplay);
+  font-size: 0.8125rem;
+  letter-spacing: 0.025em;
+}
+
+.dataTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.dataTable td:first-child {
+  color: var(--text);
+  font-weight: 750;
+}
+
+.dataFlag {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--fontMono);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.policyContact {
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  background: var(--surface);
+}
+
+.policyContact address {
+  font-style: normal;
+}
+
+.policyContact > :last-child,
+.policyContact address > :last-child {
+  margin-bottom: 0;
+}
+
+.providerList,
+.deletionSteps {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.providerList article,
+.deletionSteps > div {
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  background: var(--surface);
+}
+
+.providerList article > :last-child,
+.deletionSteps > div > :last-child {
+  margin-bottom: 0;
+}
+
+.faqList {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faqList details {
+  border: 1px solid var(--rule);
+  border-radius: var(--cardRadius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.faqList summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.5rem;
+  padding: 0.9rem 1rem;
+  color: var(--text);
+  font-family: var(--fontDisplay);
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqList summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqList summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.faqList details[open] summary::after {
+  content: "−";
+}
+
+.faqList__answer {
+  padding: 0 1rem 1rem;
+  color: var(--textMuted);
+}
+
+.faqList__answer > :last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 48em) {
   .section {
     padding: 4.5rem 0;
+  }
+
+  .pageHero__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 62em) {
+  .contentShell {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 3rem;
+  }
+
+  .sectionNav {
+    display: block;
+    position: sticky;
+    top: 5.5rem;
+    padding: 1rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--cardRadius);
+    background: var(--surface);
   }
 }
 

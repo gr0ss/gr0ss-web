@@ -1,12 +1,13 @@
 # gr0ss-web
 
-The two public websites for gr0ss tech, as static HTML. No framework, no build
-dependencies, no runtime JavaScript.
+The two public websites for gr0ss tech, as static HTML. No framework or build
+dependencies. The Poison Hotdogs homepage includes a small progressive-enhancement
+script for its carousel, outfit picker, game-mode tabs, and motion.
 
 | Site | Lives in | What it is |
 |---|---|---|
 | **gr0ss tech** | `dist/gr0ss-tech/` | Company landing, games list, contact. Hosts the privacy policy and the public changelog. |
-| **Stay Away From Poison Hotdogs** | `dist/poison-hotdogs/` | Game landing, support, privacy policy, what's new, and a phase-2 forum placeholder. |
+| **Stay Away From Poison Hotdogs** | `dist/poison-hotdogs/` | Game landing, support, privacy policy, and plain-English release notes. |
 
 `dist/` is committed. A host only has to serve one of those folders — there is
 nothing to install and nothing to compile at deploy time.
@@ -33,7 +34,9 @@ content/             page bodies (plain HTML fragments)
 assets-src/
   css/base.css         shared reset, layout, components
   css/theme-*.css      per-site colours, fonts and shapes
+  css/experience-*.css interactive homepage presentation
   img/                 web-sized art cut from the game repo
+  js/                  small dependency-free homepage interaction scripts
 scripts/
   layout.mjs           the page shell: head, header, nav, footer
   build.mjs            the site manifest and the generator
