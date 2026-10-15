@@ -176,6 +176,7 @@ const sites = [
       'shot-04-boss-sneeze-machine.jpg',
     ],
     scripts: [
+      { source: 'poison-hotdogs-navigation.js', output: 'navigation.js' },
       { source: 'poison-hotdogs-home.js', output: 'site.js' },
     ],
     pages: [

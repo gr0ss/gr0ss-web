@@ -30,11 +30,16 @@ const headerHtml = (site, currentHref) => {
   return `  <header class="siteHeader">
     <div class="wrap siteHeader__inner">
       <a class="brandLink" href="index.html">${brand}</a>
-      <nav class="nav" aria-label="Main">
+      <nav class="nav"${site.key === 'poison-hotdogs' ? ' id="phd-primary-nav"' : ''} aria-label="Main">
         ${navHtml(site.nav, currentHref)}
       </nav>
     </div>
-  </header>`;
+  </header>${site.key === 'poison-hotdogs' ? `
+  <button class="slimeMenu" type="button" aria-controls="phd-primary-nav" aria-expanded="false" aria-label="Open menu" hidden>
+    <span class="slimeMenu__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="slimeMenu__drops" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+  <script src="assets/navigation.js" defer></script>` : ''}`;
 };
 
 const footerHtml = (site, config) => {
