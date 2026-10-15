@@ -17,14 +17,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/img/phd-icon-32.png" />
   <link rel="apple-touch-icon" href="assets/img/phd-icon-180.png" />
-  <link rel="stylesheet" href="assets/site.css?v=301188683b1d" />
+  <link rel="stylesheet" href="assets/site.css?v=2fde627305fb" />
 </head>
 <body class="site site--poison-hotdogs">
   <a class="skip" href="#main">Skip to content</a>
   <header class="siteHeader">
     <div class="wrap siteHeader__inner">
       <a class="brandLink" href="index.html"><img src="assets/img/phd-header-lockup-v2.png" width="1200" height="400" alt="Stay Away From Poison Hotdogs" /></a>
-      <nav class="nav" aria-label="Main">
+      <nav class="nav" id="phd-primary-nav" aria-label="Main">
         <a href="index.html">Game</a>
         <a href="changelog.html">What's New</a>
         <a href="support.html">Support</a>
@@ -32,6 +32,11 @@
       </nav>
     </div>
   </header>
+  <button class="slimeMenu" type="button" aria-controls="phd-primary-nav" aria-expanded="false" aria-label="Open menu" hidden>
+    <span class="slimeMenu__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="slimeMenu__drops" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+  <script src="assets/navigation.js?v=26d88aec6520" defer></script>
   <main id="main">
     <section class="section">
       <div class="wrap prose phase2" style="padding-inline: 0">
