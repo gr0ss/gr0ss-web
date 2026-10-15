@@ -1,4 +1,4 @@
-/* base.css — shared reset, layout and components for both gr0ss tech sites.
+/* base.css - shared reset, layout and components for both gr0ss tech sites.
    Theme tokens (colours, display font, texture) live in the per-site sheet
    that is concatenated after this file. Mobile-first: every rule here is the
    small-screen rule; media queries only ever scale up. */
@@ -261,6 +261,70 @@ hr {
   border-bottom: 0;
 }
 
+/* Phones: a four-column comparison table is the wrong shape at 390px, so
+   under 48em every row becomes a card and each cell carries its column
+   label (data-label in the markup). Nothing scrolls sideways and every
+   value is readable without knowing to swipe. */
+@media (max-width: 47.99em) {
+  .dataTableWrap {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .dataTable {
+    min-width: 0;
+    font-size: 0.95rem;
+  }
+
+  .dataTable thead {
+    display: none;
+  }
+
+  .dataTable,
+  .dataTable tbody,
+  .dataTable tr,
+  .dataTable td {
+    display: block;
+  }
+
+  .dataTable tr {
+    margin: 0 0 0.85rem;
+    padding: 0.9rem 1rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.9rem;
+  }
+
+  .dataTable td {
+    padding: 0 0 0.7rem;
+    border-bottom: 0;
+  }
+
+  .dataTable td::before {
+    display: block;
+    margin-bottom: 0.15rem;
+    color: var(--textMuted);
+    font-family: var(--fontDisplay);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    content: attr(data-label);
+  }
+
+  .dataTable td:first-child {
+    font-size: 1.05rem;
+  }
+
+  .dataTable td:first-child::before {
+    display: none;
+  }
+
+  .dataTable tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
 .dataTable td:first-child {
   color: var(--text);
   font-weight: 750;
@@ -414,7 +478,7 @@ hr {
 /* ---------- header + nav ---------- */
 
 /* On phones the five nav links need their own row, which makes the header too
-   tall to pin without eating the screen — so it only sticks once it fits on
+   tall to pin without eating the screen - so it only sticks once it fits on
    one line. */
 .siteHeader {
   z-index: 20;
@@ -1412,10 +1476,9 @@ h2 {
 }
 
 .playBtn__text small {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.72;
 }
 
 .playBtn__text strong {
@@ -1442,10 +1505,7 @@ h2 {
   overflow: hidden;
   padding: clamp(3.5rem, 8vw, 6rem) 0;
   border-bottom-color: rgba(145, 223, 55, 0.16);
-  background:
-    radial-gradient(circle at 88% 40%, rgba(145, 223, 55, 0.2), transparent 20rem),
-    radial-gradient(circle at 10% 0, rgba(135, 89, 190, 0.28), transparent 28rem),
-    #211a31;
+  background: #211a31;
 }
 
 .pageHero::after {
@@ -1502,9 +1562,7 @@ h2 {
   padding: 1.4rem;
   border: 2px solid #4b3e62;
   border-radius: var(--cardRadius);
-  background:
-    radial-gradient(circle at 100% 0, rgba(145, 223, 55, 0.18), transparent 15rem),
-    var(--surface);
+  background: var(--surface);
   box-shadow: 0 6px 0 var(--outline);
 }
 
@@ -1559,16 +1617,12 @@ h2 {
   --codeBg: #e9e1d4;
   --link: #4b7117;
   --linkHover: #2f5100;
-  --accent: #5e8b1b;
-  --accentBright: #466e0e;
+  --accent: #4a7014;
+  --accentBright: #3a5a0e;
   --onAccent: #ffffff;
   --warn: #a45c0a;
   color: var(--text);
-  background:
-    linear-gradient(90deg, rgba(105, 87, 127, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(105, 87, 127, 0.035) 1px, transparent 1px),
-    #f6f1e8;
-  background-size: 28px 28px;
+  background: #f6f1e8;
 }
 
 .policyPage h2,
@@ -1595,13 +1649,19 @@ h2 {
   border-left-color: var(--accent);
 }
 
+/* Keep policy prose to a readable measure; the column is wide enough for
+   ~98 characters a line otherwise. */
+.policySection p,
+.policySection li {
+  max-width: 68ch;
+}
+
 .policySection > h2 {
   max-width: 24ch;
   font-size: clamp(1.85rem, 4vw, 2.65rem);
 }
 
 .policyContact {
-  border-left: 5px solid var(--accent);
   box-shadow: 0 8px 24px rgba(55, 45, 67, 0.07);
 }
 
@@ -1620,6 +1680,7 @@ h2 {
 }
 
 .dataTableWrap {
+  padding: 0.25rem 0.5rem;
   box-shadow: 0 8px 26px rgba(55, 45, 67, 0.07);
 }
 
@@ -1639,7 +1700,7 @@ h2 {
   color: #355a08;
   background: #edf7df;
   font-family: var(--fontMono);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 800;
   line-height: 1.35;
   white-space: nowrap;
@@ -1677,6 +1738,11 @@ h2 {
   display: grid;
   gap: 0.8rem;
   margin: 1.25rem 0 1.5rem;
+}
+
+.deletionSteps a,
+.policyContact a {
+  overflow-wrap: anywhere;
 }
 
 .deletionSteps > div {
@@ -2039,7 +2105,7 @@ h2 {
   }
 }
 
-/* Poison Hotdogs home — cinematic arcade pass. Internal legal/support pages
+/* Poison Hotdogs home - cinematic arcade pass. Internal legal/support pages
    keep the quieter shared theme; this sheet only takes over the game homepage. */
 
 .site--poison-hotdogs {
@@ -2088,7 +2154,7 @@ h2 {
 }
 
 .site--poison-hotdogs .brandLink img {
-	width: clamp(11rem, 18vw, 15.5rem);
+	width: clamp(13rem, 19vw, 17.5rem);
 	height: 4rem;
 	object-fit: contain;
 	object-position: left center;
@@ -2136,20 +2202,6 @@ h2 {
 	transform: scaleX(1);
 }
 
-.headerStudio {
-	display: none;
-	margin-left: 0.25rem;
-	color: #a8b7ce;
-	font-size: 0.78rem;
-	text-decoration: none;
-	white-space: nowrap;
-}
-
-.headerStudio strong {
-	color: var(--homeGreen);
-	font-weight: 900;
-}
-
 .gameHome {
 	width: 100%;
 	max-width: 100%;
@@ -2183,10 +2235,10 @@ h2 {
 .storyCard h2 {
 	margin: 0 0 0.28em;
 	color: #fffdf5;
-	font-size: clamp(2.55rem, 6vw, 5rem);
+	font-size: clamp(2.3rem, 5vw, 4rem);
 	font-weight: 950;
-	letter-spacing: -0.05em;
-	line-height: 0.92;
+	letter-spacing: -0.02em;
+	line-height: 0.98;
 	text-shadow: 0 4px 0 rgba(0, 0, 0, 0.48);
 }
 
@@ -2201,7 +2253,7 @@ h2 {
 .outfitIntro > p:last-child,
 .modePanel > p,
 .bossCard__copy > p:last-child {
-	color: #becbe0;
+	color: #d5dfec;
 }
 
 .gameHome .eyebrow {
@@ -2258,30 +2310,14 @@ h2 {
 	transition: transform 300ms ease-out;
 }
 
-.arcadeHero__wordmark {
-	width: clamp(14rem, 26vw, 23rem);
-	margin: 0 0 1.2rem;
-	filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.48));
-}
-
-.arcadeHero__kicker {
-	margin: 0 0 0.6rem;
-	color: var(--homeGreen);
-	font-family: var(--fontMono);
-	font-size: 0.76rem;
-	font-weight: 900;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-}
-
 .arcadeHero h1 {
 	max-width: 10.5ch;
 	margin: 0 0 0.3em;
 	color: #fffdf5;
-	font-size: clamp(3.4rem, 7vw, 6.6rem);
+	font-size: clamp(3rem, 6vw, 5.4rem);
 	font-weight: 950;
-	letter-spacing: -0.06em;
-	line-height: 0.85;
+	letter-spacing: -0.02em;
+	line-height: 0.92;
 	text-shadow: 0 5px 0 rgba(0, 0, 0, 0.58), 0 0 34px rgba(0, 0, 0, 0.45);
 }
 
@@ -2308,7 +2344,7 @@ h2 {
 .arcadeHero .btn {
 	min-height: 3.75rem;
 	border-color: rgba(173, 255, 50, 0.84);
-	box-shadow: 0 0 30px rgba(130, 244, 39, 0.2), 0 5px 0 #030712;
+	box-shadow: 0 5px 0 #030712;
 }
 
 .arcadeHero .playBtn[aria-disabled="true"] {
@@ -2344,7 +2380,7 @@ h2 {
 	border: 1px solid rgba(95, 218, 242, 0.33);
 	border-radius: 1.25rem;
 	background: rgba(5, 14, 31, 0.9);
-	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5), 0 0 32px rgba(30, 219, 237, 0.1);
+	box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
 	list-style: none;
 	backdrop-filter: blur(14px);
 }
@@ -2380,8 +2416,8 @@ h2 {
 
 .gameStats span {
 	margin-top: 0.25rem;
-	color: #aebcd2;
-	font-size: 0.63rem;
+	color: #c3cfe0;
+	font-size: 0.78rem;
 	font-weight: 900;
 	letter-spacing: 0.09em;
 	text-transform: uppercase;
@@ -2391,7 +2427,7 @@ h2 {
 
 .chaosSection {
 	position: relative;
-	padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+	padding: clamp(3rem, 5vw, 4.5rem) 0;
 	border-block: 1px solid rgba(34, 217, 238, 0.15);
 	background: #071225 url("img/world-swamp.webp") center / cover fixed;
 }
@@ -2413,34 +2449,34 @@ h2 {
 	outline: none;
 }
 
+/* One slide at a time, laid out in normal flow so the section is exactly as
+   tall as the screenshot. The earlier version floated the previous and next
+   slides at 38% opacity off both edges and reserved a fixed-height stage
+   for them, which read as a broken duplicate image inside two empty bands. */
 .gameCarousel__viewport {
 	position: relative;
-	height: clamp(20rem, 45vw, 39rem);
-	overflow: visible;
+	width: min(100%, 69rem);
+	margin-inline: auto;
 }
 
 .gameCarousel__track {
-	position: absolute;
-	inset: 0;
+	display: grid;
 }
 
 .gameSlide {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: min(79vw, 69rem);
-	max-width: calc(100% - 7rem);
-	aspect-ratio: 2048 / 955;
+	position: relative;
+	grid-area: 1 / 1;
+	width: 100%;
+	aspect-ratio: 2048 / 933;
 	margin: 0;
 	overflow: hidden;
-	border: 2px solid rgba(34, 217, 238, 0.66);
-	border-radius: clamp(1rem, 2vw, 1.65rem);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: clamp(1rem, 2vw, 1.5rem);
 	background: #071225;
-	box-shadow: 0 28px 75px rgba(0, 0, 0, 0.65), 0 0 38px rgba(24, 221, 237, 0.12);
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 	opacity: 0;
 	pointer-events: none;
-	transform: translate(-50%, -50%) scale(0.8);
-	transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 400ms ease, filter 400ms ease;
+	transition: opacity 320ms ease;
 }
 
 .gameSlide img {
@@ -2480,22 +2516,6 @@ h2 {
 	z-index: 3;
 	opacity: 1;
 	pointer-events: auto;
-	transform: translate(-50%, -50%) scale(1);
-}
-
-.gameSlide.is-prev,
-.gameSlide.is-next {
-	z-index: 1;
-	opacity: 0.38;
-	filter: saturate(0.72) brightness(0.66);
-}
-
-.gameSlide.is-prev {
-	transform: translate(-126%, -50%) scale(0.79) rotate(-1.5deg);
-}
-
-.gameSlide.is-next {
-	transform: translate(26%, -50%) scale(0.79) rotate(1.5deg);
 }
 
 .carouselButton,
@@ -2508,7 +2528,7 @@ h2 {
 	border: 2px solid rgba(173, 255, 50, 0.74);
 	border-radius: 50%;
 	background: #173d73;
-	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.52), 0 0 24px rgba(155, 255, 47, 0.18);
+	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.52);
 	cursor: pointer;
 	transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -2516,7 +2536,7 @@ h2 {
 .carouselButton:hover,
 .outfitPicker__arrow:hover {
 	border-color: #fff;
-	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.56), 0 0 30px rgba(173, 255, 50, 0.26);
+	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.56);
 	transform: scale(1.07);
 }
 
@@ -2534,10 +2554,12 @@ h2 {
 }
 
 .carouselButton--prev {
+	left: -1.25rem;
 	left: clamp(0.1rem, 1.3vw, 1.3rem);
 }
 
 .carouselButton--next {
+	right: -1.25rem;
 	right: clamp(0.1rem, 1.3vw, 1.3rem);
 }
 
@@ -2577,7 +2599,7 @@ h2 {
 	border-radius: 50%;
 	background: transparent;
 	cursor: pointer;
-	transition: width 180ms ease, border-color 180ms ease, background 180ms ease;
+	transition: border-color 180ms ease, background 180ms ease;
 }
 
 .carouselDot[aria-current="true"] {
@@ -2591,11 +2613,11 @@ h2 {
 	display: flex;
 	gap: 0.8rem;
 	margin: 0;
-	color: #8797af;
+	color: #9fb0c8;
 	font-family: var(--fontMono);
-	font-size: 0.68rem;
+	font-size: 0.78rem;
 	font-weight: 850;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
 }
 
@@ -2607,19 +2629,9 @@ h2 {
 
 .outfitSection {
 	position: relative;
-	isolation: isolate;
-	padding: clamp(4.8rem, 9vw, 8rem) 0;
+	padding: clamp(3rem, 5vw, 4.5rem) 0;
 	border-bottom: 1px solid rgba(173, 255, 50, 0.22);
 	background: #0b1026;
-}
-
-.outfitSection::before {
-	position: absolute;
-	inset: 0;
-	z-index: -1;
-	content: "";
-	background: url("img/capture-crew-v2.webp") center / cover;
-	opacity: 0.09;
 }
 
 .outfitIntro {
@@ -2645,7 +2657,7 @@ h2 {
 	border: 1px solid rgba(34, 217, 238, 0.38);
 	border-radius: clamp(1.3rem, 3vw, 2.2rem);
 	background: rgba(5, 14, 32, 0.94);
-	box-shadow: 0 32px 80px rgba(0, 0, 0, 0.52), 0 0 55px rgba(108, 40, 191, 0.18);
+	box-shadow: 0 32px 80px rgba(0, 0, 0, 0.52);
 }
 
 .outfitSpotlight {
@@ -2653,14 +2665,13 @@ h2 {
 	isolation: isolate;
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	gap: 1.5rem;
+	gap: clamp(0.75rem, 2vw, 1.5rem);
 	align-items: center;
-	min-height: 27rem;
 	overflow: hidden;
-	padding: clamp(1.25rem, 4vw, 3rem);
+	padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 4vw, 3rem) 0;
 	border: 1px solid rgba(255, 255, 255, 0.09);
 	border-radius: 1.55rem;
-	background: rgba(7, 16, 38, 0.96);
+	background: #071326 url("img/outfit-stage-backdrop-v2.jpg") center / cover no-repeat;
 }
 
 .outfitSpotlight::before {
@@ -2668,97 +2679,26 @@ h2 {
 	inset: 0;
 	z-index: -1;
 	content: "";
-	background: url("img/phd-hero-arcade-v2.webp") 62% 56% / cover;
-	opacity: 0.18;
+	background: rgba(2, 8, 21, 0.28);
 }
 
-.outfitSpotlight__hero,
-.outfitSpotlight__card,
-.outfitSpotlight__copy {
+.outfitSpotlight__copy,
+.outfitStage {
 	position: relative;
 	z-index: 1;
-}
-
-.outfitSpotlight__rexy {
-	width: min(78%, 19rem);
-	margin: 0 auto;
-	filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.5));
-	animation: rexyBounce 5s ease-in-out infinite;
-}
-
-.outfitSpotlight__card {
-	width: min(62%, 10.2rem);
-	margin: 1.4rem auto 0;
-}
-
-.outfitSpotlight__card::before {
-	position: absolute;
-	inset: -0.8rem;
-	z-index: -1;
-	content: "";
-	border: 2px solid var(--homeGreen);
-	border-radius: 1.75rem;
-	background: rgba(162, 255, 44, 0.1);
-	box-shadow: 0 0 42px rgba(150, 255, 45, 0.24);
-}
-
-.outfitSpotlight__card > img {
-	width: 100%;
-	border-radius: 1.2rem;
-	transition: opacity 130ms ease, transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.outfitSpotlight__card > img.is-changing {
-	opacity: 0;
-	transform: translateY(0.45rem) scale(0.95);
-}
-
-.outfitSpotlight__label {
-	position: absolute;
-	left: 50%;
-	top: -2.3rem;
-	z-index: 2;
-	display: flex;
-	gap: 0.4rem;
-	padding: 0.3rem 0.65rem;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 999px;
-	color: #dbe8f8;
-	background: #0d1b35;
-	font-family: var(--fontMono);
-	font-size: 0.64rem;
-	font-weight: 850;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	transform: translateX(-50%);
-	white-space: nowrap;
-}
-
-.outfitSpotlight__label b {
-	color: var(--homeGreen);
 }
 
 .outfitSpotlight__copy {
 	text-align: center;
 }
 
-.outfitSpotlight__copy > p {
-	margin: 0 0 0.35rem;
-	color: var(--homeGreen);
-	font-family: var(--fontMono);
-	font-size: 0.7rem;
-	font-weight: 900;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-}
-
 .outfitSpotlight__copy h3 {
-	margin: 0 0 0.4rem;
+	margin: 0 0 0.3rem;
 	color: #fff;
-	font-size: clamp(2.1rem, 5vw, 3.6rem);
+	font-size: clamp(1.9rem, 4vw, 2.8rem);
 	font-weight: 950;
-	letter-spacing: -0.04em;
-	line-height: 0.95;
+	letter-spacing: -0.02em;
+	line-height: 1;
 }
 
 .outfitSpotlight__copy > span {
@@ -2766,15 +2706,115 @@ h2 {
 	color: #c5d2e5;
 }
 
-.outfitSpotlight__copy > small {
+.outfitNote {
+	margin: 1rem 0 0;
+	color: #a9b8cc;
+	font-size: 0.92rem;
+	text-align: center;
+}
+
+.outfitStage {
+	display: grid;
+	grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.15fr) minmax(0, 0.82fr);
+	gap: clamp(0.1rem, 1vw, 0.7rem);
+	align-items: end;
+	min-width: 0;
+}
+
+.outfitPedestal {
+	--characterScale: 0.78;
+	display: grid;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: #fff;
+	background: transparent;
+	text-align: center;
+}
+
+button.outfitPedestal {
+	cursor: pointer;
+	opacity: 0.82;
+	transition: opacity 180ms ease, transform 180ms ease;
+}
+
+button.outfitPedestal:hover,
+button.outfitPedestal:focus-visible {
+	opacity: 1;
+	transform: translateY(-0.35rem);
+}
+
+.outfitPedestal--current {
+	--characterScale: 1;
+}
+
+.outfitPedestal__figure {
+	position: relative;
 	display: block;
-	max-width: 30rem;
-	margin: 1.2rem auto 0;
-	padding-top: 1rem;
-	border-top: 1px solid rgba(34, 217, 238, 0.2);
-	color: #94a8c2;
-	font-size: 0.78rem;
-	line-height: 1.5;
+	height: clamp(15rem, 24vw, 24rem);
+}
+
+.outfitPedestal__art,
+.outfitPedestal__base {
+	position: absolute;
+	left: 50%;
+	display: block;
+	max-width: none;
+	pointer-events: none;
+}
+
+/* The pad painting's standing surface sits ~62% up from its own bottom edge;
+   with the pad at 42% of the figure height that surface is at ~26%. The
+   sprites carry a little transparent margin under the feet, so 22% lands
+   Rexy on the pad rather than hovering over it. */
+.outfitPedestal__art {
+	bottom: 22%;
+	z-index: 2;
+	width: 100%;
+	height: 78%;
+	object-fit: contain;
+	object-position: bottom;
+	filter: drop-shadow(0 1rem 1.1rem rgba(0, 0, 0, 0.56));
+	transform: translateX(-50%) scale(var(--characterScale));
+	transform-origin: 50% 100%;
+	transition: opacity 140ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.outfitPedestal__base {
+	bottom: 0;
+	z-index: 1;
+	width: auto;
+	height: 42%;
+	filter: drop-shadow(0 1rem 1.5rem rgba(0, 0, 0, 0.6));
+	transform: translateX(-50%);
+}
+
+.outfitPedestal strong {
+	justify-self: center;
+	max-width: 100%;
+	margin-top: -0.15rem;
+	padding: 0.28rem 0.62rem;
+	overflow: hidden;
+	border: 1px solid rgba(120, 221, 244, 0.42);
+	border-radius: 999px;
+	color: #eaf4ff;
+	background: rgba(4, 13, 31, 0.9);
+	font-size: clamp(0.75rem, 1vw, 0.8rem);
+	font-weight: 900;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.outfitPedestal--current strong {
+	color: #07101e;
+	border-color: var(--homeGreen);
+	background: var(--homeGreen);
+}
+
+.outfitStage.is-changing .outfitPedestal__art {
+	opacity: 0;
+	transform: translateX(-50%) translateY(0.55rem) scale(0.86);
 }
 
 .outfitPicker {
@@ -2820,9 +2860,16 @@ h2 {
 	transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
+/* The rail shows the same full-body outfit painting the pedestal does, at
+   thumbnail size: square, transparent, on a soft glow so it reads on navy. */
 .outfitChoice img {
+	display: block;
 	width: 100%;
+	aspect-ratio: 1;
+	padding: 0.3rem;
 	border-radius: 0.78rem;
+	background: radial-gradient(circle at 50% 42%, rgba(173, 255, 50, 0.2), rgba(7, 19, 40, 0) 70%);
+	object-fit: contain;
 }
 
 .outfitChoice:hover {
@@ -2832,38 +2879,14 @@ h2 {
 
 .outfitChoice.is-selected {
 	border-color: var(--homeGreen);
-	box-shadow: 0 0 0 3px rgba(173, 255, 50, 0.11), 0 0 25px rgba(151, 255, 43, 0.24);
+	box-shadow: 0 0 0 3px rgba(173, 255, 50, 0.18);
 	transform: translateY(-4px);
-}
-
-.crewRoll {
-	display: flex;
-	gap: 0.55rem;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-top: 1.15rem;
-}
-
-.crewRoll span {
-	padding: 0.42rem 0.72rem;
-	border: 1px solid rgba(123, 213, 255, 0.23);
-	border-radius: 999px;
-	color: #dce8f8;
-	background: rgba(7, 17, 36, 0.86);
-	font-size: 0.76rem;
-	font-weight: 850;
-}
-
-.crewRoll span:first-child {
-	color: var(--homeInk);
-	border-color: var(--homeGreen);
-	background: var(--homeGreen);
 }
 
 /* ---------- game modes ---------- */
 
 .modeSection {
-	padding: clamp(4.8rem, 9vw, 8rem) 0;
+	padding: clamp(3rem, 5vw, 4.5rem) 0;
 	background: #071429;
 }
 
@@ -2875,17 +2898,20 @@ h2 {
 
 .modeScreen {
 	position: relative;
+	display: grid;
+	place-items: center;
+	aspect-ratio: 3 / 2;
 	overflow: hidden;
 	border: 2px solid rgba(34, 217, 238, 0.7);
 	border-radius: clamp(1rem, 2.4vw, 1.8rem);
 	background: #2a66a6;
-	box-shadow: 0 28px 72px rgba(0, 0, 0, 0.54), 0 0 40px rgba(29, 217, 237, 0.13);
+	box-shadow: 0 28px 72px rgba(0, 0, 0, 0.54);
 }
 
 .modeScreen img {
 	width: 100%;
-	height: auto;
-	object-fit: cover;
+	height: 100%;
+	object-fit: contain;
 	transition: opacity 160ms ease, transform 220ms ease;
 }
 
@@ -2913,8 +2939,32 @@ h2 {
 	transition: transform 150ms ease, border-color 150ms ease, color 150ms ease, background 150ms ease;
 }
 
-.modeTabs button:last-child {
+/* Practice is not a fifth mode. It sits on its own row under a rule, drawn as
+   a dashed ghost button, at every width - so nobody counts five. */
+.modeTabs [data-mode-kind="practice"] {
+	position: relative;
 	grid-column: 1 / -1;
+	margin-top: 0.9rem;
+	border-style: dashed;
+	border-color: rgba(120, 202, 255, 0.4);
+	color: #a9bdd8;
+	background: transparent;
+}
+
+.modeTabs [data-mode-kind="practice"]::before {
+	position: absolute;
+	top: -0.75rem;
+	left: 12%;
+	right: 12%;
+	height: 1px;
+	content: "";
+	background: rgba(120, 202, 255, 0.25);
+}
+
+.modeTabs [data-mode-kind="practice"][aria-selected="true"] {
+	color: var(--homeInk);
+	border-style: solid;
+	background: var(--homeGreen);
 }
 
 .modeTabs button:hover {
@@ -2927,24 +2977,13 @@ h2 {
 	color: var(--homeInk);
 	border-color: var(--homeGreen);
 	background: var(--homeGreen);
-	box-shadow: 0 0 24px rgba(143, 255, 40, 0.2);
 }
 
 .modePanel__active {
 	min-height: 10rem;
 	padding: 1.35rem;
-	border-left: 4px solid var(--homeCyan);
 	border-radius: 0 1rem 1rem 0;
 	background: #0e1d38;
-}
-
-.modePanel__number {
-	margin: 0 0 0.45rem;
-	color: var(--homeGreen);
-	font-family: var(--fontMono);
-	font-size: 0.68rem;
-	font-weight: 850;
-	letter-spacing: 0.09em;
 }
 
 .modePanel__active h3 {
@@ -2962,7 +3001,7 @@ h2 {
 /* ---------- boss, grown-ups and story ---------- */
 
 .bossSection {
-	padding: 0 0 clamp(4.8rem, 9vw, 8rem);
+	padding: 0 0 clamp(3rem, 5vw, 4.5rem);
 	background: #071429;
 }
 
@@ -3006,7 +3045,7 @@ h2 {
 	--link: var(--homeGreen);
 	--linkHover: #d4ff96;
 	--rule: rgba(99, 199, 229, 0.18);
-	padding: clamp(4.8rem, 9vw, 8rem) 0;
+	padding: clamp(3rem, 5vw, 4.5rem) 0;
 	color: var(--text);
 	border-block: 1px solid rgba(34, 217, 238, 0.14);
 	background: #0d142c;
@@ -3054,8 +3093,8 @@ h2 {
 	border-radius: 999px;
 	color: var(--homeGreen);
 	font-family: var(--fontMono);
-	font-size: 0.6rem;
-	letter-spacing: 0.08em;
+	font-size: 0.78rem;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
 }
 
@@ -3083,15 +3122,17 @@ h2 {
 }
 
 .gameHome .storySection {
-	padding: clamp(4.8rem, 9vw, 8rem) 0 2.5rem;
+	padding: clamp(2.5rem, 4vw, 3.5rem) 0 2.5rem;
 	background: #061020;
 }
 
 .gameHome .storyCard {
 	display: grid;
 	gap: 0 2.5rem;
-	align-items: end;
-	overflow: hidden;
+	align-items: start;
+	/* clip, not hidden: hidden makes the card the scroll container for the
+	   sticky figure, and Rexy would just scroll away with the text. */
+	overflow: clip;
 	border: 1px solid rgba(110, 213, 241, 0.22);
 	border-radius: clamp(1.3rem, 3vw, 2.2rem);
 	background: #0d1a33;
@@ -3099,6 +3140,7 @@ h2 {
 }
 
 .gameHome .storyCard img {
+	align-self: start;
 	width: min(76%, 20rem);
 	margin: 1.5rem auto -0.5rem;
 	filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.4));
@@ -3115,10 +3157,20 @@ h2 {
 
 .gameHome .storyCard p {
 	color: #bdc9dc;
+	line-height: 1.68;
+}
+
+/* The game's About screen draws the break between its two halves as a
+   rule, never as characters; same here. */
+.gameHome .storyCard__rule {
+	margin: 1.6rem 0;
+	border: 0;
+	border-top: 1px solid rgba(139, 235, 255, 0.28);
 }
 
 .gameHome .storyCard__signoff {
 	color: var(--homeGreen);
+	font-weight: 900;
 }
 
 .gameHome .storyCard__signoff a {
@@ -3133,6 +3185,11 @@ h2 {
 
 .site--poison-hotdogs .siteFooter .wrap {
 	width: min(calc(100% - 2rem), 82rem);
+	text-align: center;
+}
+
+.site--poison-hotdogs .siteFooter__links {
+	justify-content: center;
 }
 
 /* ---------- reveal and motion ---------- */
@@ -3185,13 +3242,6 @@ h2 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.outfitSpotlight {
-		grid-template-columns: minmax(10rem, 1fr) minmax(8rem, 0.58fr);
-	}
-
-	.outfitSpotlight__copy {
-		grid-column: 1 / -1;
-	}
 }
 
 @media (min-width: 48em) {
@@ -3200,12 +3250,14 @@ h2 {
 	}
 
 	.gameHome .storyCard {
-		grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+		grid-template-columns: minmax(12rem, 0.5fr) minmax(0, 1.5fr);
 	}
 
 	.gameHome .storyCard img {
-		width: min(100%, 22rem);
-		margin: 1.5rem auto -0.8rem;
+		position: sticky;
+		top: 6.5rem;
+		width: min(100%, 18rem);
+		margin: 3rem auto 2rem;
 	}
 
 	.gameHome .storyCard > div {
@@ -3214,27 +3266,6 @@ h2 {
 }
 
 @media (min-width: 58em) {
-	.outfitSpotlight {
-		grid-template-columns: minmax(15rem, 1fr) minmax(9rem, 0.48fr) minmax(17rem, 0.9fr);
-	}
-
-	.outfitSpotlight__rexy {
-		width: min(100%, 22rem);
-	}
-
-	.outfitSpotlight__card {
-		width: min(100%, 10.2rem);
-	}
-
-	.outfitSpotlight__copy {
-		grid-column: auto;
-		text-align: left;
-	}
-
-	.outfitSpotlight__copy > small {
-		margin-inline: 0;
-	}
-
 	.modeLayout {
 		grid-template-columns: minmax(0, 1.38fr) minmax(18rem, 0.62fr);
 	}
@@ -3255,10 +3286,6 @@ h2 {
 @media (min-width: 76em) {
 	.site--poison-hotdogs .siteHeader__inner {
 		width: min(calc(100% - 3rem), 88rem);
-	}
-
-	.headerStudio {
-		margin-left: 0.75rem;
 	}
 }
 
@@ -3290,55 +3317,53 @@ h2 {
 		height: 3.6rem;
 	}
 
+	/* Five links do not fit on one 375px line; wrap and centre them rather
+	   than hiding the fifth behind an invisible horizontal scroller. */
 	.site--poison-hotdogs .nav {
 		width: 100%;
-		overflow-x: auto;
-		justify-content: flex-start;
-		gap: 0.05rem 0.25rem;
-		padding-bottom: 0.2rem;
-		flex-wrap: nowrap;
-		scrollbar-width: none;
-		overscroll-behavior-inline: contain;
-	}
-
-	.site--poison-hotdogs .nav::-webkit-scrollbar {
-		display: none;
+		justify-content: center;
+		gap: 0 0.25rem;
+		flex-wrap: wrap;
 	}
 
 	.site--poison-hotdogs .nav a {
 		flex: 0 0 auto;
-		min-height: 2.5rem;
+		min-height: 2.4rem;
 		padding-inline: 0.42rem;
 		font-size: clamp(0.7rem, 3.15vw, 0.8rem);
 	}
 
+	/* Phones: the copy sits at the top over the sky, so Rexy (lower half of
+	   the portrait art) stays visible between the buttons and the stat bar. */
 	.arcadeHero {
-		min-height: 48rem;
-		align-items: flex-end;
+		min-height: 50rem;
+		align-items: flex-start;
 	}
 
 	.arcadeHero__art {
-		object-fit: fill;
-		object-position: center;
+		object-fit: cover;
+		object-position: 50% 62%;
 		transform: none;
 	}
 
 	.arcadeHero__shade {
 		background:
-			linear-gradient(0deg, rgba(2, 7, 18, 0.96) 0%, rgba(2, 7, 18, 0.82) 44%, rgba(2, 7, 18, 0.24) 77%, rgba(2, 7, 18, 0.22) 100%);
+			linear-gradient(180deg, rgba(2, 7, 18, 0.9) 0%, rgba(2, 7, 18, 0.78) 42%, rgba(2, 7, 18, 0.12) 62%, rgba(2, 7, 18, 0.2) 100%);
 	}
 
 	.arcadeHero__content {
-		padding-bottom: 11rem;
+		margin-top: 0;
+		padding-top: 1.75rem;
+		padding-bottom: 14rem;
 		text-align: center;
 	}
 
-	.arcadeHero__wordmark {
-		width: min(14rem, 68vw);
-		margin-inline: auto;
+	.carouselButton {
+		display: none;
 	}
 
 	.arcadeHero h1 {
+		font-size: clamp(2.6rem, 12vw, 3.4rem);
 		max-width: 11ch;
 		margin-inline: auto;
 		font-size: clamp(3rem, 14vw, 4.5rem);
@@ -3354,20 +3379,6 @@ h2 {
 
 	.arcadeHero__statsWrap {
 		bottom: 1rem;
-	}
-
-	.gameCarousel__viewport {
-		height: clamp(17rem, 67vw, 28rem);
-	}
-
-	.gameSlide {
-		width: calc(100% - 1rem);
-		max-width: none;
-	}
-
-	.gameSlide.is-prev,
-	.gameSlide.is-next {
-		opacity: 0;
 	}
 
 	.carouselButton {
@@ -3405,19 +3416,15 @@ h2 {
 		flex-basis: 5.1rem;
 	}
 
-	.modeTabs {
-		grid-template-columns: 1fr;
-	}
-
-	.modeTabs button:last-child {
-		grid-column: auto;
+	.modeTabs button {
+		padding-inline: 0.45rem;
 	}
 }
 
 @media (max-width: 31em) {
 	.homeWrap,
 	.site--poison-hotdogs .siteFooter .wrap {
-		width: min(calc(100% - 1.25rem), 82rem);
+		width: min(calc(100% - 2rem), 82rem);
 	}
 
 	.arcadeHero__actions {
@@ -3434,27 +3441,23 @@ h2 {
 	}
 
 	.outfitSpotlight {
-		grid-template-columns: minmax(0, 1fr) minmax(7rem, 0.65fr);
-		gap: 1rem;
-		min-height: 0;
-		padding: 1.2rem 0.8rem;
+		gap: 0.75rem;
+		padding: 1.1rem 0.8rem 0;
 	}
 
-	.outfitSpotlight__rexy {
-		width: min(100%, 12rem);
+	/* Phones: one pedestal. Three pads at this width overlap each other. */
+	.outfitStage {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
-	.outfitSpotlight__card {
-		width: min(100%, 8.3rem);
+	.outfitPedestal--side {
+		display: none;
 	}
 
-	.outfitSpotlight__copy {
-		grid-column: 1 / -1;
+	.outfitPedestal__figure {
+		height: 17rem;
 	}
 
-	.crewRoll span {
-		font-size: 0.7rem;
-	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3465,13 +3468,13 @@ h2 {
 	.arcadeHero__art,
 	.arcadeHero__content,
 	.gameSlide,
-	.outfitSpotlight__card > img,
+	.outfitPedestal__art,
 	.outfitChoice,
 	.modeScreen img {
 		transition: none;
 	}
 
-	.outfitSpotlight__rexy {
+	.outfitPedestal__art {
 		animation: none;
 	}
 
