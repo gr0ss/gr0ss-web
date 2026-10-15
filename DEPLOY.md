@@ -9,21 +9,21 @@
 
 Hosting: single public repo <https://github.com/gr0ss/gr0ss-web> (full source,
 history secret-scanned before publishing), with a `gh-pages` branch that
-mirrors `dist/` — Pages serves it from the branch root. No domain has been
+mirrors `dist/` - Pages serves it from the branch root. No domain has been
 bought and no DNS touched; the Domain Decision card is still open and a custom
 domain can be layered on later without changing the hosting.
 
-Run `node scripts/check.mjs` at any point — every warning it prints is an item
+Run `node scripts/check.mjs` at any point - every warning it prints is an item
 on this page.
 
 ---
 
-## Part 1 — the four decisions (Gavin only)
+## Part 1 - the four decisions (Gavin only)
 
 Nothing below can happen until these are answered. They are listed in the order
 they unblock things.
 
-### 1. The support inbox — ✅ RESOLVED 2026-08-21
+### 1. The support inbox - ✅ RESOLVED 2026-08-21
 
 `contactEmail` is now the real, monitored `gr0sstech.support@gmail.com` (one
 shared inbox for everything). `privacyEmail` points at the same address. Keep
@@ -31,7 +31,7 @@ the game repo's Play Store policy documentation aligned with this public inbox.
 
 The placeholder warning boxes on Contact and Support have been removed from
 `content/` and both sites rebuilt. If a domain is bought later,
-`support@<domain>` supersedes the Gmail via free forwarding — see
+`support@<domain>` supersedes the Gmail via free forwarding - see
 [docs/DOMAIN-HOOKUP.md](docs/DOMAIN-HOOKUP.md).
 
 ### 2. The domains
@@ -41,7 +41,7 @@ Pages URLs. A custom domain is optional; `sites.<site>.customDomain` remains
 empty until one is chosen.
 
 **This is now a decision card on the dashboard** (Launch / Brand → Domain
-Decision) with per-option pros/cons — pick there rather than here. Summary,
+Decision) with per-option pros/cons - pick there rather than here. Summary,
 cheapest first, using verified 2026 `.com` pricing:
 
 | Option | URLs | Cost |
@@ -51,7 +51,7 @@ cheapest first, using verified 2026 `.com` pricing:
 | Two domains | `https://gr0sstech.com/` and `https://poisonhotdogs.com/` | ~$20.92/yr |
 
 A `.com` is genuinely ~$10-11/yr at Cloudflare Registrar (at cost, flat
-renewal) or Porkbun (~$11.08/yr, flat) — **not the ~$2 you may have seen**;
+renewal) or Porkbun (~$11.08/yr, flat) - **not the ~$2 you may have seen**;
 those are year-one teasers that spike on renewal. The free path is not a
 downgrade you get stuck with: a real `.com` can be pointed at the same free
 hosting later at no extra cost.
@@ -63,23 +63,31 @@ Once a domain exists, the exact DNS records, HTTPS steps and the
 The privacy policy URL goes into the Play Console and into the app, and moving
 it later means re-submitting. Worth deciding once.
 
-If a custom domain is chosen, set both `baseUrl` values and rebuild — canonical
+If a custom domain is chosen, set both `baseUrl` values and rebuild - canonical
 tags, `sitemap.xml`, `robots.txt`, the social-share URLs, and the links between
 the two sites all follow from them. The existing GitHub Pages URLs are real, so
 cross-site links already work today.
 
-### 3. Public contact boundary — ✅ DECIDED 2026-09-11
+### 3. Legal entity and mailing address - DECIDED 2026-09-17, address deliberately absent
 
-The operator is `Gavin John Gross`, doing business as gr0ss tech. The website
-publishes the monitored privacy email and does **not** publish a residential
-mailing address or personal telephone number. This is a deliberate owner
-decision, not an unfinished placeholder; do not add either field later without
-explicit permission.
+The operator on the policy is **Gavin Gross** (an individual, doing business as
+gr0ss tech; his middle name is real and deliberately left off public surfaces).
 
-Known tradeoff: the FTC's COPPA guidance says a child-directed operator's
-online notice should include a name, address, telephone number, and email. The
-email-only contact block intentionally does not satisfy that particular list.
-Google Play acceptance and legal compliance are separate questions.
+The policy carries **no mailing address**. Gavin's decision, in his words:
+"does my mailing address absolutely have to be on that? I would really really
+really rather it not be." The research (vault: Legal-Entity.md) says COPPA's
+online notice needs *a* postal address, not his home; a PO box satisfies the
+rule and he is looking into one. Until then `businessAddress` in
+`site.config.json` is empty, the policy's Operator and Contact blocks print
+name + email only, and `check.mjs` warns about it at every build so it is
+not forgotten. When the PO box exists: fill the value, restore the
+`Mailing address: {{businessAddress}}` line in
+`content/shared/privacy-poison-hotdogs.html`, rebuild.
+
+Separately, Google Play will publish whatever address is on the Payments
+profile once the app sells IAP from a personal account, and rejects PO boxes
+there - that is the bigger exposure and it is a Play-account decision, not a
+website one (see Legal-Entity.md).
 
 ### 4. Ads: did they ship?
 
@@ -92,14 +100,20 @@ together.
 
 ---
 
-## Part 2 — publishing (GitHub Pages) — DONE 2026-08-31
+> **State on 2026-09-18: master carries the redesign, but NOTHING has been
+> published.** The `gh-pages` branch and the live github.io URLs still serve
+> the pre-redesign site. Gavin merged to master so he can run the site
+> locally and review it properly; publishing is a separate, later step and
+> needs his go. Do not assume the live site matches master.
+
+## Part 2 - publishing (GitHub Pages) - DONE 2026-08-31
 
 What actually shipped (differs from the original per-site-repo plan): ONE
 public repo, `github.com/gr0ss/gr0ss-web`, holding the full source. A
 `gh-pages` branch mirrors `dist/` (both site folders side by side, plus a root
 `.nojekyll`), and Pages serves that branch from `/ (root)`. One repo keeps the
 source and the deploy in the same history, and still supports a custom domain
-later — either both sites under one domain on paths, or split into per-site
+later - either both sites under one domain on paths, or split into per-site
 repos then if two domains are ever bought.
 
 **Updating the live sites:** edit `content/`, then:
@@ -113,7 +127,7 @@ git push origin $(git subtree split --prefix dist master):refs/heads/gh-pages --
 ```
 
 The `--force` on the last line is fine: `gh-pages` is a generated mirror of
-`dist/`, never edited by hand — `master` is the history that matters.
+`dist/`, never edited by hand. `master` is the history that matters.
 
 ### Custom domain (only if step 2 picked one)
 
@@ -126,22 +140,23 @@ The `--force` on the last line is fine: `gh-pages` is a generated mirror of
 
 ### If not GitHub Pages
 
-Any static host works — Cloudflare Pages, Netlify, or plain nginx. The build
+Any static host works: Cloudflare Pages, Netlify, or plain nginx. The build
 output has no server-side requirements. Point the host at `dist/<site>` and
 serve `404.html` as the not-found page.
 
 ---
 
-## Part 3 — after go-live
+## Part 3 - after go-live
 
 1. Paste the privacy URL into **Play Console → App content → Privacy policy**
    and into `[PRIVACY-POLICY-URL]` in the game repo's
    `docs/PlayStore/LISTING-COPY.md`.
 2. Wire the in-app Parents' Corner privacy button to the same URL (it has been
    waiting on this URL since the 2026-07-19 readiness sweep).
-3. Once the game is live, set `playStoreUrl` in `site.config.json` and rebuild
-   — the "Coming soon to Google Play" chip becomes a real "Get it on Google
-   Play" button, and the changelog entries lose their "not released yet" tags.
+3. Once the game is live, set `playStoreUrl` in `site.config.json` and
+   rebuild. The "Coming soon to Google Play" chip becomes a real "Get it on
+   Google Play" button, and the changelog entries lose their "not released
+   yet" tags.
 4. Add the launch entry to `content/shared/changelog-poison-hotdogs.html`.
 
 ---

@@ -1,4 +1,4 @@
-/* layout.mjs — the page shell both sites share.
+/* layout.mjs - the page shell both sites share.
    Content fragments in content/ are page bodies only; everything structural
    (head, header, nav, footer) is generated here so the two sites can never
    drift apart on the parts that should stay identical. */
@@ -25,20 +25,14 @@ const headerHtml = (site, currentHref) => {
   const brand =
     site.key === 'gr0ss-tech'
       ? gr0ssWordmark()
-      : `<img src="assets/img/phd-header-wordmark.png" width="790" height="330" alt="Stay Away From Poison Hotdogs" />`;
-
-  const studio =
-    site.key === 'poison-hotdogs'
-      ? `<a class="headerStudio" href="${escapeHtml(site.studioUrl)}">Made by <strong>gr0ss tech.</strong></a>`
-      : '';
+      : `<img src="assets/img/phd-header-lockup-v2.png" width="1200" height="400" alt="Stay Away From Poison Hotdogs" />`;
 
   return `  <header class="siteHeader">
     <div class="wrap siteHeader__inner">
       <a class="brandLink" href="index.html">${brand}</a>
       <nav class="nav" aria-label="Main">
         ${navHtml(site.nav, currentHref)}
-      </nav>${studio ? `
-      ${studio}` : ''}
+      </nav>
     </div>
   </header>`;
 };
@@ -76,7 +70,7 @@ const footerHtml = (site, config) => {
  */
 export function renderPage({ site, config, page }) {
   const title =
-    page.file === 'index.html' ? page.title : `${page.title} — ${site.title}`;
+    page.file === 'index.html' ? page.title : `${page.title} - ${site.title}`;
   const canonical = `${site.baseUrl.replace(/\/$/, '')}/${page.file === 'index.html' ? '' : page.file}`;
   const ogImage = `${site.baseUrl.replace(/\/$/, '')}/assets/img/${page.ogImage || site.ogImage}`;
 

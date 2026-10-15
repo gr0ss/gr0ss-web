@@ -132,28 +132,74 @@ function initializeCarousel() {
 function initializeOutfits() {
 	const choices = [...document.querySelectorAll('.outfitChoice')];
 	const rail = document.querySelector('.outfitRail');
+	const showcase = document.querySelector('.outfitShowcase');
+	const stage = document.querySelector('[data-outfit-stage]');
 	const previousButton = document.querySelector('[data-outfit-prev]');
 	const nextButton = document.querySelector('[data-outfit-next]');
-	const spotlightImage = document.querySelector('.outfitSpotlight [data-outfit-image]');
+	const stagePreviousButton = document.querySelector('[data-outfit-stage-prev]');
+	const stageNextButton = document.querySelector('[data-outfit-stage-next]');
+	const previousImage = document.querySelector('[data-outfit-previous-image]');
+	const currentImage = document.querySelector('[data-outfit-current-image]');
+	const nextImage = document.querySelector('[data-outfit-next-image]');
+	const previousName = document.querySelector('[data-outfit-previous-name]');
+	const currentName = document.querySelector('[data-outfit-current-name]');
+	const nextName = document.querySelector('[data-outfit-next-name]');
 	const spotlightName = document.querySelector('[data-outfit-name]:not(.outfitChoice)');
 	const spotlightDescription = document.querySelector('[data-outfit-description]:not(.outfitChoice)');
-	const spotlightCount = document.querySelector('[data-outfit-count]');
-	if (!choices.length || !rail || !spotlightImage || !spotlightName || !spotlightDescription || !spotlightCount) return;
+	if (!choices.length || !rail || !showcase || !stage || !previousImage || !currentImage || !nextImage || !previousName || !currentName || !nextName || !spotlightName || !spotlightDescription) return;
 
-	let activeIndex = 0;
+	const cycleOrder = [0, 10, 12, 13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11];
+	const selectedIndex = choices.findIndex((choice) => choice.classList.contains('is-selected'));
+	let cyclePosition = Math.max(0, cycleOrder.indexOf(selectedIndex));
+	let transitionId = 0;
+	let autoTimer = null;
+	let isVisible = false;
+	let manualControl = reducedMotion.matches;
+	const autoDelay = 5200;
 
-	function centerChoiceInRail(choice) {
+	function centerChoiceInRail(choice, instant = false) {
 		const target = choice.offsetLeft - (rail.clientWidth - choice.offsetWidth) / 2;
 		const maximum = Math.max(0, rail.scrollWidth - rail.clientWidth);
 		rail.scrollTo({
 			left: Math.max(0, Math.min(target, maximum)),
-			behavior: reducedMotion.matches ? 'auto' : 'smooth',
+			behavior: instant || reducedMotion.matches ? 'auto' : 'smooth',
 		});
 	}
 
-	function selectOutfit(index, moveRail = true) {
-		activeIndex = (index + choices.length) % choices.length;
+	function choiceAt(offset = 0) {
+		const position = (cyclePosition + offset + cycleOrder.length) % cycleOrder.length;
+		return choices[cycleOrder[position]];
+	}
+
+	function updateStageImage(image, label, choice) {
+		image.src = choice.dataset.outfitArt;
+		image.alt = `Rexy wearing the ${choice.dataset.outfitName} outfit`;
+		label.textContent = choice.dataset.outfitName;
+	}
+
+	function stopAutoplay() {
+		manualControl = true;
+		window.clearTimeout(autoTimer);
+		autoTimer = null;
+		showcase.dataset.autoplay = 'off';
+	}
+
+	function scheduleAutoplay() {
+		window.clearTimeout(autoTimer);
+		if (manualControl || !isVisible || document.hidden) return;
+		autoTimer = window.setTimeout(() => {
+			selectCyclePosition(cyclePosition + 1, true, false);
+			scheduleAutoplay();
+		}, autoDelay);
+	}
+
+	function selectCyclePosition(position, moveRail = true, userInitiated = true) {
+		if (userInitiated) stopAutoplay();
+		cyclePosition = (position + cycleOrder.length) % cycleOrder.length;
+		const activeIndex = cycleOrder[cyclePosition];
 		const choice = choices[activeIndex];
+		const previousChoice = choiceAt(-1);
+		const nextChoice = choiceAt(1);
 
 		choices.forEach((item, itemIndex) => {
 			const selected = itemIndex === activeIndex;
@@ -161,25 +207,51 @@ function initializeOutfits() {
 			item.setAttribute('aria-pressed', selected ? 'true' : 'false');
 		});
 
-		spotlightImage.classList.add('is-changing');
+		const currentTransition = ++transitionId;
+		stage.classList.add('is-changing');
 		window.setTimeout(() => {
-			spotlightImage.src = choice.dataset.outfitImage;
-			spotlightImage.alt = `${choice.dataset.outfitName} outfit card from the game.`;
+			if (currentTransition !== transitionId) return;
+			updateStageImage(previousImage, previousName, previousChoice);
+			updateStageImage(currentImage, currentName, choice);
+			updateStageImage(nextImage, nextName, nextChoice);
 			spotlightName.textContent = choice.dataset.outfitName;
 			spotlightDescription.textContent = choice.dataset.outfitDescription;
-			spotlightCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${choices.length}`;
-			spotlightImage.classList.remove('is-changing');
+			stage.classList.remove('is-changing');
 		}, 120);
 
 		if (moveRail) centerChoiceInRail(choice);
 	}
 
+	function selectChoiceIndex(index) {
+		const nextPosition = cycleOrder.indexOf(index);
+		if (nextPosition >= 0) selectCyclePosition(nextPosition, true, true);
+	}
+
 	choices.forEach((choice, index) => {
-		choice.addEventListener('click', () => selectOutfit(index));
+		choice.addEventListener('click', () => selectChoiceIndex(index));
 	});
 
-	previousButton?.addEventListener('click', () => selectOutfit(activeIndex - 1));
-	nextButton?.addEventListener('click', () => selectOutfit(activeIndex + 1));
+	previousButton?.addEventListener('click', () => selectCyclePosition(cyclePosition - 1));
+	nextButton?.addEventListener('click', () => selectCyclePosition(cyclePosition + 1));
+	stagePreviousButton?.addEventListener('click', () => selectCyclePosition(cyclePosition - 1));
+	stageNextButton?.addEventListener('click', () => selectCyclePosition(cyclePosition + 1));
+
+	if ('IntersectionObserver' in window) {
+		const observer = new IntersectionObserver(([entry]) => {
+			isVisible = entry.isIntersecting;
+			if (isVisible) scheduleAutoplay();
+			else window.clearTimeout(autoTimer);
+		}, { threshold: 0.42 });
+		observer.observe(showcase);
+	} else {
+		isVisible = true;
+		scheduleAutoplay();
+	}
+
+	document.addEventListener('visibilitychange', scheduleAutoplay);
+	selectCyclePosition(cyclePosition, false, false);
+	// The page opens on a mid-list outfit; snap the rail to it without a scroll animation.
+	centerChoiceInRail(choiceAt(0), true);
 }
 
 function initializeModes() {
@@ -187,14 +259,12 @@ function initializeModes() {
 	const title = document.querySelector('[data-mode-title]');
 	const copy = document.querySelector('[data-mode-copy]:not([role="tab"])');
 	const image = document.querySelector('[data-mode-image]:not([role="tab"])');
-	const number = document.querySelector('.modePanel__number');
-	if (!tabs.length || !title || !copy || !image || !number) return;
+	if (!tabs.length || !title || !copy || !image) return;
 
 	function selectTab(tab) {
 		tabs.forEach((item) => item.setAttribute('aria-selected', item === tab ? 'true' : 'false'));
 		title.textContent = tab.dataset.modeName;
 		copy.textContent = tab.dataset.modeCopy;
-		number.textContent = `${String(tabs.indexOf(tab) + 1).padStart(2, '0')} / ${String(tabs.length).padStart(2, '0')}`;
 
 		if (image.getAttribute('src') === tab.dataset.modeImage) return;
 		const nextImage = new Image();

@@ -656,10 +656,9 @@ h2 {
 }
 
 .playBtn__text small {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.72;
 }
 
 .playBtn__text strong {
@@ -686,10 +685,7 @@ h2 {
   overflow: hidden;
   padding: clamp(3.5rem, 8vw, 6rem) 0;
   border-bottom-color: rgba(145, 223, 55, 0.16);
-  background:
-    radial-gradient(circle at 88% 40%, rgba(145, 223, 55, 0.2), transparent 20rem),
-    radial-gradient(circle at 10% 0, rgba(135, 89, 190, 0.28), transparent 28rem),
-    #211a31;
+  background: #211a31;
 }
 
 .pageHero::after {
@@ -746,9 +742,7 @@ h2 {
   padding: 1.4rem;
   border: 2px solid #4b3e62;
   border-radius: var(--cardRadius);
-  background:
-    radial-gradient(circle at 100% 0, rgba(145, 223, 55, 0.18), transparent 15rem),
-    var(--surface);
+  background: var(--surface);
   box-shadow: 0 6px 0 var(--outline);
 }
 
@@ -803,16 +797,12 @@ h2 {
   --codeBg: #e9e1d4;
   --link: #4b7117;
   --linkHover: #2f5100;
-  --accent: #5e8b1b;
-  --accentBright: #466e0e;
+  --accent: #4a7014;
+  --accentBright: #3a5a0e;
   --onAccent: #ffffff;
   --warn: #a45c0a;
   color: var(--text);
-  background:
-    linear-gradient(90deg, rgba(105, 87, 127, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(105, 87, 127, 0.035) 1px, transparent 1px),
-    #f6f1e8;
-  background-size: 28px 28px;
+  background: #f6f1e8;
 }
 
 .policyPage h2,
@@ -839,13 +829,19 @@ h2 {
   border-left-color: var(--accent);
 }
 
+/* Keep policy prose to a readable measure; the column is wide enough for
+   ~98 characters a line otherwise. */
+.policySection p,
+.policySection li {
+  max-width: 68ch;
+}
+
 .policySection > h2 {
   max-width: 24ch;
   font-size: clamp(1.85rem, 4vw, 2.65rem);
 }
 
 .policyContact {
-  border-left: 5px solid var(--accent);
   box-shadow: 0 8px 24px rgba(55, 45, 67, 0.07);
 }
 
@@ -864,6 +860,7 @@ h2 {
 }
 
 .dataTableWrap {
+  padding: 0.25rem 0.5rem;
   box-shadow: 0 8px 26px rgba(55, 45, 67, 0.07);
 }
 
@@ -883,7 +880,7 @@ h2 {
   color: #355a08;
   background: #edf7df;
   font-family: var(--fontMono);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 800;
   line-height: 1.35;
   white-space: nowrap;
@@ -921,6 +918,11 @@ h2 {
   display: grid;
   gap: 0.8rem;
   margin: 1.25rem 0 1.5rem;
+}
+
+.deletionSteps a,
+.policyContact a {
+  overflow-wrap: anywhere;
 }
 
 .deletionSteps > div {

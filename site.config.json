@@ -1,22 +1,36 @@
 {
+  "_readme": "Single source of truth for every placeholder on both sites. Change a value here and run `node scripts/build.mjs` to regenerate dist/. Anything prefixed TODO- is not real yet and blocks go-live (see DEPLOY.md).",
   "contactEmail": "gr0sstech.support@gmail.com",
   "contactEmailIsPlaceholder": false,
+  "contactEmailNote": "Real, monitored inbox as of 2026-08-21. If a domain is bought later, support@<domain> supersedes it (free forwarding - see docs/DOMAIN-HOOKUP.md); until then this is the address on every surface.",
   "privacyEmail": "gr0sstech.support@gmail.com",
+  "privacyEmailNote": "Switched from gavinjgross@gmail.com on 2026-08-21 now the support inbox exists (that was the recorded plan). gavinjgross@gmail.com is still what the Play Store policy doc in the game repo lists - update it there at the next listing edit so the two match.",
   "playStoreUrl": "",
-  "legalEntity": "Gavin John Gross",
-  "privacyLastUpdated": "September 11, 2026",
+  "playStoreUrlNote": "TODO: empty until the app is live on Google Play. Empty renders the Get it on Google Play button as a disabled 'Coming soon' state.",
+  "legalEntity": "Gavin Gross",
+  "legalEntityNote": "Confirmed by Gavin 2026-09-17: the app is published by Gavin Gross as an individual, doing business as gr0ss tech. Vault Legal-Entity.md is the record.",
+  "businessAddress": "",
+  "businessAddressNote": "Confirmed by Gavin 2026-09-17. Used ONLY by the privacy policy (COPPA requires the operator's mailing address). Keep it out of every other page.",
+  "contactPhone": "",
+  "contactPhoneNote": "Empty on purpose. COPPA's online notice (16 CFR 312.4(d)(1)) asks for name, address, telephone number and email; the policy has name and email today. A VoIP/Google Voice number would do. When there is one, put it here, add a \"Phone:\" line beside the email in content/shared/privacy-poison-hotdogs.html, and rebuild.",
+  "privacyLastUpdated": "September 17, 2026",
+  "privacyLastUpdatedNote": "Bump this to the day the rewritten policy actually goes live; the 2026-09 rewrite is the first one carrying the confirmed legal name and address.",
   "sites": {
     "gr0ss-tech": {
       "name": "gr0ss tech",
       "baseUrl": "https://gr0ss.github.io/gr0ss-web/gr0ss-tech",
+      "baseUrlNote": "Live free GitHub Pages URL as of 2026-08-31 (repo github.com/gr0ss/gr0ss-web, gh-pages branch = dist/). The Domain Decision card stays open - if a real domain is picked later, set it here and rebuild; the github.io URL keeps working.",
       "description": "gr0ss tech is a one-person game studio building playful, kid-safe games for Android.",
-      "customDomain": ""
+      "customDomain": "",
+      "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."
     },
     "poison-hotdogs": {
       "name": "Stay Away From Poison Hotdogs",
       "baseUrl": "https://gr0ss.github.io/gr0ss-web/poison-hotdogs",
+      "baseUrlNote": "Live free GitHub Pages URL as of 2026-08-31 (repo github.com/gr0ss/gr0ss-web, gh-pages branch = dist/). The Domain Decision card stays open - if a real domain is picked later, set it here and rebuild; the github.io URL keeps working.",
       "description": "Help Rexy rescue the crew, catch letters and numbers, unlock ridiculous outfits, and dodge silly poison hotdogs.",
-      "customDomain": ""
+      "customDomain": "",
+      "customDomainNote": "TODO: empty until Gavin registers a domain. Set this to the bare domain (e.g. gr0sstech.com) and the build emits the GitHub Pages CNAME file automatically. Cloudflare Pages ignores it. See docs/DOMAIN-HOOKUP.md."
     }
   }
 }

@@ -1,7 +1,6 @@
     <section class="pageHero privacyHero">
       <div class="wrap pageHero__inner">
         <div class="pageHero__copy">
-          <p class="eyebrow">For parents and grown-ups</p>
           <h1>Privacy without the fog</h1>
           <p class="lede">
             What Stay Away From Poison Hotdogs collects, why it is needed, who receives it, and how
@@ -38,13 +37,17 @@
 
         <article class="policyContent">
           <section class="policySection" id="overview">
-            <p class="eyebrow">The short version</p>
             <h2>A child-directed game with limited online services</h2>
             <p>
               Stay Away From Poison Hotdogs is made for children about ages 6&ndash;8. It has no
               chat, social messaging, email sign-up, or username-and-password login. It does use an
               anonymous game record, an optional public leaderboard nickname, Google Play
               purchases, and one optional rewarded ad.
+            </p>
+            <p>
+              The app is made for children and is designed to comply with the Google Play
+              Families Policy, the U.S. Children's Online Privacy Protection Act (COPPA), and the
+              EU GDPR, including its protections for children.
             </p>
 
             <div class="summaryGrid">
@@ -75,7 +78,6 @@
           </section>
 
           <section class="policySection" id="operator">
-            <p class="eyebrow">Operator</p>
             <h2>Who operates the app</h2>
             <p>
               <strong>Stay Away From Poison Hotdogs</strong> (the “app” or “game”) is published by
@@ -85,14 +87,13 @@
             </p>
             <div class="policyContact">
               <address>
-                <strong>{{legalEntity}} / gr0ss tech</strong><br />
+                <strong>{{legalEntity}}, doing business as gr0ss tech</strong><br />
                 Email: <a href="mailto:{{privacyEmail}}">{{privacyEmail}}</a>
               </address>
             </div>
           </section>
 
           <section class="policySection" id="data">
-            <p class="eyebrow">Data map</p>
             <h2>What the game collects or shares</h2>
             <p>
               The table below matches the data categories disclosed for the Android app. These
@@ -111,52 +112,52 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Approximate location</td>
-                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
-                    <td>An IP address may be used to estimate a general area. The app does not request precise GPS location.</td>
-                    <td>Advertising, analytics, and fraud prevention through Google AdMob.</td>
+                    <td data-label="Data type">Approximate location</td>
+                    <td data-label="Status"><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td data-label="What it means here">An IP address may be used to estimate a general area. The app does not request precise GPS location.</td>
+                    <td data-label="Why / recipient">Advertising, analytics, and fraud prevention through Google AdMob.</td>
                   </tr>
                   <tr>
-                    <td>Name</td>
-                    <td><span class="dataFlag">Collected · optional</span></td>
-                    <td>A generated nickname or a filtered display name chosen for the leaderboard. Do not enter a child's real name.</td>
-                    <td>Game functionality through PlayFab. The display name and score may be visible to other players.</td>
+                    <td data-label="Data type">Name</td>
+                    <td data-label="Status"><span class="dataFlag">Collected · optional</span></td>
+                    <td data-label="What it means here">A generated nickname or a filtered display name chosen for the leaderboard. Do not enter a child's real name.</td>
+                    <td data-label="Why / recipient">Game functionality through PlayFab. The display name and score may be visible to other players.</td>
                   </tr>
                   <tr>
-                    <td>User IDs</td>
-                    <td><span class="dataFlag">Collected</span></td>
-                    <td>A random installation ID created by the app and the corresponding PlayFab player ID. They are not login credentials.</td>
-                    <td>Game functionality, analytics, and fraud prevention through PlayFab.</td>
+                    <td data-label="Data type">User IDs</td>
+                    <td data-label="Status"><span class="dataFlag">Collected</span></td>
+                    <td data-label="What it means here">A random installation ID created by the app and the corresponding PlayFab player ID. They are not login credentials.</td>
+                    <td data-label="Why / recipient">Game functionality, analytics, and fraud prevention through PlayFab.</td>
                   </tr>
                   <tr>
-                    <td>Purchase history</td>
-                    <td><span class="dataFlag">Collected · optional</span></td>
-                    <td>Which game item or content was purchased or unlocked. We do not receive card or bank details.</td>
-                    <td>Game functionality, analytics, and fraud prevention through Google Play Billing and PlayFab.</td>
+                    <td data-label="Data type">Purchase history</td>
+                    <td data-label="Status"><span class="dataFlag">Collected · optional</span></td>
+                    <td data-label="What it means here">Which game item or content was purchased or unlocked. We do not receive card or bank details.</td>
+                    <td data-label="Why / recipient">Game functionality, analytics, and fraud prevention through Google Play Billing and PlayFab.</td>
                   </tr>
                   <tr>
-                    <td>App interactions</td>
-                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
-                    <td>Interactions such as app or ad activity, taps, launches, and video views.</td>
-                    <td>Analytics, advertising, and fraud prevention through AdMob; limited game analytics through PlayFab.</td>
+                    <td data-label="Data type">App interactions</td>
+                    <td data-label="Status"><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td data-label="What it means here">Interactions such as app or ad activity, taps, launches, and video views.</td>
+                    <td data-label="Why / recipient">Analytics, advertising, and fraud prevention through AdMob; limited game analytics through PlayFab.</td>
                   </tr>
                   <tr>
-                    <td>Other actions</td>
-                    <td><span class="dataFlag">Collected</span></td>
-                    <td>Gameplay records such as scores, stars, level progress, coin balance, unlocked items, and game events.</td>
-                    <td>Game functionality, analytics, and fraud prevention through PlayFab.</td>
+                    <td data-label="Data type">Other actions</td>
+                    <td data-label="Status"><span class="dataFlag">Collected</span></td>
+                    <td data-label="What it means here">Gameplay records such as scores, stars, level progress, coin balance, unlocked items, and game events.</td>
+                    <td data-label="Why / recipient">Game functionality, analytics, and fraud prevention through PlayFab.</td>
                   </tr>
                   <tr>
-                    <td>Diagnostics</td>
-                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
-                    <td>SDK and app diagnostic or performance information used to understand failures and service quality.</td>
-                    <td>Analytics, advertising measurement, and fraud prevention through AdMob.</td>
+                    <td data-label="Data type">Diagnostics</td>
+                    <td data-label="Status"><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td data-label="What it means here">SDK and app diagnostic or performance information used to understand failures and service quality.</td>
+                    <td data-label="Why / recipient">Analytics, advertising measurement, and fraud prevention through AdMob.</td>
                   </tr>
                   <tr>
-                    <td>Device or other IDs</td>
-                    <td><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
-                    <td>The app-generated random installation ID, PlayFab ID, and identifiers AdMob uses for app or device operations. The Android Advertising ID permission is removed from the app.</td>
-                    <td>Game functionality, analytics, advertising, and fraud prevention through PlayFab and AdMob.</td>
+                    <td data-label="Data type">Device or other IDs</td>
+                    <td data-label="Status"><span class="dataFlag dataFlag--shared">Collected + shared</span></td>
+                    <td data-label="What it means here">The app-generated random installation ID, PlayFab ID, and identifiers AdMob uses for app or device operations. The Android Advertising ID permission is removed from the app.</td>
+                    <td data-label="Why / recipient">Game functionality, analytics, advertising, and fraud prevention through PlayFab and AdMob.</td>
                   </tr>
                 </tbody>
               </table>
@@ -172,7 +173,6 @@
           </section>
 
           <section class="policySection" id="leaderboards">
-            <p class="eyebrow">Anonymous play</p>
             <h2>Player records, names, and leaderboards</h2>
             <p>
               The game creates a random, installation-scoped identifier and uses it to open an
@@ -188,7 +188,6 @@
           </section>
 
           <section class="policySection" id="ads">
-            <p class="eyebrow">Optional ad</p>
             <h2>Advertising</h2>
             <p>
               The game offers one optional rewarded ad after a run: a player may watch it to keep
@@ -210,7 +209,6 @@
           </section>
 
           <section class="policySection" id="purchases">
-            <p class="eyebrow">Optional shop</p>
             <h2>In-app purchases</h2>
             <p>
               The game can offer optional items or content for purchase. Before Google Play's
@@ -225,7 +223,6 @@
           </section>
 
           <section class="policySection" id="providers">
-            <p class="eyebrow">Where data goes</p>
             <h2>Service providers and sharing</h2>
             <div class="providerList">
               <article>
@@ -262,7 +259,6 @@
           </section>
 
           <section class="policySection" id="deletion">
-            <p class="eyebrow">Your controls</p>
             <h2>Retention and deletion</h2>
             <p>
               Local save data remains on the device until it is deleted in the game, the app's
@@ -295,7 +291,6 @@
           </section>
 
           <section class="policySection" id="parents">
-            <p class="eyebrow">For parents</p>
             <h2>Notice and choices</h2>
             <p>
               Before the game starts its online player services for the first time, it shows a
@@ -317,7 +312,6 @@
           </section>
 
           <section class="policySection" id="security">
-            <p class="eyebrow">Safeguards</p>
             <h2>Security</h2>
             <p>
               Data is encrypted in transit using HTTPS/TLS. We limit the data sent by the app,
@@ -328,7 +322,6 @@
           </section>
 
           <section class="policySection" id="changes">
-            <p class="eyebrow">Updates</p>
             <h2>Changes to this policy</h2>
             <p>
               If the game's data practices change, we will update this page and its “Last updated”
@@ -338,7 +331,6 @@
           </section>
 
           <section class="policySection" id="contact">
-            <p class="eyebrow">Questions or requests</p>
             <h2>Contact</h2>
             <div class="policyContact">
               <address>

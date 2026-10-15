@@ -9,7 +9,7 @@ script for its carousel, outfit picker, game-mode tabs, and motion.
 | **gr0ss tech** | `dist/gr0ss-tech/` | Company landing, games list, contact. Hosts the privacy policy and the public changelog. |
 | **Stay Away From Poison Hotdogs** | `dist/poison-hotdogs/` | Game landing, support, privacy policy, and plain-English release notes. |
 
-`dist/` is committed. A host only has to serve one of those folders — there is
+`dist/` is committed. A host only has to serve one of those folders - there is
 nothing to install and nothing to compile at deploy time.
 
 ## Commands
@@ -26,7 +26,7 @@ There is no `npm install`. Node 18+ is the only requirement.
 
 ```
 site.config.json     every placeholder that needs a real value before go-live
-art-src/             raw art (gitignored) — source for processArt.ps1
+art-src/             raw art (gitignored) - source for processArt.ps1
 content/             page bodies (plain HTML fragments)
   gr0ss-tech/          pages unique to the company site
   poison-hotdogs/      pages unique to the game site
@@ -43,7 +43,7 @@ scripts/
   check.mjs            pre-deploy validation
   serve.mjs            local preview server
   processArt.ps1       art-src/ -> web-sized assets-src/img/
-dist/                  generated output — do not hand-edit
+dist/                  generated output - do not hand-edit
 ```
 
 The privacy policy exists once, in `content/shared/`, and is built into both
@@ -56,29 +56,37 @@ across two sites eventually says two different things.
 
 ## Editing
 
-- **Change copy** — edit the fragment in `content/`, run `build.mjs`.
-- **Change a placeholder value** — edit `site.config.json`, run `build.mjs`.
-- **Add a page** — add the fragment, then add an entry to that site's `pages`
+- **Change copy** - edit the fragment in `content/`, run `build.mjs`.
+- **Change a placeholder value** - edit `site.config.json`, run `build.mjs`.
+- **Add a page** - add the fragment, then add an entry to that site's `pages`
   array in `scripts/build.mjs`. Nav, sitemap, and title all follow from it.
-- **Add an image** — put it in `assets-src/img/`, list it in that site's
+- **Add an image** - put it in `assets-src/img/`, list it in that site's
   `images` array. Only listed images are copied, so neither site ships the
   other's art.
 
 ## Art
 
-Everything in `assets-src/img/` is cut from the shipping game art and the Play
-Store listing assets in `D:\Projects\Unity\PoisonHotDogs\PoisonHotDogs`, resized
-for the web. Nothing was generated from scratch and no paid generation was used.
-The two social-share cards and the gr0ss tech mark are composed from that same
-art plus system fonts.
+Almost everything in `assets-src/img/` is cut from the shipping game art in
+`D:\Projects\Unity\PoisonHotDogs\PoisonHotDogs`, resized for the web by
+`scripts/processArt.ps1` from raw copies in the gitignored `art-src/`. The
+script's header records where every piece comes from. In particular:
 
-The eight `shot-*.jpg` files are **genuine captures of the game running**, not
-mockups. They are frames from the game's own Play Mode QA sweep (the same
-source the Play listing screenshots are cut from) — real screens at phone
-aspect, but captured in the editor rather than off a handset. The current set
-is the 2026-09-07 sweep at v1.0.0. The raw sources live in the gitignored
-`art-src/`; `scripts/processArt.ps1` regenerates the web-sized versions from
-them and records which sweep frame each one is.
+- `outfit-art-*.png` / `outfit-thumb-*.png` are the game's own full-body
+  outfit paintings (`Assets/Resources/ShopItems/`), the exact sprite the My
+  Crew pedestal shows, not crops of the shop cards.
+- `mode-art-*.jpg` are the game's Pick a Game tiles (`Assets/Resources/ModeTiles/`).
+- `capture-*-v2.webp` are **genuine captures of the game running** on a
+  development build, cropped 22px at the bottom to remove Unity's
+  "Development Build" watermark. `shot-04-boss-sneeze-machine.jpg` is a frame
+  from the game's own Play Mode QA sweep (2026-09-07, v1.0.0).
+
+Three pieces have no game source and were AI-generated during the 2026-09
+redesign, in the style of the game's own title art: the horizontal header
+lockup (`phd-header-lockup-v2.png`), the outfit-stage pedestal
+(`outfit-pedestal-v2.png`) and its backdrop (`outfit-stage-backdrop-v2.jpg`).
+The hero illustration (`phd-hero-arcade-v2.webp` and its mobile crop) and the
+arrow button are from the same hand-off. The social-share cards and the gr0ss
+tech mark are composed from game art plus system fonts.
 
 ## Deploying
 

@@ -1,4 +1,4 @@
-/* serve.mjs — zero-dependency static preview server for dist/.
+/* serve.mjs - zero-dependency static preview server for dist/.
    Run: node scripts/serve.mjs [port]
    Serves both sites side by side so cross-links can be checked locally:
      http://localhost:4173/gr0ss-tech/

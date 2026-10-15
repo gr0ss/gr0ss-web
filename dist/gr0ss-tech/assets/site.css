@@ -1,4 +1,4 @@
-/* base.css — shared reset, layout and components for both gr0ss tech sites.
+/* base.css - shared reset, layout and components for both gr0ss tech sites.
    Theme tokens (colours, display font, texture) live in the per-site sheet
    that is concatenated after this file. Mobile-first: every rule here is the
    small-screen rule; media queries only ever scale up. */
@@ -261,6 +261,70 @@ hr {
   border-bottom: 0;
 }
 
+/* Phones: a four-column comparison table is the wrong shape at 390px, so
+   under 48em every row becomes a card and each cell carries its column
+   label (data-label in the markup). Nothing scrolls sideways and every
+   value is readable without knowing to swipe. */
+@media (max-width: 47.99em) {
+  .dataTableWrap {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .dataTable {
+    min-width: 0;
+    font-size: 0.95rem;
+  }
+
+  .dataTable thead {
+    display: none;
+  }
+
+  .dataTable,
+  .dataTable tbody,
+  .dataTable tr,
+  .dataTable td {
+    display: block;
+  }
+
+  .dataTable tr {
+    margin: 0 0 0.85rem;
+    padding: 0.9rem 1rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.9rem;
+  }
+
+  .dataTable td {
+    padding: 0 0 0.7rem;
+    border-bottom: 0;
+  }
+
+  .dataTable td::before {
+    display: block;
+    margin-bottom: 0.15rem;
+    color: var(--textMuted);
+    font-family: var(--fontDisplay);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    content: attr(data-label);
+  }
+
+  .dataTable td:first-child {
+    font-size: 1.05rem;
+  }
+
+  .dataTable td:first-child::before {
+    display: none;
+  }
+
+  .dataTable tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
 .dataTable td:first-child {
   color: var(--text);
   font-weight: 750;
@@ -414,7 +478,7 @@ hr {
 /* ---------- header + nav ---------- */
 
 /* On phones the five nav links need their own row, which makes the header too
-   tall to pin without eating the screen — so it only sticks once it fits on
+   tall to pin without eating the screen - so it only sticks once it fits on
    one line. */
 .siteHeader {
   z-index: 20;
@@ -754,7 +818,7 @@ hr {
   }
 }
 
-/* theme-gr0ss-tech.css — the studio site. Near-black, one slime-green accent
+/* theme-gr0ss-tech.css - the studio site. Near-black, one slime-green accent
    borrowed from the Poison Hotdogs logo, gold as the second voice. Quiet and
    technical; the game sites are where the noise lives. */
 
@@ -786,7 +850,7 @@ hr {
   --cardRadius: 12px;
 }
 
-/* the wordmark — the zero is the brand, so it gets the accent */
+/* the wordmark - the zero is the brand, so it gets the accent */
 
 .wordmark {
   font-family: var(--fontMono);
